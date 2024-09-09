@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use $MODULE_NAMESPACE$\Gentelella\$CONTROLLER_NAMESPACE$\GentelellaController;
+use Modules\Gentelella\Http\Controllers\GentelellaController;
 
 /*
 |--------------------------------------------------------------------------
