@@ -86,6 +86,10 @@ class GentelellaServiceProvider extends ServiceProvider
 
         $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower.'-module-views']);
 
+        $assetVendorPath = resource_path('vendors/modules/'.$this->moduleNameLower);
+        $sourceVendorPath = module_path($this->moduleName, 'Resources/assets/vendor');
+        $this->publishes([$sourceVendorPath => $assetVendorPath], 'public');
+
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
 
         $componentNamespace = str_replace('/', '\\', config('modules.namespace').'\\'.$this->moduleName.'\\'.config('modules.paths.generator.component-class.path'));
@@ -103,15 +107,11 @@ class GentelellaServiceProvider extends ServiceProvider
     private function getPublishableViewPaths(): array
     {
         $paths = [];
-        foreach (config('view.paths') as $path) {
-            if (is_dir($path.'/modules/'.$this->moduleNameLower)) {
-                $paths[] = $path.'/modules/'.$this->moduleNameLower;
-            }
-        }
-        $assets = [resource_path('views/vendor')];
-        foreach ($assets as $path) {
-            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
-                $paths[] = $path . '/modules/' . $this->moduleNameLower;
+        $config = config('view.paths');
+        foreach ($config as $path) {
+            $path = $path . '/modules/' . $this->moduleNameLower;
+            if (is_dir($path)) {
+                $paths[] = $path;
             }
         }
 
