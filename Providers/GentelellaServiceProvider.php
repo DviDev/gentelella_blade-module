@@ -108,6 +108,12 @@ class GentelellaServiceProvider extends ServiceProvider
                 $paths[] = $path.'/modules/'.$this->moduleNameLower;
             }
         }
+        $assets = [resource_path('views/vendor')];
+        foreach ($assets as $path) {
+            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
+                $paths[] = $path . '/modules/' . $this->moduleNameLower;
+            }
+        }
 
         return $paths;
     }
