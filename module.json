@@ -1,0 +1,11 @@
+{
+    "name": "Gentelella",
+    "alias": "gentelella",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Gentelella\\Providers\\GentelellaServiceProvider"
+    ],
+    "files": []
+}
