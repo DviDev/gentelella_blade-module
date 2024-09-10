@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Gentelella\Http\Controllers\GentelellaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +14,5 @@ use Modules\Gentelella\Http\Controllers\GentelellaController;
 */
 
 Route::group([], function () {
-    Route::resource('gentelella', GentelellaController::class)->names('gentelella');
+    Route::view('gentelella', 'gentelella::components.layout.v1')->name('gentelella');
 });
