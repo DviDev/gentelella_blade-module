@@ -48,11 +48,11 @@ Route::prefix('gentelella')->group(function () {
     Route::view('example/layout/fixed-sidebar', 'gentelella::components.examples.layout.fixedsidebarpage')->name('gentelella.example.layout.fixed-sidebar');
     Route::view('example/layout/fixed-footer', 'gentelella::components.examples.layout.fixedfooterpage')->name('gentelella.example.layout.fixed-footer');
     //additional pages
-    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.ecommercepage')->name('gentelella.example.layout.fixed-footer');
-    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.projectspage')->name('gentelella.example.layout.fixed-footer');
-    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.projectdetailpage')->name('gentelella.example.layout.fixed-footer');
-    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.contactspage')->name('gentelella.example.layout.fixed-footer');
-    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.profilepage')->name('gentelella.example.layout.fixed-footer');
+    Route::view('example/ecommerce', 'gentelella::components.examples.ecommercepage')->name('gentelella.example.ecommerce');
+    Route::view('example/projects', 'gentelella::components.examples.projectspage')->name('gentelella.example.projects');
+    Route::view('example/projectdetail', 'gentelella::components.examples.projectdetailpage')->name('gentelella.example.projectdetail');
+    Route::view('example/contacts', 'gentelella::components.examples.contactspage')->name('gentelella.example.contacts');
+    Route::view('example/profile', 'gentelella::components.examples.profilepage')->name('gentelella.example.profile');
     //extras
     Route::view('example/extra/403', 'gentelella::components.examples.403page')->name('gentelella.example.extra.403');
     Route::view('example/extra/404', 'gentelella::components.examples.404page')->name('gentelella.example.extra.404');
