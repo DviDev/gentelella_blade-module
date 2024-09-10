@@ -37,4 +37,6 @@ Route::prefix('gentelella')->group(function () {
 
     Route::view('example/table/default', 'gentelella::components.examples.tables.tabledefaultpage')->name('gentelella.example.table.default');
     Route::view('example/table/dynamic', 'gentelella::components.examples.tables.tabledynamicpage')->name('gentelella.example.table.dynamic');
+
+    Route::view('example/chart/one', 'gentelella::components.examples.charts.chartonepage')->name('gentelella.example.chart.one');
 });
