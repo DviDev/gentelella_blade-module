@@ -40,7 +40,7 @@
                         <input type="password" class="form-control" placeholder="Password" required="" />
                     </div>
                     <div>
-                        <a class="btn btn-default submit" href="index.html">Log in</a>
+                        <a class="btn btn-default submit" href="{{route('gentelella.layout.v1')}}">Log in</a>
                         <a class="reset_pass" href="#">Lost your password?</a>
                     </div>
 
@@ -77,7 +77,7 @@
                         <input type="password" class="form-control" placeholder="Password" required="" />
                     </div>
                     <div>
-                        <a class="btn btn-default submit" href="index.html">Submit</a>
+                        <a class="btn btn-default submit" href="{{route('gentelella.layout.v1')}}">Submit</a>
                     </div>
 
                     <div class="clearfix"></div>
