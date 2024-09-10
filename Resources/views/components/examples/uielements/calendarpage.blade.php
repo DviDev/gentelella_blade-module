@@ -21,6 +21,7 @@
 
     <!-- Custom styling plus plugins -->
     <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="nav-md">

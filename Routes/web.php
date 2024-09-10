@@ -34,4 +34,7 @@ Route::prefix('gentelella')->group(function () {
     Route::view('example/ui/invoice', 'gentelella::components.examples.uielements.invoicepage')->name('gentelella.example.ui.invoice');
     Route::view('example/ui/inbox', 'gentelella::components.examples.uielements.inboxpage')->name('gentelella.example.ui.inbox');
     Route::view('example/ui/calendar', 'gentelella::components.examples.uielements.calendarpage')->name('gentelella.example.ui.calendar');
+
+    Route::view('example/table/default', 'gentelella::components.examples.tables.tabledefaultpage')->name('gentelella.example.table.default');
+    Route::view('example/table/dynamic', 'gentelella::components.examples.tables.tabledynamicpage')->name('gentelella.example.table.dynamic');
 });
