@@ -40,4 +40,7 @@ Route::prefix('gentelella')->group(function () {
 
     Route::view('example/chart/one', 'gentelella::components.examples.charts.chartonepage')->name('gentelella.example.chart.one');
     Route::view('example/chart/two', 'gentelella::components.examples.charts.charttwopage')->name('gentelella.example.chart.two');
+    Route::view('example/chart/morisjs', 'gentelella::components.examples.charts.chartmorisjspage')->name('gentelella.example.chart.morisjs');
+    Route::view('example/chart/echarts', 'gentelella::components.examples.charts.chartechartspage')->name('gentelella.example.chart.echarts');
+    Route::view('example/chart/others', 'gentelella::components.examples.charts.chartotherspage')->name('gentelella.example.chart.others');
 });
