@@ -132,7 +132,7 @@
                                     <li><a href="#level1_1">Level One</a>
                                     <li><a>Level One<span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li class="sub_menu"><a href="level2.html">Level Two</a>
+                                            <li class="sub_menu"><a href="{{route('gentelella.example.menulevel2')}}">Level Two</a>
                                             </li>
                                             <li><a href="#level2_1">Level Two</a>
                                             </li>

@@ -60,4 +60,6 @@ Route::prefix('gentelella')->group(function () {
     Route::view('example/extra/plain', 'gentelella::components.examples.plainpage')->name('gentelella.example.extra.plain');
     Route::view('example/extra/login', 'gentelella::components.examples.loginpage')->name('gentelella.example.extra.login');
     Route::view('example/extra/pricing', 'gentelella::components.examples.pricingpage')->name('gentelella.example.extra.pricing');
+
+    Route::view('example/menulevel2', 'gentelella::components.examples.menulevel2page')->name('gentelella.example.menulevel2');
 });

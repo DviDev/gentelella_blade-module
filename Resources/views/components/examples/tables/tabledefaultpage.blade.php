@@ -19,7 +19,7 @@
     <link href="{{asset('assets/modules/gentelella/vendor/iCheck/skins/flat/green.css')}}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="{{asset('assets/modules/gentelella/build/css/custom.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -132,7 +132,7 @@
                                     <li><a href="#level1_1">Level One</a>
                                     <li><a>Level One<span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li class="sub_menu"><a href="level2.html">Level Two</a>
+                                            <li class="sub_menu"><a href="{{route('gentelella.example.menulevel2')}}">Level Two</a>
                                             </li>
                                             <li><a href="#level2_1">Level Two</a>
                                             </li>
