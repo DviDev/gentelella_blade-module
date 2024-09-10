@@ -77,10 +77,10 @@
                                     <li><a href="{{route('gentelella.example.ui.typography')}}">Typography</a></li>
                                     <li><a href="{{route('gentelella.example.ui.icons')}}">Icons</a></li>
                                     <li><a href="{{route('gentelella.example.ui.glyphicons')}}">Glyphicons</a></li>
-                                    <li><a href="{{route('gentelella.example.ui.widgets')}}"">Widgets</a></li>
+                                    <li><a href="{{route('gentelella.example.ui.widgets')}}">Widgets</a></li>
                                     <li><a href="{{route('gentelella.example.ui.invoice')}}">Invoice</a></li>
                                     <li><a href="{{route('gentelella.example.ui.inbox')}}">Inbox</a></li>
-                                    <li><a href="{{route('gentelella.example.ui.calendar')}}"">Calendar</a></li>
+                                    <li><a href="{{route('gentelella.example.ui.calendar')}}">Calendar</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
