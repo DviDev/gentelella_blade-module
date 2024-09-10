@@ -34,7 +34,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -178,7 +178,7 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
+                                <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="">John Doe
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -199,7 +199,7 @@
                             <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -211,7 +211,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -223,7 +223,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -235,7 +235,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -408,10 +408,10 @@
                                         <!-- accepted payments column -->
                                         <div class="col-md-6">
                                             <p class="lead">Payment Methods:</p>
-                                            <img src="images/visa.png" alt="Visa">
-                                            <img src="images/mastercard.png" alt="Mastercard">
-                                            <img src="images/american-express.png" alt="American Express">
-                                            <img src="images/paypal.png" alt="Paypal">
+                                            <img src="{{asset('assets/modules/gentelella/images/visa.png')}}" alt="Visa">
+                                            <img src="{{asset('assets/modules/gentelella/images/mastercard.png')}}" alt="Mastercard">
+                                            <img src="{{asset('assets/modules/gentelella/images/american-express.png')}}" alt="American Express">
+                                            <img src="{{asset('assets/modules/gentelella/images/paypal.png')}}" alt="Paypal">
                                             <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                                                 Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
                                             </p>

@@ -35,7 +35,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -179,7 +179,7 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
+                                <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="">John Doe
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="javascript:;"> Profile</a>
@@ -200,7 +200,7 @@
                             <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -212,7 +212,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -224,7 +224,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -236,7 +236,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>

@@ -35,7 +35,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -179,7 +179,7 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
+                                <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="">John Doe
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -200,7 +200,7 @@
                             <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -212,7 +212,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -224,7 +224,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -236,7 +236,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -310,7 +310,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask">
                                                     <p>Your Text</p>
                                                     <div class="tools tools-bottom">
@@ -328,7 +328,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask">
                                                     <p>Your Text</p>
                                                     <div class="tools tools-bottom">
@@ -346,7 +346,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask">
                                                     <p>Your Text</p>
                                                     <div class="tools tools-bottom">
@@ -364,7 +364,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask">
                                                     <p>Your Text</p>
                                                     <div class="tools tools-bottom">
@@ -382,7 +382,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask">
                                                     <p>Your Text</p>
                                                     <div class="tools tools-bottom">
@@ -402,7 +402,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask no-caption">
                                                     <div class="tools tools-bottom">
                                                         <a href="#"><i class="fa fa-link"></i></a>
@@ -421,7 +421,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask no-caption">
                                                     <div class="tools tools-bottom">
                                                         <a href="#"><i class="fa fa-link"></i></a>
@@ -440,7 +440,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask no-caption">
                                                     <div class="tools tools-bottom">
                                                         <a href="#"><i class="fa fa-link"></i></a>
@@ -459,7 +459,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask no-caption">
                                                     <div class="tools tools-bottom">
                                                         <a href="#"><i class="fa fa-link"></i></a>
@@ -478,7 +478,7 @@
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('assets/modules/gentelella/images/media.jpg')}}" alt="image" />
                                                 <div class="mask no-caption">
                                                     <div class="tools tools-bottom">
                                                         <a href="#"><i class="fa fa-link"></i></a>
@@ -515,7 +515,7 @@
 </div>
 
 <!-- jQuery -->
-<script src="{){asset('assets/modules/gentelella/vendor/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
 <script src="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 <!-- FastClick -->
