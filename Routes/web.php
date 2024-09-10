@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group([], function () {
-    Route::view('gentelella', 'gentelella::components.layout.v1')->name('gentelella');
+Route::prefix('gentelella')->group(function () {
+    Route::view('layout/v1', 'gentelella::components.layout.v1')->name('gentelella.layout.v1');
+    Route::view('layout/v2', 'gentelella::components.layout.v2')->name('gentelella.layout.v2');
 });
