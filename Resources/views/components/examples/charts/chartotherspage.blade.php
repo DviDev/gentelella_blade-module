@@ -10,18 +10,19 @@
     <title>Gentelella Alela! | </title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/vendor/iCheck/skins/flat/green.css')}}" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="{{asset('assets/modules/gentelella/vendor/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
+
 
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -432,25 +433,31 @@
 </div>
 
 <!-- jQuery -->
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
-<script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 <!-- FastClick -->
-<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/fastclick/lib/fastclick.js')}}"></script>
 <!-- NProgress -->
-<script src="../vendors/nprogress/nprogress.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.js')}}"></script>
 <!-- jQuery Sparklines -->
-<script src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+
 <!-- JQVMap -->
-<script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-<script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-<script src="../vendors/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
-<script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/jqvmap/dist/jquery.vmap.js')}}"></script>
+
+<script src="{{asset('assets/modules/gentelella/vendor/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+
+<script src="{{asset('assets/modules/gentelella/vendor/jqvmap/dist/maps/jquery.vmap.usa.js')}}"></script>
+
+<script src="{{asset('assets/modules/gentelella/vendor/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
+
 <!-- easy-pie-chart -->
-<script src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js')}}"></script>
+
 
 <!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/js/custom.min.js')}}"></script>
 
 </body>
 </html>

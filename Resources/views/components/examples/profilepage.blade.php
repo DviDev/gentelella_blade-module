@@ -10,16 +10,17 @@
     <title>Gentelella Alela! | </title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+
 
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -553,24 +554,26 @@
 </div>
 
 <!-- jQuery -->
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
-<script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 <!-- FastClick -->
-<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/fastclick/lib/fastclick.js')}}"></script>
 <!-- NProgress -->
-<script src="../vendors/nprogress/nprogress.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.js')}}"></script>
 <!-- morris.js -->
-<script src="../vendors/raphael/raphael.min.js"></script>
-<script src="../vendors/morris.js/morris.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/morris.js/morris.min.js')}}"></script>
 <!-- bootstrap-progressbar -->
-<script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
 <!-- bootstrap-daterangepicker -->
-<script src="../vendors/moment/min/moment.min.js"></script>
-<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="{{asset('assets/modules/gentelella/vendor/moment/min/moment.min.js')}}"></script>
+
+<script src="{{asset('assets/modules/gentelella/vendor/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
 
 <!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
+<script src="{{asset('assets/modules/gentelella/js/custom.min.js')}}"></script>
 
 </body>
 </html>
