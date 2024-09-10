@@ -21,6 +21,7 @@ class GentelellaServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerAssetPath();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
     }
 
@@ -86,10 +87,6 @@ class GentelellaServiceProvider extends ServiceProvider
 
         $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower.'-module-views']);
 
-        $assetVendorPath = resource_path('vendors/modules/'.$this->moduleNameLower);
-        $sourceVendorPath = module_path($this->moduleName, 'Resources/assets/vendor');
-        $this->publishes([$sourceVendorPath => $assetVendorPath], 'public');
-
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
 
         $componentNamespace = str_replace('/', '\\', config('modules.namespace').'\\'.$this->moduleName.'\\'.config('modules.paths.generator.component-class.path'));
@@ -116,5 +113,14 @@ class GentelellaServiceProvider extends ServiceProvider
         }
 
         return $paths;
+    }
+    /**
+     * Exemple php artisan vendor:publish --tag=public --force
+    */
+    private function registerAssetPath(): void
+    {
+        $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
+        $sourceVendorPath = module_path($this->moduleName, 'Resources/assets');
+        $this->publishes([$sourceVendorPath => $assetVendorPath], 'public');
     }
 }
