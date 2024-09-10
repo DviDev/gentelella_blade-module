@@ -46,4 +46,10 @@ Route::prefix('gentelella')->group(function () {
 
     Route::view('example/layout/fixed-sidebar', 'gentelella::components.examples.layout.fixedsidebarpage')->name('gentelella.example.layout.fixed-sidebar');
     Route::view('example/layout/fixed-footer', 'gentelella::components.examples.layout.fixedfooterpage')->name('gentelella.example.layout.fixed-footer');
+
+    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.ecommercepage')->name('gentelella.example.layout.fixed-footer');
+    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.projectspage')->name('gentelella.example.layout.fixed-footer');
+    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.projectdetailpage')->name('gentelella.example.layout.fixed-footer');
+    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.contactspage')->name('gentelella.example.layout.fixed-footer');
+    Route::view('example/layout/fixed-footer', 'gentelella::components.examples.profilepage')->name('gentelella.example.layout.fixed-footer');
 });
