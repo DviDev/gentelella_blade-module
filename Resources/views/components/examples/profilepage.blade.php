@@ -37,7 +37,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -181,7 +181,7 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
+                                <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="">John Doe
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -202,7 +202,7 @@
                             <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -214,7 +214,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -226,7 +226,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -238,7 +238,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
                             <span>John Smith</span>
                             <span class="time">3 mins ago</span>
@@ -311,7 +311,7 @@
                                     <div class="profile_img">
                                         <div id="crop-avatar">
                                             <!-- Current avatar -->
-                                            <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                                            <img class="img-responsive avatar-view" src="{{asset('assets/modules/gentelella/images/picture.jpg')}}" alt="Avatar" title="Change the avatar">
                                         </div>
                                     </div>
                                     <h3>Samuel Doe</h3>
@@ -396,7 +396,7 @@
                                                 <!-- start recent activity -->
                                                 <ul class="messages">
                                                     <li>
-                                                        <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                                        <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" class="avatar" alt="Avatar">
                                                         <div class="message_date">
                                                             <h3 class="date text-info">24</h3>
                                                             <p class="month">May</p>
@@ -412,7 +412,7 @@
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                                        <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" class="avatar" alt="Avatar">
                                                         <div class="message_date">
                                                             <h3 class="date text-error">21</h3>
                                                             <p class="month">May</p>
@@ -428,7 +428,7 @@
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                                        <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" class="avatar" alt="Avatar">
                                                         <div class="message_date">
                                                             <h3 class="date text-info">24</h3>
                                                             <p class="month">May</p>
@@ -444,7 +444,7 @@
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                                        <img src="{{asset('assets/modules/gentelella/images/img.jpg')}}" class="avatar" alt="Avatar">
                                                         <div class="message_date">
                                                             <h3 class="date text-error">21</h3>
                                                             <p class="month">May</p>
