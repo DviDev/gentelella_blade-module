@@ -17,10 +17,10 @@
     <link href="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- FullCalendar -->
     <link href="{{asset('assets/modules/gentelella/vendor/fullcalendar/dist/fullcalendar.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/modules/gentelella/vendor/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet')}}" media="print">
+    <link href="{{asset('assets/modules/gentelella/vendor/fullcalendar/dist/fullcalendar.print.css')}}" rel="stylesheet" media="print">
 
     <!-- Custom styling plus plugins -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="nav-md">
