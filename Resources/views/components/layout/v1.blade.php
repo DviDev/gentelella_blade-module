@@ -1,5 +1,7 @@
 @props([
-    'title' => config('app.name')
+    'title' => config('app.name'),
+    'menu' => null,
+    'footer_fixed' => false
 ])
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +16,7 @@
     <title>{{$title}}</title>
 
     @stack('bootstrap-css')
-    @stack('font-awesome')
+    @stack('font-awesome-css')
     @stack('nprogress-css')
     @stack('iCheck-css')
     @stack('bootstrap-progressbar-css')
@@ -30,17 +32,25 @@
     @stack('mjolnic-bootstrap-colorpicker-css')
     @stack('cropper')
     @stack('dropzone-css')
+    @stack('pnotify-css')
+    @stack('fullcalendar-css')
+    @stack('datatables-css')
+    @stack('morris-css')
+    @stack('malihu-custom-scrollbar-plugin-css')
+    @stack('animate-css')
 
     <!-- Custom Theme Style -->
     <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
-<body class="nav-md">
+<body @class(["nav-md", 'footer_fixed' => $footer_fixed])>
 <div class="container body">
     <div class="main_container">
-        <div class="col-md-3 left_col">
+        @if($menu)
+            {{$menu}}
+        @else
             <x-gentelella::layout.sidebarleft/>
-        </div>
+        @endif
 
         <x-gentelella::layout.header.topnav/>
 
@@ -83,6 +93,18 @@
 @stack('validator-js')
 @stack('jQuery-Smart-Wizard')
 @stack('dropzone-js')
+@stack('pnotify-js')
+@stack('jquery-sparkline-js')
+@stack('jquery_easy-pie-chart-js')
+@stack('fullcalendar-js')
+@stack('datatables-js')
+@stack('morris-js')
+@stack('echarts-js')
+@stack('malihu-custom-scrollbar-plugin-js')
+@stack('raphael-js')
+
+
+
 <!-- Custom Theme Scripts -->
 <script src="{{asset('assets/modules/gentelella/js/custom.min.js')}}"></script>
 

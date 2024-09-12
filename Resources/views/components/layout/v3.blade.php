@@ -11,7 +11,7 @@
     <title>Gentelella Alela! | </title>
 
     @stack('bootstrap-css')
-    @stack('font-awesome')
+    @stack('font-awesome-css')
     @stack('nprogress-css')
     @stack('bootstrap-progressbar-css')
     @stack('bootstrap-daterangepicker-css')
@@ -308,14 +308,14 @@
 <!-- Chart.js -->
 <script src="{{asset('assets/modules/gentelella/vendor/Chart.js/dist/Chart.min.js')}}"></script>
 <!-- jQuery Sparklines -->
-<script src="{{asset('assets/modules/gentelella/vendor/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+@stack('jquery-sparkline-js')
 <!-- morris.js -->
 <script src="{{asset('assets/modules/gentelella/vendor/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('assets/modules/gentelella/vendor/morris.js/morris.min.js')}}"></script>
 <!-- gauge.js -->
 <script src="{{asset('assets/modules/gentelella/vendor/gauge.js/dist/gauge.min.js')}}"></script>
 <!-- bootstrap-progressbar -->
-<script src="{{asset('assets/modules/gentelella/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+@stack('bootstrap-progressbar-js')
 <!-- Skycons -->
 <script src="{{asset('assets/modules/gentelella/vendor/skycons/skycons.js')}}"></script>
 <!-- Flot -->

@@ -10,7 +10,7 @@
     <title>Gentelella Alela! | </title>
 
     @stack('bootstrap-css')
-    @stack('font-awesome')
+    @stack('font-awesome-css')
     @stack('nprogress-css')
     @stack('bootstrap-daterangepicker-css')
 
@@ -32,7 +32,7 @@
 <!-- Chart.js -->
 <script src="{{asset('assets/modules/gentelella/vendor/Chart.js/dist/Chart.min.js')}}"></script>
 <!-- jQuery Sparklines -->
-<script src="{{asset('assets/modules/gentelella/vendor/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+@stack('jquery-sparkline-js')
 <!-- Flot -->
 <script src="{{asset('assets/modules/gentelella/vendor/Flot/jquery.flot.js')}}"></script>
 <script src="{{asset('assets/modules/gentelella/vendor/Flot/jquery.flot.pie.js')}}"></script>

@@ -1,6 +1,7 @@
-<div>
-    <!-- 
-  <options=bold>“ Do what you can, with what you have, where you are. ”</>
-  <fg=gray>— Theodore Roosevelt</>
- -->
-</div>
+<x-gentelella::assets.jquery/>
+<x-gentelella::assets.bootstrap/>
+<x-gentelella::assets.font-awesome/>
+
+<x-gentelella::layout.v1>
+    nível 2
+</x-gentelella::layout.v1>
