@@ -9,12 +9,9 @@
 
     <title>Gentelella Alela! | </title>
 
-    <!-- Bootstrap -->
-    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{asset('assets/modules/gentelella/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.css')}}" rel="stylesheet">
+    @stack('bootstrap-css')
+    @stack('font-awesome')
+    @stack('nprogress-css')
     <!-- Animate.css -->
     <link href="{{asset('assets/modules/gentelella/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
 

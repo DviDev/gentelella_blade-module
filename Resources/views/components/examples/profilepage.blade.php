@@ -9,14 +9,10 @@
 
     <title>Gentelella Alela! | </title>
 
-    <!-- Bootstrap -->
-    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{asset('assets/modules/gentelella/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.css')}}" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+    @stack('bootstrap-css')
+    @stack('font-awesome')
+    @stack('nprogress-css')
+    @stack('bootstrap-daterangepicker-css')
 
 
     <!-- Custom Theme Style -->
@@ -554,13 +550,13 @@
 </div>
 
 <!-- jQuery -->
-<script src="{{asset('assets/modules/gentelella/vendor/jquery/dist/jquery.min.js')}}"></script>
+@stack('jquery-js')
 <!-- Bootstrap -->
-<script src="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+@stack('bootstrap-js')
 <!-- FastClick -->
-<script src="{{asset('assets/modules/gentelella/vendor/fastclick/lib/fastclick.js')}}"></script>
+@stack('fastclick-js')
 <!-- NProgress -->
-<script src="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.js')}}"></script>
+@stack('nprogress-js')
 <!-- morris.js -->
 <script src="{{asset('assets/modules/gentelella/vendor/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('assets/modules/gentelella/vendor/morris.js/morris.min.js')}}"></script>

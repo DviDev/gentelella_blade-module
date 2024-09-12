@@ -1,7 +1,15 @@
+<x-gentelella::assets.jquery/>
+<x-gentelella::assets.bootstrap/>
+<x-gentelella::assets.font-awesome/>
 <x-gentelella::assets.nprogress/>
-
+<x-gentelella::assets.fastclick/>
 <x-gentelella::assets.bootstrap-daterangepicker/>
 <x-gentelella::assets.datejs/>
+
+<x-gentelella::assets.icheck/>
+<x-gentelella::assets.bootstrap-progressbar/>
+<x-gentelella::assets.jqvmap/>
+<x-gentelella::assets.bootstrap-daterangepicker/>
 
 <x-gentelella::layout.v1>
     <!-- top tiles -->
@@ -64,7 +72,7 @@
                     <div class="col-md-6">
                         <div id="reportrange" class="pull-right"
                              style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                            <i class="fa fa-calendar"></i>
                             <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
                         </div>
                     </div>
@@ -127,13 +135,10 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-
     </div>
     <br/>
 
     <div class="row">
-
-
         <div class="col-md-4 col-sm-4 ">
             <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
@@ -328,7 +333,6 @@
             </div>
         </div>
 
-
         <div class="col-md-4 col-sm-4 ">
             <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
@@ -383,9 +387,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 
     <div class="row">
         <div class="col-md-4 col-sm-4 ">
@@ -393,8 +395,7 @@
                 <div class="x_title">
                     <h2>Recent Activities <small>Sessions</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false"><i class="fa fa-wrench"></i></a>
@@ -403,8 +404,7 @@
                                 <a class="dropdown-item" href="#">Settings 2</a>
                             </div>
                         </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a></li>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -576,41 +576,58 @@
                                 <ul class="to_do">
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Schedule meeting with new client
+                                            <x-gentelella::form.check.check/>
+                                            Schedule meeting with new client
                                         </p>
 
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Create email address for new intern</p>
+                                            <x-gentelella::form.check.check/>
+                                            Create email address for new intern
+                                        </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Have IT fix the network printer</p>
+                                            <x-gentelella::form.check.check/>
+                                            Have IT fix the network printer
+                                        </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Copy backups to offsite location</p>
+                                            <x-gentelella::form.check.check/>
+                                            Copy backups to offsite location
+                                        </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Food truck fixie locavors mcsweeney</p>
+                                            <x-gentelella::form.check.check/>
+                                            Food truck fixie locavors mcsweeney
+                                        </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Food truck fixie locavors mcsweeney</p>
+                                            <x-gentelella::form.check.check/>
+                                            Food truck fixie locavors mcsweeney
+                                        </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Create email address for new intern</p>
+                                            <x-gentelella::form.check.check/>
+                                            Create email address for new intern
+                                        </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Have IT fix the network printer</p>
+                                            <x-gentelella::form.check.check/>
+                                            Have IT fix the network printer
+                                        </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/> Copy backups to offsite location</p>
+                                            <x-gentelella::form.check.check/>
+                                            Copy backups to offsite location
+                                        </p>
                                     </li>
                                 </ul>
                             </div>
@@ -670,6 +687,7 @@
                             <div class="clearfix"></div>
 
                             <div class="row weather-days">
+                                <x-gentelella::assets.skycons/>
                                 <div class="col-sm-2">
                                     <div class="daily-weather">
                                         <h2 class="day">Mon</h2>

@@ -9,16 +9,12 @@
 
     <title>Moris JS Chart Examples | Gentelella Alela! by Colorlib</title>
 
-    <!-- Bootstrap -->
-    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{asset('assets/modules/gentelella/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    @stack('bootstrap-css')
+    @stack('font-awesome')
 
-    <!-- NProgress -->
-    <link href="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.css')}}" rel="stylesheet">
+    @stack('nprogress-css')
 
-    <!-- iCheck -->
-    <link href="{{asset('assets/modules/gentelella/vendor/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+    @stack('iCheck-css')
 
 
     <!-- Custom Theme Style -->
@@ -484,16 +480,16 @@
 </div>
 
 <!-- jQuery -->
-<script src="{{asset('assets/modules/gentelella/vendor/jquery/dist/jquery.min.js')}}"></script>
+@stack('jquery-js')
 
 <!-- Bootstrap -->
-<script src="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+@stack('bootstrap-js')
 
 <!-- FastClick -->
-<script src="{{asset('assets/modules/gentelella/vendor/fastclick/lib/fastclick.js')}}"></script>
+@stack('fastclick-js')
 
 <!-- NProgress -->
-<script src="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.js')}}"></script>
+@stack('nprogress-js')
 
 <!-- morris.js -->
 <script src="{{asset('assets/modules/gentelella/vendor/raphael/raphael.min.js')}}"></script>

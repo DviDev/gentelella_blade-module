@@ -9,14 +9,10 @@
 
     <title>Gentelella Alela! | </title>
 
-    <!-- Bootstrap -->
-    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{asset('assets/modules/gentelella/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.css')}}" rel="stylesheet">
-    <!-- bootstrap-wysiwyg -->
-    <link href="{{asset('assets/modules/gentelella/vendor/google-code-prettify/bin/prettify.min.css')}}" rel="stylesheet">
+    @stack('bootstrap-css')
+    @stack('font-awesome')
+    @stack('nprogress-css')
+    @stack('bootstrap-daterangepicker-css')
 
     <!-- Custom styling plus plugins -->
     <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
@@ -617,13 +613,13 @@
 <!-- /compose -->
 
 <!-- jQuery -->
-<script src="{{asset('assets/modules/gentelella/vendor/jquery/dist/jquery.min.js')}}"></script>
+@stack('jquery-js')
 <!-- Bootstrap -->
-<script src="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+@stack('bootstrap-js')
 <!-- FastClick -->
-<script src="{{asset('assets/modules/gentelella/vendor/fastclick/lib/fastclick.js')}}"></script>
+@stack('fastclick-js')
 <!-- NProgress -->
-<script src="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.js')}}"></script>
+@stack('nprogress-js')
 <!-- bootstrap-wysiwyg -->
 <script src="{{asset('assets/modules/gentelella/vendor/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
 <script src="{{asset('assets/modules/gentelella/vendor/jquery.hotkeys/jquery.hotkeys.js')}}"></script>

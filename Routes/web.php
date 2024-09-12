@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('gentelella')->group(function () {
     //layout models
     Route::view('layout/v1', 'gentelella::components.examples.dashboard.v1page')->name('gentelella.layout.v1');
-    Route::view('layout/v2', 'gentelella::components.layout.v2')->name('gentelella.layout.v2');
-    Route::view('layout/v3', 'gentelella::components.layout.v3')->name('gentelella.layout.v3');
+    Route::view('layout/v2', 'gentelella::components.examples.dashboard.v2page')->name('gentelella.layout.v2');
+    Route::view('layout/v3', 'gentelella::components.examples.dashboard.v3page')->name('gentelella.layout.v3');
     //form
     Route::view('example/form/general', 'gentelella::components.examples.form.generalformpage')->name('gentelella.example.form.general');
     Route::view('example/form/advanced', 'gentelella::components.examples.form.formadvancedpage')->name('gentelella.example.form.advanced');

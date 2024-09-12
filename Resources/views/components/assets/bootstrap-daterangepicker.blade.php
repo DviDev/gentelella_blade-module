@@ -1,4 +1,4 @@
-@pushonce('daterangepicker-css')
+@pushonce('bootstrap-daterangepicker-css')
     <link href="{{asset('assets/modules/gentelella/vendor/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
 @endpushonce
 

@@ -10,16 +10,11 @@
 
     <title>Gentelella Alela! | </title>
 
-    <!-- Bootstrap -->
-    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{asset('assets/modules/gentelella/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.css')}}" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="{{asset('assets/modules/gentelella/vendor/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="{{asset('assets/modules/gentelella/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+    @stack('bootstrap-css')
+    @stack('font-awesome')
+    @stack('nprogress-css')
+    @stack('iCheck-css')
+    @stack('bootstrap-progressbar-css')
     <!-- PNotify -->
     <link href="{{asset('assets/modules/gentelella/vendor/pnotify/dist/pnotify.css')}}" rel="stylesheet">
     <link href="{{asset('assets/modules/gentelella/vendor/pnotify/dist/pnotify.buttons.css')}}" rel="stylesheet">
@@ -1447,13 +1442,13 @@
 </div>
 
 <!-- jQuery -->
-<script src="{{asset('assets/modules/gentelella/vendor/jquery/dist/jquery.min.js')}}"></script>
+@stack('jquery-js')
 <!-- Bootstrap -->
-<script src="{{asset('assets/modules/gentelella/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+@stack('bootstrap-js')
 <!-- FastClick -->
-<script src="{{asset('assets/modules/gentelella/vendor/fastclick/lib/fastclick.js')}}"></script>
+@stack('fastclick-js')
 <!-- NProgress -->
-<script src="{{asset('assets/modules/gentelella/vendor/nprogress/nprogress.js')}}"></script>
+@stack('nprogress-js')
 <!-- bootstrap-progressbar -->
 <script src="{{asset('assets/modules/gentelella/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
 <!-- iCheck -->
