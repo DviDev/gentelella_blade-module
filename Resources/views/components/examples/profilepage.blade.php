@@ -51,10 +51,10 @@
                     </div>
                     <div class="x_content">
                         <div class="col-md-3 col-sm-3  profile_left">
-                            <div class="profile_img">
+                            <div class="profile_img rounded">
                                 <div id="crop-avatar">
                                     <!-- Current avatar -->
-                                    <img class="img-responsive avatar-view" src="{{asset('assets/modules/gentelella/images/picture.jpg')}}" alt="Avatar" title="Change the avatar">
+                                    <img class="img-responsive avatar-view rounded" src="{{asset('assets/modules/gentelella/images/picture.jpg')}}" alt="Avatar" title="Change the avatar">
                                 </div>
                             </div>
                             <h3>Samuel Doe</h3>
