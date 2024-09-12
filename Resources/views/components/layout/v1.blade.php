@@ -30,6 +30,7 @@
     @stack('mjolnic-bootstrap-colorpicker-css')
     @stack('cropper')
     @stack('dropzone-css')
+    @stack('pnotify-css')
 
     <!-- Custom Theme Style -->
     <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
@@ -83,6 +84,7 @@
 @stack('validator-js')
 @stack('jQuery-Smart-Wizard')
 @stack('dropzone-js')
+@stack('pnotify-js')
 <!-- Custom Theme Scripts -->
 <script src="{{asset('assets/modules/gentelella/js/custom.min.js')}}"></script>
 
