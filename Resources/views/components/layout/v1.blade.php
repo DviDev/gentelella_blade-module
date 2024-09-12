@@ -37,6 +37,7 @@
     @stack('datatables-css')
     @stack('morris-css')
     @stack('malihu-custom-scrollbar-plugin-css')
+    @stack('animate-css')
 
     <!-- Custom Theme Style -->
     <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
@@ -100,6 +101,8 @@
 @stack('morris-js')
 @stack('echarts-js')
 @stack('malihu-custom-scrollbar-plugin-js')
+@stack('raphael-js')
+
 
 
 <!-- Custom Theme Scripts -->

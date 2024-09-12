@@ -272,7 +272,7 @@
                         <div class="well" style="overflow: auto">
                             <div class="col-md-4">
                                 <div id="reportrange_right" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                    <i class="fa fa-calendar"></i>
                                     <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
                                 </div>
                             </div>
@@ -281,7 +281,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                    <i class="fa fa-calendar"></i>
                                     <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
                                 </div>
                             </div>
@@ -296,7 +296,7 @@
                                         <div class="control-group ">
                                             <div class="controls">
                                                 <div class="input-prepend input-group">
-                                                    <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                                                    <span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
                                                     <input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control" value="01/01/2016 - 01/25/2016" />
                                                 </div>
                                             </div>
@@ -312,7 +312,7 @@
                                         <div class="control-group">
                                             <div class="controls">
                                                 <div class="input-prepend input-group">
-                                                    <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                                                    <span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
                                                     <input type="text" name="reservation-time" id="reservation-time" class="form-control" value="01/01/2016 - 01/25/2016" />
                                                 </div>
                                             </div>

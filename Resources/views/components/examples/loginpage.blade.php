@@ -1,3 +1,8 @@
+<x-gentelella::assets.bootstrap/>
+<x-gentelella::assets.font-awesome/>
+<x-gentelella::assets.nprogress/>
+<x-gentelella::assets.animate/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +17,7 @@
     @stack('bootstrap-css')
     @stack('font-awesome-css')
     @stack('nprogress-css')
-    <!-- Animate.css -->
-    <link href="{{asset('assets/modules/gentelella/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
-
+    @stack('animate-css')
 
     <!-- Custom Theme Style -->
     <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
@@ -97,5 +100,7 @@
         </div>
     </div>
 </div>
+    @stack('bootstrap-js')
+    @stack('nprogress-js')
 </body>
 </html>
