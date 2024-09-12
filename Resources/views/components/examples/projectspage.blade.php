@@ -10,7 +10,7 @@
     <title>Gentelella Alela! | </title>
 
     @stack('bootstrap-css')
-    @stack('font-awesome')
+    @stack('font-awesome-css')
     @stack('nprogress-css')
     @stack('iCheck-css')
 
@@ -671,7 +671,7 @@
 <!-- NProgress -->
 @stack('nprogress-js')
 <!-- bootstrap-progressbar -->
-<script src="{{asset('assets/modules/gentelella/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+@stack('bootstrap-progressbar-js')
 
 
 <!-- Custom Theme Scripts -->

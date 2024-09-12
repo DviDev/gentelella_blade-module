@@ -10,7 +10,7 @@
     <title>Gentelella Alela! | </title>
 
     @stack('bootstrap-css')
-    @stack('font-awesome')
+    @stack('font-awesome-css')
     @stack('nprogress-css')
     @stack('iCheck-css')
 

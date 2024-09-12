@@ -10,7 +10,7 @@
     <title>Gentelella Alela! | </title>
 
     @stack('bootstrap-css')
-    @stack('font-awesome')
+    @stack('font-awesome-css')
     @stack('nprogress-css')
     @stack('bootstrap-daterangepicker-css')
 
@@ -561,7 +561,7 @@
 <script src="{{asset('assets/modules/gentelella/vendor/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('assets/modules/gentelella/vendor/morris.js/morris.min.js')}}"></script>
 <!-- bootstrap-progressbar -->
-<script src="{{asset('assets/modules/gentelella/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+@stack('bootstrap-progressbar-js')
 <!-- bootstrap-daterangepicker -->
 <script src="{{asset('assets/modules/gentelella/vendor/moment/min/moment.min.js')}}"></script>
 
