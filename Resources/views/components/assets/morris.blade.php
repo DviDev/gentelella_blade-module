@@ -1,4 +1,4 @@
-@pushonce('morris-css')
+@pushonce('raphael-js')
     <script src="{{asset('assets/modules/gentelella/vendor/raphael/raphael.min.js')}}"></script>
 @endpushonce
 

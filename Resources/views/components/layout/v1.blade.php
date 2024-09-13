@@ -40,7 +40,7 @@
     @stack('animate-css')
 
     <!-- Custom Theme Style -->
-    <link href="{{asset('assets/modules/gentelella/css/custom.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/modules/gentelella/css/custom.css')}}" rel="stylesheet">
 </head>
 
 <body @class(["nav-md", 'footer_fixed' => $footer_fixed])>

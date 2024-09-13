@@ -1,9 +1,19 @@
+<x-gentelella::assets.jquery/>
 <x-gentelella::assets.bootstrap/>
 <x-gentelella::assets.font-awesome/>
 <x-gentelella::assets.nprogress/>
 <x-gentelella::assets.bootstrap-progressbar/>
 <x-gentelella::assets.bootstrap-daterangepicker/>
-<x-gentelella::layout.v3>
+<x-gentelella::assets.jquery-sparkline/>
+<x-gentelella::assets.chart/>
+<x-gentelella::assets.fastclick/>
+<x-gentelella::assets.morris/>
+<x-gentelella::assets.gauge/>
+<x-gentelella::assets.skycons/>
+<x-gentelella::assets.flot/>
+<x-gentelella::assets.datejs/>
+
+<x-gentelella::layout.v1>
     <div class="row" style="display: inline-block;">
         <div class=" top_tiles" style="margin: 10px 0;">
             <div class="col-md-3 col-sm-3  tile">
@@ -42,7 +52,6 @@
     </div>
     <br/>
 
-
     <div class="row">
         <div class="col-md-12 col-sm-12 ">
             <div class="dashboard_graph x_panel">
@@ -66,7 +75,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-md-4 col-sm-6 ">
@@ -572,4 +580,4 @@
             </div>
         </div>
     </div>
-</x-gentelella::layout.v3>
+</x-gentelella::layout.v1>
