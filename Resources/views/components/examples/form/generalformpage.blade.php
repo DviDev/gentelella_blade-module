@@ -27,8 +27,8 @@
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
-										<button class="btn btn-default" type="button">Go!</button>
-									</span>
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,8 @@
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a class="dropdown-item" href="#">Settings 1</a>
                                     </li>
@@ -57,50 +58,49 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <br/>
+                        <form id="demo-form2" data-parsley-validate @class(["form-horizontal form-label-left" => true])>
 
-                            <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" id="first-name" required="required" class="form-control ">
-                                </div>
-                            </div>
-                            <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Last Name <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" id="last-name" name="last-name" required="required" class="form-control">
-                                </div>
-                            </div>
-                            <div class="item form-group">
-                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>
+
+                            <x-gentelella::form.input label="First Name" required/>
+                            <x-gentelella::form.input label="Last Name" required/>
+
+                            <x-gentelella::form.input label="Middle Name / Initial" required/>
+                            {{--<div class="item form-group">
+                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle
+                                    Name / Initial</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input id="middle-name" class="form-control" type="text" name="middle-name">
                                 </div>
-                            </div>
+                            </div>--}}
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div id="gender" class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                            <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;
+                                        <label class="btn btn-secondary" data-toggle-class="btn-primary"
+                                               data-toggle-passive-class="btn-default">
+                                            <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male
+                                            &nbsp;
                                         </label>
-                                        <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                        <label class="btn btn-primary" data-toggle-class="btn-primary"
+                                               data-toggle-passive-class="btn-default">
                                             <input type="radio" name="gender" value="female" class="join-btn"> Female
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align">Date Of Birth <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Date Of Birth <span
+                                        class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy"
+                                           type="text" required="required" type="text" onfocus="this.type='date'"
+                                           onmouseover="this.type='date'" onclick="this.type='date'"
+                                           onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                                     <script>
                                         function timeFunctionLong(input) {
-                                            setTimeout(function() {
+                                            setTimeout(function () {
                                                 input.type = 'text';
                                             }, 60000);
                                         }
@@ -131,7 +131,8 @@
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Settings 1</a>
                                     <a class="dropdown-item" href="#">Settings 2</a>
@@ -143,11 +144,12 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <br />
+                        <br/>
                         <form class="form-label-left input_mask">
 
                             <div class="col-md-6 col-sm-6  form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="First Name">
+                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2"
+                                       placeholder="First Name">
                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                             </div>
 
@@ -157,7 +159,8 @@
                             </div>
 
                             <div class="col-md-6 col-sm-6  form-group has-feedback">
-                                <input type="email" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Email">
+                                <input type="email" class="form-control has-feedback-left" id="inputSuccess4"
+                                       placeholder="Email">
                                 <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                             </div>
 
@@ -175,23 +178,29 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-md-3 col-sm-3 ">Disabled Input </label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
+                                    <input type="text" class="form-control" disabled="disabled"
+                                           placeholder="Disabled Input">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-md-3 col-sm-3 ">Read-Only Input</label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
+                                    <input type="text" class="form-control" readonly="readonly"
+                                           placeholder="Read-Only Input">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-md-3 col-sm-3 ">Date Of Birth <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 ">Date Of Birth <span
+                                        class="required">*</span>
                                 </label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text"
+                                           required="required" type="text" onfocus="this.type='date'"
+                                           onmouseover="this.type='date'" onclick="this.type='date'"
+                                           onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                                     <script>
                                         function timeFunctionLong(input) {
-                                            setTimeout(function() {
+                                            setTimeout(function () {
                                                 input.type = 'text';
                                             }, 60000);
                                         }
@@ -218,7 +227,8 @@
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Settings 1</a>
                                     <a class="dropdown-item" href="#">Settings 2</a>
@@ -249,7 +259,8 @@
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Settings 1</a>
                                     <a class="dropdown-item" href="#">Settings 2</a>
@@ -265,31 +276,35 @@
                         <!-- start form for validation -->
                         <form id="demo-form" data-parsley-validate>
                             <label for="fullname">Full Name * :</label>
-                            <input type="text" id="fullname" class="form-control" name="fullname" required />
+                            <input type="text" id="fullname" class="form-control" name="fullname" required/>
 
                             <label for="email">Email * :</label>
-                            <input type="email" id="email" class="form-control" name="email" data-parsley-trigger="change" required />
+                            <input type="email" id="email" class="form-control" name="email"
+                                   data-parsley-trigger="change" required/>
 
                             <label>Gender *:</label>
                             <p>
                                 M:
-                                <input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> F:
-                                <input type="radio" class="flat" name="gender" id="genderF" value="F" />
+                                <input type="radio" class="flat" name="gender" id="genderM" value="M" checked=""
+                                       required/> F:
+                                <input type="radio" class="flat" name="gender" id="genderF" value="F"/>
                             </p>
 
                             <label>Hobbies (2 minimum):</label>
                             <p style="padding: 5px;">
-                                <input type="checkbox" name="hobbies[]" id="hobby1" value="ski" data-parsley-mincheck="2" required class="flat" /> Skiing
-                                <br />
+                                <input type="checkbox" name="hobbies[]" id="hobby1" value="ski"
+                                       data-parsley-mincheck="2" required class="flat"/> Skiing
+                                <br/>
 
-                                <input type="checkbox" name="hobbies[]" id="hobby2" value="run" class="flat" /> Running
-                                <br />
+                                <input type="checkbox" name="hobbies[]" id="hobby2" value="run" class="flat"/> Running
+                                <br/>
 
-                                <input type="checkbox" name="hobbies[]" id="hobby3" value="eat" class="flat" /> Eating
-                                <br />
+                                <input type="checkbox" name="hobbies[]" id="hobby3" value="eat" class="flat"/> Eating
+                                <br/>
 
-                                <input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Sleeping
-                                <br />
+                                <input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat"/>
+                                Sleeping
+                                <br/>
                             <p>
 
                                 <label for="heard">Heard us by *:</label>
@@ -301,9 +316,13 @@
                                 </select>
 
                                 <label for="message">Message (20 chars min, 100 max) :</label>
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
+                                <textarea id="message" required="required" class="form-control" name="message"
+                                          data-parsley-trigger="keyup" data-parsley-minlength="20"
+                                          data-parsley-maxlength="100"
+                                          data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                                          data-parsley-validation-threshold="10"></textarea>
 
-                                <br />
+                                <br/>
                                 <span class="btn btn-primary">Validate form</span>
 
                         </form>
@@ -323,7 +342,8 @@
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Settings 1</a>
                                     <a class="dropdown-item" href="#">Settings 2</a>
@@ -335,7 +355,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <br />
+                        <br/>
                         <form class="form-horizontal form-label-left">
 
                             <div class="form-group row ">
@@ -347,17 +367,20 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Disabled Input </label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
+                                    <input type="text" class="form-control" disabled="disabled"
+                                           placeholder="Disabled Input">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Read-Only Input</label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
+                                    <input type="text" class="form-control" readonly="readonly"
+                                           placeholder="Read-Only Input">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3 col-sm-3 ">Date Of Birth <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 ">Date Of Birth <span
+                                        class="required">*</span>
                                 </label>
                                 <div class="col-md-9 col-sm-9 ">
                                     <textarea class="form-control" rows="3" placeholder="Date Of Birth"></textarea>
@@ -372,7 +395,8 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">AutoComplete</label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10" />
+                                    <input type="text" name="country" id="autocomplete-custom-append"
+                                           class="form-control col-md-10"/>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -507,8 +531,10 @@
                             <div class="control-group row">
                                 <label class="control-label col-md-3 col-sm-3 ">Input Tags</label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input id="tags_1" type="text" class="tags form-control" value="social, adverts, sales" />
-                                    <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+                                    <input id="tags_1" type="text" class="tags form-control"
+                                           value="social, adverts, sales"/>
+                                    <div id="suggestions-container"
+                                         style="position: relative; float: left; width: 250px; margin: 10px;"></div>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -530,12 +556,14 @@
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Option one. only select one option
+                                            <input type="radio" checked="" value="option1" id="optionsRadios1"
+                                                   name="optionsRadios"> Option one. only select one option
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Option two. only select one option
+                                            <input type="radio" value="option2" id="optionsRadios2"
+                                                   name="optionsRadios"> Option two. only select one option
                                         </label>
                                     </div>
                                 </div>
@@ -565,7 +593,8 @@
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" class="flat" disabled="disabled" checked="checked"> Disabled & checked
+                                            <input type="checkbox" class="flat" disabled="disabled" checked="checked">
+                                            Disabled & checked
                                         </label>
                                     </div>
                                     <div class="radio">
@@ -585,7 +614,8 @@
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" class="flat" name="iCheck3" disabled="disabled" checked> Disabled & Checked
+                                            <input type="radio" class="flat" name="iCheck3" disabled="disabled" checked>
+                                            Disabled & Checked
                                         </label>
                                     </div>
                                 </div>
@@ -595,22 +625,23 @@
                                 <div class="col-md-9 col-sm-9 ">
                                     <div class="">
                                         <label>
-                                            <input type="checkbox" class="js-switch" checked /> Checked
+                                            <input type="checkbox" class="js-switch" checked/> Checked
                                         </label>
                                     </div>
                                     <div class="">
                                         <label>
-                                            <input type="checkbox" class="js-switch" /> Unchecked
+                                            <input type="checkbox" class="js-switch"/> Unchecked
                                         </label>
                                     </div>
                                     <div class="">
                                         <label>
-                                            <input type="checkbox" class="js-switch" disabled="disabled" /> Disabled
+                                            <input type="checkbox" class="js-switch" disabled="disabled"/> Disabled
                                         </label>
                                     </div>
                                     <div class="">
                                         <label>
-                                            <input type="checkbox" class="js-switch" disabled="disabled" checked="checked" /> Disabled Checked
+                                            <input type="checkbox" class="js-switch" disabled="disabled"
+                                                   checked="checked"/> Disabled Checked
                                         </label>
                                     </div>
                                 </div>
@@ -640,7 +671,8 @@
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Settings 1</a>
                                     <a class="dropdown-item" href="#">Settings 2</a>
@@ -661,7 +693,8 @@
                                 <div class="col-sm-9">
                                     <div class="input-group">
 													<span class="input-group-btn">
-														<button type="button" class="btn btn-primary go-class">Go!</button>
+														<button type="button"
+                                                                class="btn btn-primary go-class">Go!</button>
 													</span>
                                         <input type="text" class="form-control">
                                     </div>
@@ -680,9 +713,12 @@
 
                                 <div class="col-sm-9">
                                     <div class="dropdown input-group row">
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                        <input type="text" class="form-control"
+                                               aria-label="Text input with dropdown button">
                                         <div class="input-group-btn">
-                                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span>
+                                            <button type="button" class="btn btn-secondary dropdown-toggle"
+                                                    data-toggle="dropdown" aria-expanded="false">Action <span
+                                                    class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                                 <li><a class="dropdown-item" href="#">Action</a>
@@ -720,7 +756,8 @@
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">Settings 1</a>
                                 <a class="dropdown-item" href="#">Settings 2</a>
@@ -735,13 +772,15 @@
                     <div id="alerts"></div>
                     <div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor-one">
                         <div class="btn-group">
-                            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i
+                                    class="fa fa-font"></i><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                             </ul>
                         </div>
 
                         <div class="btn-group">
-                            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i
+                                    class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a data-edit="fontSize 5">
@@ -763,37 +802,50 @@
 
                         <div class="btn-group">
                             <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-                            <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-                            <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
-                            <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                            <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i
+                                    class="fa fa-italic"></i></a>
+                            <a class="btn" data-edit="strikethrough" title="Strikethrough"><i
+                                    class="fa fa-strikethrough"></i></a>
+                            <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i
+                                    class="fa fa-underline"></i></a>
                         </div>
 
                         <div class="btn-group">
-                            <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
-                            <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
-                            <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
+                            <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i
+                                    class="fa fa-list-ul"></i></a>
+                            <a class="btn" data-edit="insertorderedlist" title="Number list"><i
+                                    class="fa fa-list-ol"></i></a>
+                            <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i
+                                    class="fa fa-dedent"></i></a>
                             <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
                         </div>
 
                         <div class="btn-group">
-                            <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
-                            <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
-                            <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
-                            <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+                            <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i
+                                    class="fa fa-align-left"></i></a>
+                            <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i
+                                    class="fa fa-align-center"></i></a>
+                            <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i
+                                    class="fa fa-align-right"></i></a>
+                            <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i
+                                    class="fa fa-align-justify"></i></a>
                         </div>
 
                         <div class="btn-group">
-                            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i
+                                    class="fa fa-link"></i></a>
                             <div class="dropdown-menu input-append">
-                                <input class="span2" placeholder="URL" type="text" data-edit="createLink" />
+                                <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
                                 <button class="btn" type="button">Add</button>
                             </div>
                             <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
                         </div>
 
                         <div class="btn-group">
-                            <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
-                            <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                            <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i
+                                    class="fa fa-picture-o"></i></a>
+                            <input type="file" data-role="magic-overlay" data-target="#pictureBtn"
+                                   data-edit="insertImage"/>
                         </div>
 
                         <div class="btn-group">
@@ -806,14 +858,15 @@
 
                     <textarea name="descr" id="descr" style="display:none;"></textarea>
 
-                    <br />
+                    <br/>
 
                     <div class="ln_solid"></div>
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 ">Resizable Text area</label>
                         <div class="col-md-9 col-sm-9 ">
-                            <textarea class="resizable_textarea form-control" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..."></textarea>
+                            <textarea class="resizable_textarea form-control"
+                                      placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -827,7 +880,8 @@
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Settings 1</a>
                             <a class="dropdown-item" href="#">Settings 2</a>
@@ -970,7 +1024,8 @@
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Settings 1</a>
                             <a class="dropdown-item" href="#">Settings 2</a>
@@ -982,15 +1037,17 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <br />
+                <br/>
 
                 <h4>Horizontal labels</h4>
                 <p class="font-gray-dark">
-                    Using the grid system you can control the position of the labels. The form example below has the <b>col-md-10</b> which sets the width to 10/12 and <b>center-margin</b> which centers it.
+                    Using the grid system you can control the position of the labels. The form example below has the <b>col-md-10</b>
+                    which sets the width to 10/12 and <b>center-margin</b> which centers it.
                 </p>
                 <form class="form-horizontal form-label-left">
                     <div class="form-group row">
-                        <label class="control-label col-md-3" for="first-name">First Name <span class="required">*</span>
+                        <label class="control-label col-md-3" for="first-name">First Name <span
+                                class="required">*</span>
                         </label>
                         <div class="col-md-7">
                             <input type="text" id="first-name2" required="required" class="form-control col-md-7 ">
@@ -1000,7 +1057,8 @@
                         <label class="control-label col-md-3" for="last-name">Last Name <span class="required">*</span>
                         </label>
                         <div class="col-md-7">
-                            <input type="text" id="last-name2" name="last-name" required="required" class="form-control col-md-7 ">
+                            <input type="text" id="last-name2" name="last-name" required="required"
+                                   class="form-control col-md-7 ">
                         </div>
                     </div>
                 </form>
@@ -1008,7 +1066,8 @@
 
                 <h4>Vertical labels</h4>
                 <p class="font-gray-dark">
-                    For making labels vertical you have two options, either use the apropiate grid <b>.col-</b> class or wrap the form in the <b>form-vertical</b> class.
+                    For making labels vertical you have two options, either use the apropiate grid <b>.col-</b> class or
+                    wrap the form in the <b>form-vertical</b> class.
                 </p>
                 <div class="col-md-8 center-margin">
                     <form class="form-horizontal form-label-left">
@@ -1026,7 +1085,8 @@
 
                 <h4>Inline Form </h4>
                 <p class="font-gray-dark">
-                    Add .form-inline to your form (which doesn't have to be a &lt;form&gt;) for left-aligned and inline-block controls.
+                    Add .form-inline to your form (which doesn't have to be a &lt;form&gt;) for left-aligned and
+                    inline-block controls.
                 </p>
                 <form class="form-inline">
                     <div class="form-group">
