@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Gentelella\View\Components\Layout;
+namespace Modules\Gentelella\View\Components\Layout\Footer;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
