@@ -41,6 +41,8 @@
 
     <!-- Custom Theme Style -->
     <link href="{{asset('assets/modules/gentelella/css/custom.css')}}" rel="stylesheet">
+
+    @stack('styles')
 </head>
 
 <body @class(["nav-md", 'footer_fixed' => $footer_fixed])>
