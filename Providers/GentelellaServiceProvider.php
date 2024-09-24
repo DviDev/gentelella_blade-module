@@ -4,6 +4,8 @@ namespace Modules\Gentelella\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Modules\Base\Events\UsingSpotlightEvent;
+use Modules\Gentelella\Listeners\UsingSpotlightListener;
 
 class GentelellaServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,8 @@ class GentelellaServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerAssetPath();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
+        $this->registerEvents();
     }
 
     /**
@@ -122,5 +126,10 @@ class GentelellaServiceProvider extends ServiceProvider
         $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
         $sourceVendorPath = module_path($this->moduleName, 'Resources/assets');
         $this->publishes([$sourceVendorPath => $assetVendorPath], 'public');
+    }
+
+    private function registerEvents(): void
+    {
+        \Event::listen(UsingSpotlightEvent::class, UsingSpotlightListener::class);
     }
 }
