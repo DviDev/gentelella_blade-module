@@ -121,6 +121,6 @@ class GentelellaServiceProvider extends ServiceProvider
     {
         $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
         $sourceVendorPath = module_path($this->moduleName, 'Resources/assets');
-        $this->publishes([$sourceVendorPath => $assetVendorPath], 'public');
+        $this->publishes([$sourceVendorPath => $assetVendorPath], 'gentelella-assets');
     }
 }
