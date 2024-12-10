@@ -5,7 +5,7 @@ namespace Modules\Gentelella\View\Components\Examples;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class 500Page extends Component
+class Page500 extends Component
 {
     /**
      * Create a new component instance.
