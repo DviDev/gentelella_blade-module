@@ -5,7 +5,7 @@ namespace Modules\Gentelella\View\Components\Examples;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class 404Page extends Component
+class Page403 extends Component
 {
     /**
      * Create a new component instance.
@@ -20,6 +20,6 @@ class 404Page extends Component
      */
     public function render(): View|string
     {
-        return view('gentelella::components.examples/404page');
+        return view('gentelella::components.examples/403page');
     }
 }
