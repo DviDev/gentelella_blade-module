@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-
 /*
     |--------------------------------------------------------------------------
     | API Routes
@@ -14,6 +11,6 @@ use Illuminate\Support\Facades\Route;
     |
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->name('api.')->group(function () {
+/*Route::middleware(['auth:sanctum'])->prefix('v1')->name('api.')->group(function () {
     Route::get('gentelella', fn (Request $request) => $request->user())->name('gentelella');
-});
+});*/
