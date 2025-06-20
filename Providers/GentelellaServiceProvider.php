@@ -110,7 +110,7 @@ class GentelellaServiceProvider extends ServiceProvider
         $paths = [];
         $config = config('view.paths');
         foreach ($config as $path) {
-            $path = $path . '/modules/' . $this->moduleNameLower;
+            $path = $path.'/modules/'.$this->moduleNameLower;
             if (is_dir($path)) {
                 $paths[] = $path;
             }
@@ -118,9 +118,10 @@ class GentelellaServiceProvider extends ServiceProvider
 
         return $paths;
     }
+
     /**
      * Exemple php artisan vendor:publish --tag=public --force
-    */
+     */
     private function registerAssetPath(): void
     {
         $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
