@@ -1,7 +1,7 @@
 {
-    "name": "dvidev/gentelella-module",
+    "name": "dvidev/gentelella_blade-module",
     "type": "laravel-module",
-    "description": "",
+    "description": "Blade components for Gentelella",
     "authors": [
         {
             "name": "Davi Menezes",
