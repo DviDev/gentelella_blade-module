@@ -2,24 +2,22 @@
 
 namespace Modules\Gentelella\View\Components\Examples;
 
+use DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class ProjectDetailPage extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
-    {
-        //
-    }
+    use DevResources;
 
-    /**
-     * Get the view/contents that represent the component.
-     */
     public function render(): View|string
     {
         return view('gentelella::components.examples/projectdetailpage');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::ExamplesProjectDetailPage;
     }
 }

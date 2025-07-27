@@ -2,24 +2,22 @@
 
 namespace Modules\Gentelella\View\Components\Examples\Layout;
 
+use DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class FixedFooterPage extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
-    {
-        //
-    }
+    use DevResources;
 
-    /**
-     * Get the view/contents that represent the component.
-     */
     public function render(): View|string
     {
         return view('gentelella::components.examples/layout/fixedfooterpage');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::ExamplesLayoutFixedFooterPage;
     }
 }

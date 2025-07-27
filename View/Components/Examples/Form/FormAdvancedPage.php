@@ -2,24 +2,21 @@
 
 namespace Modules\Gentelella\View\Components\Examples\Form;
 
+use DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class FormAdvancedPage extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the view/contents that represent the component.
-     */
+    use DevResources;
     public function render(): View|string
     {
         return view('gentelella::components.examples/form/formadvancedpage');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::ExamplesFormAdvancedPage;
     }
 }
