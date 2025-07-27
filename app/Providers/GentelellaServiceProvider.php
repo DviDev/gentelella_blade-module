@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Base\Events\UsingSpotlightEvent;
 use Modules\Gentelella\Listeners\UsingSpotlightListener;
+use Modules\Gentelella\View\Components\Widget\Indicator\Tile;
 
 class GentelellaServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,7 @@ class GentelellaServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerComponents();
         $this->registerAssetPath();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
 
@@ -67,8 +69,8 @@ class GentelellaServiceProvider extends ServiceProvider
             $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
             $this->loadJsonTranslationsFrom($langPath);
         } else {
-            $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
-            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'Resources/lang'));
+            $this->loadTranslationsFrom(module_path($this->moduleName, 'resources/lang'), $this->moduleNameLower);
+            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'resources/lang'));
         }
     }
 
@@ -87,7 +89,7 @@ class GentelellaServiceProvider extends ServiceProvider
     public function registerViews(): void
     {
         $viewPath = resource_path('views/modules/'.$this->moduleNameLower);
-        $sourcePath = module_path($this->moduleName, 'Resources/views');
+        $sourcePath = module_path($this->moduleName, 'resources/views');
 
         $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower.'-module-views']);
 
@@ -125,12 +127,26 @@ class GentelellaServiceProvider extends ServiceProvider
     private function registerAssetPath(): void
     {
         $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
-        $sourceVendorPath = module_path($this->moduleName, 'Resources/assets');
+        $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
         $this->publishes([$sourceVendorPath => $assetVendorPath], 'gentelella-assets');
     }
 
     private function registerEvents(): void
     {
         \Event::listen(UsingSpotlightEvent::class, UsingSpotlightListener::class);
+    }
+
+    private function registerComponents(): void
+    {
+        // Registra componentes individualmente
+        Blade::component('gentelella::widget.indicator.tile', Tile::class);
+        // Registra automaticamente todos os componentes no namespace Components
+        $componentNamespace = 'Modules\\Gentelella\\View\\Components';
+
+        // Exemplo de como registrar o componente Info
+        Blade::component('gentelella::dev.info', \Modules\Gentelella\View\Components\Dev\Info::class);
+
+        // Para registrar automaticamente todos os componentes do diretório:
+        $this->registerComponentsIn("app/View/Components");
     }
 }
