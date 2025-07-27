@@ -140,13 +140,17 @@ class GentelellaServiceProvider extends ServiceProvider
     {
         // Registra componentes individualmente
         Blade::component('gentelella::widget.indicator.tile', Tile::class);
-        // Registra automaticamente todos os componentes no namespace Components
-        $componentNamespace = 'Modules\\Gentelella\\View\\Components';
 
-        // Exemplo de como registrar o componente Info
-        Blade::component('gentelella::dev.info', \Modules\Gentelella\View\Components\Dev\Info::class);
+        // Registra o componente Info com o alias correto
+        // O primeiro parâmetro é o alias que será usado nas views
+        // O segundo parâmetro é a classe do componente
+        Blade::component('gentelella-dev-info', \Modules\Gentelella\View\Components\Dev\Info::class);
 
-        // Para registrar automaticamente todos os componentes do diretório:
-        $this->registerComponentsIn("app/View/Components");
+        // Alternativamente, você pode registrar todos os componentes de um diretório
+        // usando o método componentNamespace do Blade
+        Blade::componentNamespace(
+            'Modules\\Gentelella\\View\\Components',
+            'gentelella' // Prefixo para os componentes
+        );
     }
 }
