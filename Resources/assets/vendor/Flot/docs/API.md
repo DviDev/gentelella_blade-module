@@ -36,7 +36,7 @@ don't use for anything else. Make sure you check any fancy styling
 you apply to the div, e.g. background images have been reported to be a
 problem on IE 7.
 
-The plot function can also be used as a jQuery chainable property.  This form
+The plot function can also be used as a jQuery chainable property. This form
 naturally can't return the plot object directly, but you can still access it
 via the 'plot' data key, like this:
 
@@ -51,7 +51,6 @@ can call. These are documented separately below.
 Note that in general Flot gives no guarantees if you change any of the
 objects you pass in to the plot function or get out of it since
 they're not necessarily deep-copied.
-
 
 ## Data Format ##
 
@@ -156,7 +155,6 @@ Here's a complete example of a simple data specification:
 ]
 ```
 
-
 ## Plot Options ##
 
 All options are completely optional. They are documented individually
@@ -172,7 +170,6 @@ var options = {
 
 $.plot(placeholder, data, options);
 ```
-
 
 ## Customizing the legend ##
 
@@ -238,7 +235,6 @@ sorted: function(a, b) {
     )
 }
 ```
-
 
 ## Customizing the axes ##
 
@@ -320,7 +316,7 @@ deprecated and scheduled to be removed with the release of version 1.0.0.
 To enable more granular control over styles, labels are divided between a set
 of text containers, with each holding the labels for one axis. These containers
 are given the classes 'flot-[x|y]-axis', and 'flot-[x|y]#-axis', where '#' is
-the number of the axis when there are multiple axes.  For example, the x-axis
+the number of the axis when there are multiple axes. For example, the x-axis
 labels for a simple plot with only a single x-axis might look like this:
 
 ```html
@@ -370,7 +366,8 @@ The "autoScale" option is used to automatically set the end-points of the axis. 
 are three options available: "none" will set the end-points to the "min"/"max" values,
 "exact" will set the end-points to minimum/maximum values in the visible area of the plot, and
 "loose" will add a margin to the "exact" mode based on the "autoScaleMargin" value. The "sliding-window"
-autoScale will always keep a "windowSize" range between axis.min and axis.max. The autoscaling behaviour is also affected by the growOnly flag, described below.
+autoScale will always keep a "windowSize" range between axis.min and axis.max. The autoscaling behaviour is also
+affected by the growOnly flag, described below.
 The default autoScale value is "none" for the x axes, and "loose" for y axes.
 
 The "growOnly" option is useful when you want to have a smoother auto-scaling
@@ -410,7 +407,6 @@ The inverseTransform is simply the inverse of the transform function
 required for converting from canvas coordinates to data coordinates,
 e.g. for a mouse interaction where a certain pixel is clicked. If you
 don't use any interactive features of Flot, you may not need it.
-
 
 The rest of the options deal with the ticks.
 
@@ -566,7 +562,6 @@ either accept an xaxis/yaxis parameter to specify which axis number to
 use (starting from 1), or lets you specify the coordinate directly as
 x2/x3/... or x2axis/x3axis/... instead of "x" or "xaxis".
 
-
 ## Time series data ##
 
 Please note that it is now required to include the time plugin,
@@ -620,6 +615,7 @@ In Python you can get it with something like:
 ```python
 calendar.timegm(datetime_object.timetuple()) * 1000
 ```
+
 In Ruby you can get it using the `#to_i` method on the
 [`Time`](http://apidock.com/ruby/Time/to_i) object. If you're using the
 `active_support` gem (default for Ruby on Rails applications) `#to_i` is also
@@ -671,8 +667,9 @@ interpret the timestamps according to that time zone.
 Once you've gotten the timestamps into the data and specified "time"
 as the axis mode, Flot will automatically generate relevant ticks and
 format them. As always, you can tweak the ticks via the "ticks" option
+
 - just remember that the values should be timestamps (numbers), not
-Date objects.
+  Date objects.
 
 Tick generation and formatting can also be controlled separately
 through the following axis options:
@@ -768,7 +765,6 @@ minTickSize: [1, "month"]
 to get a tick interval size of at least 1 month and correspondingly,
 if axis.tickSize is [2, "day"] in the tick formatter, the ticks have
 been produced with two days in-between.
-
 
 ## Customizing the data series ##
 
@@ -906,7 +902,6 @@ colors: ["#d18b2c", "#dba255", "#919733"]
 
 If there are more data series than colors, Flot will try to generate
 extra colors by lightening and darkening colors in the theme.
-
 
 ## Customizing the grid ##
 
@@ -1091,7 +1086,6 @@ of interactive things (this works as a rate limiting device). The
 default is capped to 60 frames per second. You can set it to -1 to
 disable the rate limiting.
 
-
 ## Specifying gradients ##
 
 A gradient is specified like this:
@@ -1133,234 +1127,232 @@ bars: {
 Flot currently only supports vertical gradients drawn from top to
 bottom because that's what works with IE.
 
-
 ## Plot Methods ##
 
 The Plot object returned from the plot function has some methods you
 can call:
 
- - highlight(series, datapoint)
+- highlight(series, datapoint)
 
-    Highlight a specific datapoint in the data series. You can either
-    specify the actual objects, e.g. if you got them from a
-    "plotclick" event, or you can specify the indices, e.g.
-    highlight(1, 3) to highlight the fourth point in the second series
-    (remember, zero-based indexing).
+  Highlight a specific datapoint in the data series. You can either
+  specify the actual objects, e.g. if you got them from a
+  "plotclick" event, or you can specify the indices, e.g.
+  highlight(1, 3) to highlight the fourth point in the second series
+  (remember, zero-based indexing).
 
- - unhighlight(series, datapoint) or unhighlight()
+- unhighlight(series, datapoint) or unhighlight()
 
-    Remove the highlighting of the point, same parameters as
-    highlight.
+  Remove the highlighting of the point, same parameters as
+  highlight.
 
-    If you call unhighlight with no parameters, e.g. as
-    plot.unhighlight(), all current highlights are removed.
+  If you call unhighlight with no parameters, e.g. as
+  plot.unhighlight(), all current highlights are removed.
 
- - setData(data)
+- setData(data)
 
-    You can use this to reset the data used. Note that axis scaling,
-    ticks, legend etc. will not be recomputed (use setupGrid() to do
-    that). You'll probably want to call draw() afterwards.
+  You can use this to reset the data used. Note that axis scaling,
+  ticks, legend etc. will not be recomputed (use setupGrid() to do
+  that). You'll probably want to call draw() afterwards.
 
-    You can use this function to speed up redrawing a small plot if
-    you know that the axes won't change. Put in the new data with
-    setData(newdata), call draw(), and you're good to go. Note that
-    for large datasets, almost all the time is consumed in draw()
-    plotting the data so in this case don't bother.
+  You can use this function to speed up redrawing a small plot if
+  you know that the axes won't change. Put in the new data with
+  setData(newdata), call draw(), and you're good to go. Note that
+  for large datasets, almost all the time is consumed in draw()
+  plotting the data so in this case don't bother.
 
- - setupGrid(autoScale)
+- setupGrid(autoScale)
 
-    Recalculate and set axis scaling, ticks, legend etc.
+  Recalculate and set axis scaling, ticks, legend etc.
 
-    Note that because of the drawing model of the canvas, this
-    function will immediately redraw (actually reinsert in the DOM)
-    the labels and the legend, but not the actual tick lines because
-    they're drawn on the canvas. You need to call draw() to get the
-    canvas redrawn.
+  Note that because of the drawing model of the canvas, this
+  function will immediately redraw (actually reinsert in the DOM)
+  the labels and the legend, but not the actual tick lines because
+  they're drawn on the canvas. You need to call draw() to get the
+  canvas redrawn.
 
-    If autoScale is truthy then the axis will be autoscaled to the data
-    according to the axis.autoScale options
+  If autoScale is truthy then the axis will be autoscaled to the data
+  according to the axis.autoScale options
 
- - draw()
+- draw()
 
-    Redraws the plot canvas.
+  Redraws the plot canvas.
 
- - triggerRedrawOverlay()
+- triggerRedrawOverlay()
 
-    Schedules an update of an overlay canvas used for drawing
-    interactive things like a selection and point highlights. This
-    is mostly useful for writing plugins. The redraw doesn't happen
-    immediately, instead a timer is set to catch multiple successive
-    redraws (e.g. from a mousemove). You can get to the overlay by
-    setting up a drawOverlay hook.
-    This function will also trigger the dispatching of the
-    'onDrawingDone' custom event, which can be used to notify listeners
-    (drawOverlay hooks) about the finishing of a drawing operation.
-    Use addEventListener('onDrawingDone', callback) and
-    removeEventListener('onDrawingDone', callback), to register and unregister
-    handlers for 'onDrawingDone' event.
+  Schedules an update of an overlay canvas used for drawing
+  interactive things like a selection and point highlights. This
+  is mostly useful for writing plugins. The redraw doesn't happen
+  immediately, instead a timer is set to catch multiple successive
+  redraws (e.g. from a mousemove). You can get to the overlay by
+  setting up a drawOverlay hook.
+  This function will also trigger the dispatching of the
+  'onDrawingDone' custom event, which can be used to notify listeners
+  (drawOverlay hooks) about the finishing of a drawing operation.
+  Use addEventListener('onDrawingDone', callback) and
+  removeEventListener('onDrawingDone', callback), to register and unregister
+  handlers for 'onDrawingDone' event.
 
- - width()/height()
+- width()/height()
 
-    Gets the width and height of the plotting area inside the grid.
-    This is smaller than the canvas or placeholder dimensions as some
-    extra space is needed (e.g. for labels).
+  Gets the width and height of the plotting area inside the grid.
+  This is smaller than the canvas or placeholder dimensions as some
+  extra space is needed (e.g. for labels).
 
- - offset()
+- offset()
 
-    Returns the offset of the plotting area inside the grid relative
-    to the document, useful for instance for calculating mouse
-    positions (event.pageX/Y minus this offset is the pixel position
-    inside the plot).
+  Returns the offset of the plotting area inside the grid relative
+  to the document, useful for instance for calculating mouse
+  positions (event.pageX/Y minus this offset is the pixel position
+  inside the plot).
 
- - pointOffset({ x: xpos, y: ypos })
+- pointOffset({ x: xpos, y: ypos })
 
-    Returns the calculated offset of the data point at (x, y) in data
-    space within the placeholder div. If you are working with multiple
-    axes, you can specify the x and y axis references, e.g.
+  Returns the calculated offset of the data point at (x, y) in data
+  space within the placeholder div. If you are working with multiple
+  axes, you can specify the x and y axis references, e.g.
 
-    ```js
-      o = pointOffset({ x: xpos, y: ypos, xaxis: 2, yaxis: 3 })
-      // o.left and o.top now contains the offset within the div
-    ```
+   ```js
+     o = pointOffset({ x: xpos, y: ypos, xaxis: 2, yaxis: 3 })
+     // o.left and o.top now contains the offset within the div
+   ```
 
- - resize()
+- resize()
 
-    Tells Flot to resize the drawing canvas to the size of the
-    placeholder. You need to run setupGrid() and draw() afterwards as
-    canvas resizing is a destructive operation. This is used
-    internally by the resize plugin.
+  Tells Flot to resize the drawing canvas to the size of the
+  placeholder. You need to run setupGrid() and draw() afterwards as
+  canvas resizing is a destructive operation. This is used
+  internally by the resize plugin.
 
- - shutdown()
+- shutdown()
 
-    Cleans up any event handlers Flot has currently registered. This
-    is used internally.
+  Cleans up any event handlers Flot has currently registered. This
+  is used internally.
 
- - findNearbyItem(mouseX, mouseY, seriesFilter, radius, computeDistance)
+- findNearbyItem(mouseX, mouseY, seriesFilter, radius, computeDistance)
 
-    Returns the closest item to the position determined by mouseX and
-    mouseY. The series on which the search is realized can be specified
-    using seriesFilter function.
-    The search area will be a circle if the function is called without the
-    last parameter, otherwise the distance will be computed based on given
-    function.
+  Returns the closest item to the position determined by mouseX and
+  mouseY. The series on which the search is realized can be specified
+  using seriesFilter function.
+  The search area will be a circle if the function is called without the
+  last parameter, otherwise the distance will be computed based on given
+  function.
 
- - findNearbyInterpolationPoint(posX, posY, seriesFilter)
+- findNearbyInterpolationPoint(posX, posY, seriesFilter)
 
-    Returns the interpolation on Y axis between the nearest points determined by
-    posX and posY. The series on which the search is realized can be specified
-    using seriesFilter function.
+  Returns the interpolation on Y axis between the nearest points determined by
+  posX and posY. The series on which the search is realized can be specified
+  using seriesFilter function.
 
- - computeValuePrecision(min, max, direction, ticks, tickDecimals)
+- computeValuePrecision(min, max, direction, ticks, tickDecimals)
 
-    Used for determining the the precision for a certain axis.
-    If the tickDecimals is specified, the maximum precision
-    would be at most tickDecimals. Otherwise, it would be computed
-    based on the axis minimum and maximum and the number of ticks.
+  Used for determining the the precision for a certain axis.
+  If the tickDecimals is specified, the maximum precision
+  would be at most tickDecimals. Otherwise, it would be computed
+  based on the axis minimum and maximum and the number of ticks.
 
- - computeTickSize (min, max, noTicks, tickDecimals)
+- computeTickSize (min, max, noTicks, tickDecimals)
 
-    Returns the size used for axis ticks. This is used internally.
-
+  Returns the size used for axis ticks. This is used internally.
 
 There are also some members that let you peek inside the internal
 workings of Flot which is useful in some cases. Note that if you change
 something in the objects returned, you're changing the objects used by
 Flot to keep track of its state, so be careful.
 
-  - getData()
+- getData()
 
-    Returns an array of the data series currently used in normalized
-    form with missing settings filled in according to the global
-    options. So for instance to find out what color Flot has assigned
-    to the data series, you could do this:
+  Returns an array of the data series currently used in normalized
+  form with missing settings filled in according to the global
+  options. So for instance to find out what color Flot has assigned
+  to the data series, you could do this:
 
-    ```js
-    var series = plot.getData();
-    for (var i = 0; i < series.length; ++i)
-        alert(series[i].color);
-    ```
+  ```js
+  var series = plot.getData();
+  for (var i = 0; i < series.length; ++i)
+      alert(series[i].color);
+  ```
 
-    A notable other interesting field besides color is datapoints
-    which has a field "points" with the normalized data points in a
-    flat array (the field "pointsize" is the increment in the flat
-    array to get to the next point so for a dataset consisting only of
-    (x,y) pairs it would be 2).
+  A notable other interesting field besides color is datapoints
+  which has a field "points" with the normalized data points in a
+  flat array (the field "pointsize" is the increment in the flat
+  array to get to the next point so for a dataset consisting only of
+  (x,y) pairs it would be 2).
 
-  - getAxes()
+- getAxes()
 
-    Gets an object with the axes. The axes are returned as the
-    attributes of the object, so for instance getAxes().xaxis is the
-    x axis.
+  Gets an object with the axes. The axes are returned as the
+  attributes of the object, so for instance getAxes().xaxis is the
+  x axis.
 
-    Various things are stuffed inside an axis object, e.g. you could
-    use getAxes().xaxis.ticks to find out what the ticks are for the
-    xaxis. Two other useful attributes are p2c and c2p, functions for
-    transforming from data point space to the canvas plot space and
-    back. Both returns values that are offset with the plot offset.
-    Check the Flot source code for the complete set of attributes (or
-    output an axis with console.log() and inspect it).
+  Various things are stuffed inside an axis object, e.g. you could
+  use getAxes().xaxis.ticks to find out what the ticks are for the
+  xaxis. Two other useful attributes are p2c and c2p, functions for
+  transforming from data point space to the canvas plot space and
+  back. Both returns values that are offset with the plot offset.
+  Check the Flot source code for the complete set of attributes (or
+  output an axis with console.log() and inspect it).
 
-    With multiple axes, the extra axes are returned as x2axis, x3axis,
-    etc., e.g. getAxes().y2axis is the second y axis. You can check
-    y2axis.used to see whether the axis is associated with any data
-    points and y2axis.show to see if it is currently shown.
+  With multiple axes, the extra axes are returned as x2axis, x3axis,
+  etc., e.g. getAxes().y2axis is the second y axis. You can check
+  y2axis.used to see whether the axis is associated with any data
+  points and y2axis.show to see if it is currently shown.
 
-  - getPlaceholder()
+- getPlaceholder()
 
-    Returns placeholder that the plot was put into. This can be useful
-    for plugins for adding DOM elements or firing events.
+  Returns placeholder that the plot was put into. This can be useful
+  for plugins for adding DOM elements or firing events.
 
-  - getCanvas()
+- getCanvas()
 
-    Returns the canvas used for drawing in case you need to hack on it
-    yourself. You'll probably need to get the plot offset too.
+  Returns the canvas used for drawing in case you need to hack on it
+  yourself. You'll probably need to get the plot offset too.
 
-  - getSurface()
+- getSurface()
 
-    Returns a wrapper over a canvas element that offers additional support
-    for measuring and writing text. See the CanvasWrapper plugin.
+  Returns a wrapper over a canvas element that offers additional support
+  for measuring and writing text. See the CanvasWrapper plugin.
 
-  - getEventHolder()
+- getEventHolder()
 
-    Returns the event holder element.
+  Returns the event holder element.
 
-  - getPlotOffset()
+- getPlotOffset()
 
-    Gets the offset that the grid has within the canvas as an object
-    with distances from the canvas edges as "left", "right", "top",
-    "bottom". I.e., if you draw a circle on the canvas with the center
-    placed at (left, top), its center will be at the top-most, left
-    corner of the grid.
+  Gets the offset that the grid has within the canvas as an object
+  with distances from the canvas edges as "left", "right", "top",
+  "bottom". I.e., if you draw a circle on the canvas with the center
+  placed at (left, top), its center will be at the top-most, left
+  corner of the grid.
 
-  - getOptions()
+- getOptions()
 
-    Gets the options for the plot, normalized, with default values
-    filled in. You get a reference to actual values used by Flot, so
-    if you modify the values in here, Flot will use the new values.
-    If you change something, you probably have to call draw() or
-    setupGrid() or triggerRedrawOverlay() to see the change.
+  Gets the options for the plot, normalized, with default values
+  filled in. You get a reference to actual values used by Flot, so
+  if you modify the values in here, Flot will use the new values.
+  If you change something, you probably have to call draw() or
+  setupGrid() or triggerRedrawOverlay() to see the change.
 
-  - computeRangeForDataSeries(series, force)
+- computeRangeForDataSeries(series, force)
 
-    Computes the minimum and the maximum values of the specified series.
-    If the autoScale of the x axis is set to 'none' then the corresponding
-    minimum and maximum will be Infinity and -Infinity respectively.
-    The computation will be skiped for the y axis as well when autoScale
-    of this axis is set to 'none'. Pass true to the force argument
-    to force the computation regardless the autoScale value of the axis.
+  Computes the minimum and the maximum values of the specified series.
+  If the autoScale of the x axis is set to 'none' then the corresponding
+  minimum and maximum will be Infinity and -Infinity respectively.
+  The computation will be skiped for the y axis as well when autoScale
+  of this axis is set to 'none'. Pass true to the force argument
+  to force the computation regardless the autoScale value of the axis.
 
-  - adjustSeriesDataRange(series, range)
+- adjustSeriesDataRange(series, range)
 
-    Adjusts the minimum and the maximum values based on the options of
-    the series. For example if bars are being drawn then this function
-    will decrease the minimum and increase the maximum to make sure the
-    first and the last bar will have enough space.
-
+  Adjusts the minimum and the maximum values based on the options of
+  the series. For example if bars are being drawn then this function
+  will decrease the minimum and increase the maximum to make sure the
+  first and the last bar will have enough space.
 
 ## Utils ##
+
 There are some features, which may not fall explicitly into plugins category.
 
-  - composeImages(sources, destinationCanvas)
+- composeImages(sources, destinationCanvas)
 
 ComposeImages allows you pass to it several canvases and SVGs as part of the
 plots themselves, and overlaps them to create a downloadable image.
@@ -1370,6 +1362,7 @@ order they exist in the array. The output canvas can be externally converted to
 a downloadable image. Some browser even support downloading canvases.
 
 How to use *composeImages* function:
+
 ```js
 function composeImagesOnClick() {
     var sources = [myCanvas, mySvg, myOtherCanvas, myOtherSvg],
@@ -1384,7 +1377,7 @@ function composeImagesOnClick() {
 }
 ```
 
-  - getPageXY(e)
+- getPageXY(e)
 
 This function calculates the pageX and pageY which are not valid
 while running the tests with Edge and creating events using the
@@ -1396,22 +1389,22 @@ console.log(page.X === e.pageX); // true unless the event was constructed in Edg
 console.log(page.Y === e.pageY); // true unless the event was constructed in Edge
 ```
 
-  - getPixelRatio(context)
+- getPixelRatio(context)
 
 Determine the screen's ratio of physical to device-independent
-pixels.  This is the ratio between the canvas width that the browser
+pixels. This is the ratio between the canvas width that the browser
 advertises and the number of pixels actually present in that space.
 
 The iPhone 4, for example, has a device-independent width of 320px,
-but its screen is actually 640px wide.  It therefore has a pixel
+but its screen is actually 640px wide. It therefore has a pixel
 ratio of 2, while most normal devices have a ratio of 1.
 
 ```js
 var pixelRatio = $.plot.browser.getPixelRatio(canvas.getContext('2d'));
 ```
 
-  - isSafari()
-  - isMobileSafari()
+- isSafari()
+- isMobileSafari()
 
 ```js
 console.log($.plot.browser.isSafari()); // true when running on Safari
@@ -1427,24 +1420,24 @@ gets access to the internal data structures in Flot.
 
 Here's an overview of the phases Flot goes through:
 
-  1. Plugin initialization, parsing options
+1. Plugin initialization, parsing options
 
-  2. Constructing the canvases used for drawing
+2. Constructing the canvases used for drawing
 
-  3. Set data: parsing data specification, calculating colors,
-     copying raw data points into internal format,
-     normalizing them, finding max/min for axis auto-scaling
+3. Set data: parsing data specification, calculating colors,
+   copying raw data points into internal format,
+   normalizing them, finding max/min for axis auto-scaling
 
-  4. Grid setup: calculating axis spacing, ticks, inserting tick
-     labels, the legend
+4. Grid setup: calculating axis spacing, ticks, inserting tick
+   labels, the legend
 
-  5. Draw: drawing the grid, drawing each of the series in turn
+5. Draw: drawing the grid, drawing each of the series in turn
 
-  6. Setting up event handling for interactive features
+6. Setting up event handling for interactive features
 
-  7. Responding to events, if any
+7. Responding to events, if any
 
-  8. Shutdown: this mostly happens in case a plot is overwritten
+8. Shutdown: this mostly happens in case a plot is overwritten
 
 Each hook is simply a function which is put in the appropriate array.
 You can add them through the "hooks" option, and they are also available
@@ -1466,210 +1459,209 @@ The available hooks are described below. All hook callbacks get the
 plot object as first parameter. You can find some examples of defined
 hooks in the plugins bundled with Flot.
 
- - processOptions  [phase 1]
+- processOptions  [phase 1]
 
-    ```function(plot, options)```
+  ```function(plot, options)```
 
-    Called after Flot has parsed and merged options. Useful in the
-    instance where customizations beyond simple merging of default
-    values is needed. A plugin might use it to detect that it has been
-    enabled and then turn on or off other options.
-
-
- - processRawData  [phase 3]
-
-    ```function(plot, series, data, datapoints)```
-
-    Called before Flot copies and normalizes the raw data for the given
-    series. If the function fills in datapoints.points with normalized
-    points and sets datapoints.pointsize to the size of the points,
-    Flot will skip the copying/normalization step for this series.
-
-    In any case, you might be interested in setting datapoints.format,
-    an array of objects for specifying how a point is normalized and
-    how it interferes with axis scaling. It accepts the following options:
-
-    ```js
-    {
-        x, y: boolean,
-        number: boolean,
-        required: boolean,
-        defaultValue: value,
-        autoScale: boolean
-    }
-    ```
-
-    "x" and "y" specify whether the value is plotted against the x or y axis,
-    and is currently used only to calculate axis min-max ranges. The default
-    format array, for example, looks like this:
-
-    ```js
-    [
-        { x: true, number: true, required: true },
-        { y: true, number: true, required: true }
-    ]
-    ```
-
-    This indicates that a point, i.e. [0, 25], consists of two values, with the
-    first being plotted on the x axis and the second on the y axis.
-
-    If "number" is true, then the value must be numeric, and is set to null if
-    it cannot be converted to a number.
-
-    "defaultValue" provides a fallback in case the original value is null. This
-    is for instance handy for bars, where one can omit the third coordinate
-    (the bottom of the bar), which then defaults to zero.
-
-    If "required" is true, then the value must exist (be non-null) for the
-    point as a whole to be valid. If no value is provided, then the entire
-    point is cleared out with nulls, turning it into a gap in the series.
-
-    "autoScale" determines whether the value is considered when calculating an
-    automatic min-max range for the axes that the value is plotted against.
-
- - processDatapoints  [phase 3]
-
-    ```function(plot, series, datapoints)```
-
-    Called after normalization of the given series but before finding
-    min/max of the data points. This hook is useful for implementing data
-    transformations. "datapoints" contains the normalized data points in
-    a flat array as datapoints.points with the size of a single point
-    given in datapoints.pointsize. Here's a simple transform that
-    multiplies all y coordinates by 2:
-
-    ```js
-    function multiply(plot, series, datapoints) {
-        var points = datapoints.points, ps = datapoints.pointsize;
-        for (var i = 0; i < points.length; i += ps)
-            points[i + 1] *= 2;
-    }
-    ```
-
-    Note that you must leave datapoints in a good condition as Flot
-    doesn't check it or do any normalization on it afterwards.
-
- - processOffset  [phase 4]
-
-    ```function(plot, offset)```
-
-    Called after Flot has initialized the plot's offset, but before it
-    draws any axes or plot elements. This hook is useful for customizing
-    the margins between the grid and the edge of the canvas. "offset" is
-    an object with attributes "top", "bottom", "left" and "right",
-    corresponding to the margins on the four sides of the plot.
-
- - adjustSeriesDataRange [phase 4]
-
-   ```function(series, range)```
-
-   Called after the minimum and the maximum of a series were computed and
-   adjusted. This is an extra opportunity to do further adjustments.
-
- - setRange [phase 4]
-
-   ```function(plot, axis)```
-
-   Called before computing the range for axis. This can be used for adjusting
-   the axis minimum or maximum.
+  Called after Flot has parsed and merged options. Useful in the
+  instance where customizations beyond simple merging of default
+  values is needed. A plugin might use it to detect that it has been
+  enabled and then turn on or off other options.
 
 
- - drawBackground [phase 5]
+- processRawData  [phase 3]
 
-    ```function(plot, canvascontext)```
+  ```function(plot, series, data, datapoints)```
 
-    Called before all other drawing operations. Used to draw backgrounds
-    or other custom elements before the plot or axes have been drawn.
+  Called before Flot copies and normalizes the raw data for the given
+  series. If the function fills in datapoints.points with normalized
+  points and sets datapoints.pointsize to the size of the points,
+  Flot will skip the copying/normalization step for this series.
 
- - drawSeries  [phase 5]
+  In any case, you might be interested in setting datapoints.format,
+  an array of objects for specifying how a point is normalized and
+  how it interferes with axis scaling. It accepts the following options:
 
-    ```function(plot, canvascontext, serie, i, getColorOrGradient)```
+   ```js
+   {
+       x, y: boolean,
+       number: boolean,
+       required: boolean,
+       defaultValue: value,
+       autoScale: boolean
+   }
+   ```
 
-    Hook for custom drawing of a single series. Called just before the
-    standard drawing routine has been called in the loop that draws
-    each series.
+  "x" and "y" specify whether the value is plotted against the x or y axis,
+  and is currently used only to calculate axis min-max ranges. The default
+  format array, for example, looks like this:
 
- - draw  [phase 5]
+   ```js
+   [
+       { x: true, number: true, required: true },
+       { y: true, number: true, required: true }
+   ]
+   ```
 
-    ```function(plot, canvascontext)```
+  This indicates that a point, i.e. [0, 25], consists of two values, with the
+  first being plotted on the x axis and the second on the y axis.
 
-    Hook for drawing on the canvas. Called after the grid is drawn
-    (unless it's disabled or grid.aboveData is set) and the series have
-    been plotted (in case any points, lines or bars have been turned
-    on). For examples of how to draw things, look at the source code.
+  If "number" is true, then the value must be numeric, and is set to null if
+  it cannot be converted to a number.
 
- - bindEvents  [phase 6]
+  "defaultValue" provides a fallback in case the original value is null. This
+  is for instance handy for bars, where one can omit the third coordinate
+  (the bottom of the bar), which then defaults to zero.
 
-    ```function(plot, eventHolder)```
+  If "required" is true, then the value must exist (be non-null) for the
+  point as a whole to be valid. If no value is provided, then the entire
+  point is cleared out with nulls, turning it into a gap in the series.
 
-    Called after Flot has setup its event handlers. Should set any
-    necessary event handlers on eventHolder, a jQuery object with the
-    canvas, e.g.
+  "autoScale" determines whether the value is considered when calculating an
+  automatic min-max range for the axes that the value is plotted against.
 
-    ```js
-    function (plot, eventHolder) {
-        eventHolder.mousedown(function (e) {
-            alert("You pressed the mouse at " + e.pageX + " " + e.pageY);
-        });
-    }
-    ```
+- processDatapoints  [phase 3]
 
-    Interesting events include click, mousemove, mouseup/down. You can
-    use all jQuery events. Usually, the event handlers will update the
-    state by drawing something (add a drawOverlay hook and call
-    triggerRedrawOverlay) or firing an externally visible event for
-    user code. See the crosshair plugin for an example.
+  ```function(plot, series, datapoints)```
 
-    Currently, eventHolder actually contains both the static canvas
-    used for the plot itself and the overlay canvas used for
-    interactive features because some versions of IE get the stacking
-    order wrong. The hook only gets one event, though (either for the
-    overlay or for the static canvas).
+  Called after normalization of the given series but before finding
+  min/max of the data points. This hook is useful for implementing data
+  transformations. "datapoints" contains the normalized data points in
+  a flat array as datapoints.points with the size of a single point
+  given in datapoints.pointsize. Here's a simple transform that
+  multiplies all y coordinates by 2:
 
-    Note that custom plot events generated by Flot are not generated on
-    eventHolder, but on the div placeholder supplied as the first
-    argument to the plot call. You can get that with
-    plot.getPlaceholder() - that's probably also the one you should use
-    if you need to fire a custom event.
+   ```js
+   function multiply(plot, series, datapoints) {
+       var points = datapoints.points, ps = datapoints.pointsize;
+       for (var i = 0; i < points.length; i += ps)
+           points[i + 1] *= 2;
+   }
+   ```
 
- - drawOverlay  [phase 7]
+  Note that you must leave datapoints in a good condition as Flot
+  doesn't check it or do any normalization on it afterwards.
 
-    ```function (plot, canvascontext)```
+- processOffset  [phase 4]
 
-    The drawOverlay hook is used for interactive things that need a
-    canvas to draw on. The model currently used by Flot works the way
-    that an extra overlay canvas is positioned on top of the static
-    canvas. This overlay is cleared and then completely redrawn
-    whenever something interesting happens. This hook is called when
-    the overlay canvas is to be redrawn.
+  ```function(plot, offset)```
 
-    "canvascontext" is the 2D context of the overlay canvas. You can
-    use this to draw things. You'll most likely need some of the
-    metrics computed by Flot, e.g. plot.width()/plot.height(). See the
-    crosshair plugin for an example.
+  Called after Flot has initialized the plot's offset, but before it
+  draws any axes or plot elements. This hook is useful for customizing
+  the margins between the grid and the edge of the canvas. "offset" is
+  an object with attributes "top", "bottom", "left" and "right",
+  corresponding to the margins on the four sides of the plot.
 
-    This hook dispatches the 'onDrawingDone' custom event.
-    It notifies listeners about the finishing of a drawing operation.
-    Use addEventListener('onDrawingDone', callback) and
-    removeEventListener('onDrawingDone', callback), to register and unregister
-    handlers for 'onDrawingDone' event.
+- adjustSeriesDataRange [phase 4]
 
- - resize   [phase 7]
+  ```function(series, range)```
 
-    ```function (plot, width, height)```
+  Called after the minimum and the maximum of a series were computed and
+  adjusted. This is an extra opportunity to do further adjustments.
 
-    The resize hook is used to be notified after the plot was resized.
+- setRange [phase 4]
 
- - shutdown  [phase 8]
+  ```function(plot, axis)```
 
-    ```function (plot, eventHolder)```
+  Called before computing the range for axis. This can be used for adjusting
+  the axis minimum or maximum.
 
-    Run when plot.shutdown() is called, which usually only happens in
-    case a plot is overwritten by a new plot. If you're writing a
-    plugin that adds extra DOM elements or event handlers, you should
-    add a callback to clean up after you. Take a look at the section in
-    the [PLUGINS](PLUGINS.md) document for more info.
 
+- drawBackground [phase 5]
+
+  ```function(plot, canvascontext)```
+
+  Called before all other drawing operations. Used to draw backgrounds
+  or other custom elements before the plot or axes have been drawn.
+
+- drawSeries  [phase 5]
+
+  ```function(plot, canvascontext, serie, i, getColorOrGradient)```
+
+  Hook for custom drawing of a single series. Called just before the
+  standard drawing routine has been called in the loop that draws
+  each series.
+
+- draw  [phase 5]
+
+  ```function(plot, canvascontext)```
+
+  Hook for drawing on the canvas. Called after the grid is drawn
+  (unless it's disabled or grid.aboveData is set) and the series have
+  been plotted (in case any points, lines or bars have been turned
+  on). For examples of how to draw things, look at the source code.
+
+- bindEvents  [phase 6]
+
+  ```function(plot, eventHolder)```
+
+  Called after Flot has setup its event handlers. Should set any
+  necessary event handlers on eventHolder, a jQuery object with the
+  canvas, e.g.
+
+   ```js
+   function (plot, eventHolder) {
+       eventHolder.mousedown(function (e) {
+           alert("You pressed the mouse at " + e.pageX + " " + e.pageY);
+       });
+   }
+   ```
+
+  Interesting events include click, mousemove, mouseup/down. You can
+  use all jQuery events. Usually, the event handlers will update the
+  state by drawing something (add a drawOverlay hook and call
+  triggerRedrawOverlay) or firing an externally visible event for
+  user code. See the crosshair plugin for an example.
+
+  Currently, eventHolder actually contains both the static canvas
+  used for the plot itself and the overlay canvas used for
+  interactive features because some versions of IE get the stacking
+  order wrong. The hook only gets one event, though (either for the
+  overlay or for the static canvas).
+
+  Note that custom plot events generated by Flot are not generated on
+  eventHolder, but on the div placeholder supplied as the first
+  argument to the plot call. You can get that with
+  plot.getPlaceholder() - that's probably also the one you should use
+  if you need to fire a custom event.
+
+- drawOverlay  [phase 7]
+
+  ```function (plot, canvascontext)```
+
+  The drawOverlay hook is used for interactive things that need a
+  canvas to draw on. The model currently used by Flot works the way
+  that an extra overlay canvas is positioned on top of the static
+  canvas. This overlay is cleared and then completely redrawn
+  whenever something interesting happens. This hook is called when
+  the overlay canvas is to be redrawn.
+
+  "canvascontext" is the 2D context of the overlay canvas. You can
+  use this to draw things. You'll most likely need some of the
+  metrics computed by Flot, e.g. plot.width()/plot.height(). See the
+  crosshair plugin for an example.
+
+  This hook dispatches the 'onDrawingDone' custom event.
+  It notifies listeners about the finishing of a drawing operation.
+  Use addEventListener('onDrawingDone', callback) and
+  removeEventListener('onDrawingDone', callback), to register and unregister
+  handlers for 'onDrawingDone' event.
+
+- resize   [phase 7]
+
+  ```function (plot, width, height)```
+
+  The resize hook is used to be notified after the plot was resized.
+
+- shutdown  [phase 8]
+
+  ```function (plot, eventHolder)```
+
+  Run when plot.shutdown() is called, which usually only happens in
+  case a plot is overwritten by a new plot. If you're writing a
+  plugin that adds extra DOM elements or event handlers, you should
+  add a callback to clean up after you. Take a look at the section in
+  the [PLUGINS](PLUGINS.md) document for more info.
 
 ## Plugins ##
 
@@ -1693,8 +1685,10 @@ and add new public methods if needed.
 See the [PLUGINS](PLUGINS.md) document for details on how to write a plugin. As the
 above description hints, it's actually pretty easy.
 
-Some of the flot plugins add new functionalities (like touch support), while other are parts spliced out of the main jquery.flot.js and grouped based on commune functionalities.
+Some of the flot plugins add new functionalities (like touch support), while other are parts spliced out of the main
+jquery.flot.js and grouped based on commune functionalities.
 Read the documentation of some of the most used plugins of flot:
+
 * [jquery.flot.absRelTime.js](absRelTime.md)
 * [jquery.flot.browser.js](browser.md)
 * [jquery.canvaswrapper.js](canvaswrapper.md)
@@ -1703,7 +1697,6 @@ Read the documentation of some of the most used plugins of flot:
 * [jquery.flot.hover.js](hover.md)
 * [jquery.flot.logaxis.js](logaxis.md)
 * [jquery.flot.navigate.js](navigate.md)
-
 
 ## Version number ##
 

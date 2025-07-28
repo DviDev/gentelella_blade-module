@@ -9,7 +9,9 @@ toc: true
 
 ## Containers
 
-Containers are the most basic layout element in Bootstrap and are **required when using our default grid system**. Choose from a responsive, fixed-width container (meaning its `max-width` changes at each breakpoint) or fluid-width (meaning it's `100%` wide all the time).
+Containers are the most basic layout element in Bootstrap and are **required when using our default grid system**.
+Choose from a responsive, fixed-width container (meaning its `max-width` changes at each breakpoint) or fluid-width (
+meaning it's `100%` wide all the time).
 
 While containers *can* be nested, most layouts do not require a nested container.
 
@@ -43,12 +45,15 @@ Use `.container-fluid` for a full width container, spanning the entire width of 
 </div>
 {% endhighlight %}
 
-
 ## Responsive breakpoints
 
-Since Bootstrap is developed to be mobile first, we use a handful of [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) to create sensible breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths and allow us to scale up elements as the viewport changes.
+Since Bootstrap is developed to be mobile first, we use a handful
+of [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) to create
+sensible breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths and
+allow us to scale up elements as the viewport changes.
 
-Bootstrap primarily uses the following media query ranges—or breakpoints—in our source Sass files for our layout, grid system, and components.
+Bootstrap primarily uses the following media query ranges—or breakpoints—in our source Sass files for our layout, grid
+system, and components.
 
 {% highlight scss %}
 // Extra small devices (portrait phones, less than 576px)
@@ -78,12 +83,12 @@ Since we write our source CSS in Sass, all our media queries are available via S
 
 // Example: Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
 .custom-class {
-  display: none;
+display: none;
 }
 @include media-breakpoint-up(sm) {
-  .custom-class {
-    display: block;
-  }
+.custom-class {
+display: block;
+}
 }
 {% endhighlight %}
 
@@ -119,13 +124,14 @@ Once again, these media queries are also available via Sass mixins:
 
 // Example: Style from medium breakpoint and down
 @include media-breakpoint-down(md) {
-  .custom-class {
-    display: block;
-  }
+.custom-class {
+display: block;
+}
 }
 {% endhighlight %}
 
-There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
+There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum
+breakpoint widths.
 
 {% highlight scss %}
 // Extra small devices (portrait phones, less than 576px)
@@ -170,9 +176,13 @@ The Sass mixin for targeting the same screen size range would be:
 
 ## Z-index
 
-Several Bootstrap components utilize `z-index`, the CSS property that helps control layout by providing a third axis to arrange content. We utilize a default z-index scale in Bootstrap that's been designed to properly layer navigation, tooltips and popovers, modals, and more.
+Several Bootstrap components utilize `z-index`, the CSS property that helps control layout by providing a third axis to
+arrange content. We utilize a default z-index scale in Bootstrap that's been designed to properly layer navigation,
+tooltips and popovers, modals, and more.
 
-These higher values start at an arbitrary number, high and specific enough to ideally avoid conflicts. We need a standard set of these across our layered components—tooltips, popovers, navbars, dropdowns, modals—so we can be reasonably consistent in the behaviors. There's no reason we couldn't have used `100`+ or `500`+.
+These higher values start at an arbitrary number, high and specific enough to ideally avoid conflicts. We need a
+standard set of these across our layered components—tooltips, popovers, navbars, dropdowns, modals—so we can be
+reasonably consistent in the behaviors. There's no reason we couldn't have used `100`+ or `500`+.
 
 We don't encourage customization of these individual values; should you change one, you likely need to change them all.
 
@@ -186,4 +196,6 @@ $zindex-popover:           1060 !default;
 $zindex-tooltip:           1070 !default;
 {% endhighlight %}
 
-To handle overlapping borders within components (e.g., buttons and inputs in input groups), we use low single digit `z-index` values of `1`, `2`, and `3` for default, hover, and active states. On hover/focus/active, we bring a particular element to the forefront with a higher `z-index` value to show their border over the sibling elements.
+To handle overlapping borders within components (e.g., buttons and inputs in input groups), we use low single digit
+`z-index` values of `1`, `2`, and `3` for default, hover, and active states. On hover/focus/active, we bring a
+particular element to the forefront with a higher `z-index` value to show their border over the sibling elements.

@@ -8,7 +8,8 @@ toc: true
 
 ## Basic example
 
-The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own CSS as needed.
+The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options
+that follow, or with your own CSS as needed.
 
 {% capture example %}
 <ul class="list-group">
@@ -38,7 +39,8 @@ Add `.active` to a `.list-group-item` to indicate the current active selection.
 
 ## Disabled items
 
-Add `.disabled` to a `.list-group-item` to make it _appear_ disabled. Note that some elements with `.disabled` will also require custom JavaScript to fully disable their click events (e.g., links).
+Add `.disabled` to a `.list-group-item` to make it _appear_ disabled. Note that some elements with `.disabled` will also
+require custom JavaScript to fully disable their click events (e.g., links).
 
 {% capture example %}
 <ul class="list-group">
@@ -53,7 +55,9 @@ Add `.disabled` to a `.list-group-item` to make it _appear_ disabled. Note that 
 
 ## Links and buttons
 
-Use `<a>`s or `<button>`s to create _actionable_ list group items with hover, disabled, and active states by adding `.list-group-item-action`. We separate these pseudo-classes to ensure list groups made of non-interactive elements (like `<li>`s or `<div>`s) don't provide a click or tap affordance.
+Use `<a>`s or `<button>`s to create _actionable_ list group items with hover, disabled, and active states by adding
+`.list-group-item-action`. We separate these pseudo-classes to ensure list groups made of non-interactive elements (like
+`<li>`s or `<div>`s) don't provide a click or tap affordance.
 
 Be sure to **not use the standard `.btn` classes here**.
 
@@ -70,7 +74,8 @@ Be sure to **not use the standard `.btn` classes here**.
 {% endcapture %}
 {% include example.html content=example %}
 
-With `<button>`s, you can also make use of the `disabled` attribute instead of the `.disabled` class. Sadly, `<a>`s don't support the disabled attribute.
+With `<button>`s, you can also make use of the `disabled` attribute instead of the `.disabled` class. Sadly, `<a>`s
+don't support the disabled attribute.
 
 {% capture example %}
 <div class="list-group">
@@ -87,7 +92,8 @@ With `<button>`s, you can also make use of the `disabled` attribute instead of t
 
 ## Flush
 
-Add `.list-group-flush` to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e.g., cards).
+Add `.list-group-flush` to remove some borders and rounded corners to render list group items edge-to-edge in a parent
+container (e.g., cards).
 
 {% capture example %}
 <ul class="list-group list-group-flush">
@@ -102,7 +108,10 @@ Add `.list-group-flush` to remove some borders and rounded corners to render lis
 
 ## Horizontal
 
-Add `.list-group-horizontal` to change the layout of list group items from vertical to horizontal across all breakpoints. Alternatively, choose a responsive variant `.list-group-horizontal-{sm|md|lg|xl}` to make a list group horizontal starting at that breakpoint's `min-width`. Currently **horizontal list groups cannot be combined with flush list groups.**
+Add `.list-group-horizontal` to change the layout of list group items from vertical to horizontal across all
+breakpoints. Alternatively, choose a responsive variant `.list-group-horizontal-{sm|md|lg|xl}` to make a list group
+horizontal starting at that breakpoint's `min-width`. Currently **horizontal list groups cannot be combined with flush
+list groups.**
 
 **ProTip:** Want equal-width list group items when horizontal? Add `.flex-fill` to each list group item.
 
@@ -124,20 +133,23 @@ Use contextual classes to style list items with a stateful background and color.
 <ul class="list-group">
   <li class="list-group-item">Dapibus ac facilisis in</li>
 
-  {% for color in site.data.theme-colors %}
+{% for color in site.data.theme-colors %}
   <li class="list-group-item list-group-item-{{ color.name }}">A simple {{ color.name }} list group item</li>{% endfor %}
 </ul>
 {% endcapture %}
 {% include example.html content=example %}
 
-Contextual classes also work with `.list-group-item-action`. Note the addition of the hover styles here not present in the previous example. Also supported is the `.active` state; apply it to indicate an active selection on a contextual list group item.
+Contextual classes also work with `.list-group-item-action`. Note the addition of the hover styles here not present in
+the previous example. Also supported is the `.active` state; apply it to indicate an active selection on a contextual
+list group item.
 
 {% capture example %}
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
 
-  {% for color in site.data.theme-colors %}
-  <a href="#" class="list-group-item list-group-item-action list-group-item-{{ color.name }}">A simple {{ color.name }} list group item</a>{% endfor %}
+{% for color in site.data.theme-colors %}
+<a href="#" class="list-group-item list-group-item-action list-group-item-{{ color.name }}">A simple {{ color.name }}
+list group item</a>{% endfor %}
 </div>
 {% endcapture %}
 {% include example.html content=example %}
@@ -146,7 +158,8 @@ Contextual classes also work with `.list-group-item-action`. Note the addition o
 
 ## With badges
 
-Add badges to any list group item to show unread counts, activity, and more with the help of some [utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/flex/).
+Add badges to any list group item to show unread counts, activity, and more with the help of some [utilities]({{
+site.baseurl }}/docs/{{ site.docs_version }}/utilities/flex/).
 
 {% capture example %}
 <ul class="list-group">
@@ -168,7 +181,8 @@ Add badges to any list group item to show unread counts, activity, and more with
 
 ## Custom content
 
-Add nearly any HTML within, even for linked list groups like the one below, with the help of [flexbox utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/flex/).
+Add nearly any HTML within, even for linked list groups like the one below, with the help of [flexbox utilities]({{
+site.baseurl }}/docs/{{ site.docs_version }}/utilities/flex/).
 
 {% capture example %}
 <div class="list-group">
@@ -202,7 +216,8 @@ Add nearly any HTML within, even for linked list groups like the one below, with
 
 ## JavaScript behavior
 
-Use the tab JavaScript plugin—include it individually or through the compiled `bootstrap.js` file—to extend our list group to create tabbable panes of local content.
+Use the tab JavaScript plugin—include it individually or through the compiled `bootstrap.js` file—to extend our list
+group to create tabbable panes of local content.
 
 <div class="bd-example" role="tabpanel">
   <div class="row">
@@ -256,7 +271,8 @@ Use the tab JavaScript plugin—include it individually or through the compiled 
 
 ### Using data attributes
 
-You can activate a list group navigation without writing any JavaScript by simply specifying `data-toggle="list"` or on an element. Use these data attributes on `.list-group-item`.
+You can activate a list group navigation without writing any JavaScript by simply specifying `data-toggle="list"` or on
+an element. Use these data attributes on `.list-group-item`.
 
 <div role="tabpanel">
 {% highlight html %}
@@ -284,8 +300,8 @@ Enable tabbable list item via JavaScript (each list item needs to be activated i
 
 {% highlight js %}
 $('#myList a').on('click', function (e) {
-  e.preventDefault()
-  $(this).tab('show')
+e.preventDefault()
+$(this).tab('show')
 })
 {% endhighlight %}
 
@@ -300,7 +316,8 @@ $('#myList a:nth-child(3)').tab('show') // Select third tab
 
 ### Fade effect
 
-To make tabs panel fade in, add `.fade` to each `.tab-pane`. The first tab pane must also have `.show` to make the initial content visible.
+To make tabs panel fade in, add `.fade` to each `.tab-pane`. The first tab pane must also have `.show` to make the
+initial content visible.
 
 {% highlight html %}
 <div class="tab-content">
@@ -315,7 +332,8 @@ To make tabs panel fade in, add `.fade` to each `.tab-pane`. The first tab pane 
 
 #### $().tab
 
-Activates a list item element and content container. Tab should have either a `data-target` or an `href` targeting a container node in the DOM.
+Activates a list item element and content container. Tab should have either a `data-target` or an `href` targeting a
+container node in the DOM.
 
 {% highlight html %}
 <div class="list-group" id="myList" role="tablist">
@@ -341,7 +359,9 @@ Activates a list item element and content container. Tab should have either a `d
 
 #### .tab('show')
 
-Selects the given list item and shows its associated pane. Any other list item that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (for example, before the `shown.bs.tab` event occurs).
+Selects the given list item and shows its associated pane. Any other list item that was previously selected becomes
+unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (for
+example, before the `shown.bs.tab` event occurs).
 
 {% highlight js %}
 $('#someListItem').tab('show')
@@ -387,7 +407,7 @@ If no tab was already active, the `hide.bs.tab` and `hidden.bs.tab` events will 
 
 {% highlight js %}
 $('a[data-toggle="list"]').on('shown.bs.tab', function (e) {
-  e.target // newly activated tab
-  e.relatedTarget // previous active tab
+e.target // newly activated tab
+e.relatedTarget // previous active tab
 })
 {% endhighlight %}

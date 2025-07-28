@@ -39,19 +39,19 @@ function concatenateFiles(destinationPath, callback) {
 if (args[0] === 'test') {
     console.log('testing distribution ...');
     var tmpobj = tmp.fileSync();
-    concatenateFiles(tmpobj.name, function(err, result) {
-            var origBuild = fs.readFileSync(distDir + '/' + distFile, 'utf8');
-            var newBuild = fs.readFileSync(tmpobj.name, 'utf8');
+    concatenateFiles(tmpobj.name, function (err, result) {
+        var origBuild = fs.readFileSync(distDir + '/' + distFile, 'utf8');
+        var newBuild = fs.readFileSync(tmpobj.name, 'utf8');
 
-            if (newBuild !== origBuild) {
-                console.log('The distribution file dist/es5/jquery.flot.js is not up to date. Type "npm run build" to fix it !');
-                process.exitCode = 1;
-                return;
-            }
+        if (newBuild !== origBuild) {
+            console.log('The distribution file dist/es5/jquery.flot.js is not up to date. Type "npm run build" to fix it !');
+            process.exitCode = 1;
+            return;
+        }
 
-            console.log('Ok');
-        });
-    }  else {
-        console.log('building ', distDir + '/' + distFile);
-        concatenateFiles(distDir + '/' + distFile);
-    }
+        console.log('Ok');
+    });
+} else {
+    console.log('building ', distDir + '/' + distFile);
+    concatenateFiles(distDir + '/' + distFile);
+}

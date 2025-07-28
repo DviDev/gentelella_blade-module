@@ -9,6 +9,7 @@ plot.pan( offset ) so you easily can add custom controls. It also fires
 "plotpan" and "plotzoom" events, useful for synchronizing plots.
 
 The plugin supports these options:
+
 ```js
     zoom: {
         interactive: false,
@@ -48,6 +49,7 @@ The plugin supports these options:
         plotPan: true //pan axis is allowed for plot pan
     }
 ```
+
 **interactive** enables the built-in drag/click behaviour. If you enable
 interactive for pan, then you'll have a basic plot that supports moving
 around; the same for zoom and recenter.
@@ -85,6 +87,7 @@ The accepted values is the sams as **mode** option. Default: 'manual'
 (e.g. 'touchstart') that is already handled for pan or pinch. Default: false.
 
 Example API usage:
+
 ```js
     plot = $.plot(...);
 

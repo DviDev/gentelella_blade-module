@@ -51,7 +51,8 @@ e = {
 Emitted from:
 
 * toggle() **Note**: Only fired when using `useCurrent`
-* show() **Note**: Only fired when using `useCurrent` or when or the date is changed to comply with date rules (min/max etc)
+* show() **Note**: Only fired when using `useCurrent` or when or the date is changed to comply with date rules (min/max
+  etc)
 * date(newDate)
 * minDate(minDate)
 * maxDate(maxDate)

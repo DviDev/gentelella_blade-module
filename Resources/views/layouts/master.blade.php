@@ -22,6 +22,7 @@
 </head>
 
 <body>
+    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     @yield('content')
 
     {{-- Vite JS --}}

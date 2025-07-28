@@ -8,10 +8,10 @@ describe("flot navigate plugin", function () {
         placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
             .find('#test-container');
         options = {
-            xaxes: [{ autoScale: 'exact' }],
-            yaxes: [{ autoScale: 'exact' }],
-            zoom: { interactive: true, active: true, amount: 10 },
-            pan: { interactive: true, active: true, frameRate: -1 }
+            xaxes: [{autoScale: 'exact'}],
+            yaxes: [{autoScale: 'exact'}],
+            zoom: {interactive: true, active: true, amount: 10},
+            pan: {interactive: true, active: true, frameRate: -1}
         };
     });
 
@@ -54,10 +54,10 @@ describe("flot navigate plugin", function () {
         it('works with autoScale', function () {
             var xaxis, yaxis,
                 opts = {
-                    xaxes: [{ autoScale: 'sliding-window' , min: 0, max: 100}],
-                    yaxes: [{ autoScale: 'loose' }],
-                    zoom: { interactive: true, amount: 10 },
-                    pan: { interactive: true, frameRate: -1 }
+                    xaxes: [{autoScale: 'sliding-window', min: 0, max: 100}],
+                    yaxes: [{autoScale: 'loose'}],
+                    zoom: {interactive: true, amount: 10},
+                    pan: {interactive: true, frameRate: -1}
                 };
 
             plot = $.plot(placeholder, [
@@ -74,7 +74,7 @@ describe("flot navigate plugin", function () {
                 amount: 4,
                 center: {
                     left: 0,
-                    top: plot.height()/2
+                    top: plot.height() / 2
                 }
             });
 
@@ -86,8 +86,8 @@ describe("flot navigate plugin", function () {
             plot.zoom({
                 amount: -2,
                 center: {
-                    left: plot.width()/2,
-                    top: plot.height()/2
+                    left: plot.width() / 2,
+                    top: plot.height() / 2
                 }
             });
 
@@ -177,12 +177,12 @@ describe("flot navigate plugin", function () {
 
         });
 
-        it ('doesn\'t got to Infinity and beyond', function () {
+        it('doesn\'t got to Infinity and beyond', function () {
             var xaxis, yaxis;
 
             plot = $.plot(placeholder, [
                 [
-                    [-1, -10e200 ],
+                    [-1, -10e200],
                     [1, 10e200]
                 ]
             ], options);
@@ -222,7 +222,7 @@ describe("flot navigate plugin", function () {
 
             ticks = xaxis.ticks;
             middle = Math.floor(ticks.length / 2);
-            expect(ticks[middle- 1].v).toBe(3.6);
+            expect(ticks[middle - 1].v).toBe(3.6);
             expect(ticks[middle].v).toBe(3.8);
             expect(ticks[middle + 1].v).toBe(4);
 
@@ -235,10 +235,10 @@ describe("flot navigate plugin", function () {
                     [10, 10]
                 ]
             ], {
-                xaxes: [{ autoScale: 'exact' }],
-                yaxes: [{ autoScale: 'exact' }],
-                zoom: { interactive: true, active: false, amount: 10 },
-                pan: { interactive: true, active: false, frameRate: -1 }
+                xaxes: [{autoScale: 'exact'}],
+                yaxes: [{autoScale: 'exact'}],
+                zoom: {interactive: true, active: false, amount: 10},
+                pan: {interactive: true, active: false, frameRate: -1}
             });
 
             var eventHolder = plot.getEventHolder(),
@@ -246,7 +246,7 @@ describe("flot navigate plugin", function () {
                 yaxis = plot.getYAxes()[0],
                 initialCoords = [
                     {x: 3, y: 5},
-                    {x:7, y:9}
+                    {x: 7, y: 9}
                 ],
                 finalCoords = [
                     {x: 2, y: 4},
@@ -269,8 +269,8 @@ describe("flot navigate plugin", function () {
         });
 
 
-        describe('with large numbers', function() {
-            it ('limits the navigation offsets', function () {
+        describe('with large numbers', function () {
+            it('limits the navigation offsets', function () {
                 var yaxis;
 
                 plot = $.plot(placeholder, [
@@ -371,12 +371,12 @@ describe("flot navigate plugin", function () {
 
         });
 
-        it ('doesn\'t got to Infinity and beyond', function () {
+        it('doesn\'t got to Infinity and beyond', function () {
             var xaxis, yaxis;
 
             plot = $.plot(placeholder, [
                 [
-                    [-1, -10e200 ],
+                    [-1, -10e200],
                     [1, 10e200]
                 ]
             ], options);
@@ -392,7 +392,7 @@ describe("flot navigate plugin", function () {
 
         });
 
-        it ('can be disabled per axis for zoom on plot', function () {
+        it('can be disabled per axis for zoom on plot', function () {
             var xaxis, yaxis;
 
             plot = $.plot(placeholder, [
@@ -417,7 +417,7 @@ describe("flot navigate plugin", function () {
             expect(yaxis.max).toBeCloseTo(7.5, 7);
         });
 
-        it ('can be disabled per axis for zoom on axis', function () {
+        it('can be disabled per axis for zoom on axis', function () {
             var xaxis, yaxis;
 
             plot = $.plot(placeholder, [
@@ -580,7 +580,7 @@ describe("flot navigate plugin", function () {
             expect(yaxis.max).toBe(10);
         });
 
-        it ('can be disabled per axis for panning the etire plot', function () {
+        it('can be disabled per axis for panning the etire plot', function () {
             var xaxis, yaxis;
 
             plot = $.plot(placeholder, [
@@ -606,7 +606,7 @@ describe("flot navigate plugin", function () {
             expect(yaxis.max).toBe(0);
         });
 
-        it ('can be disabled per axis for pan on that axis', function () {
+        it('can be disabled per axis for pan on that axis', function () {
             var xaxis, yaxis;
 
             plot = $.plot(placeholder, [
@@ -641,10 +641,10 @@ describe("flot navigate plugin", function () {
                     [10, 10]
                 ]
             ], {
-                xaxes: [{ autoScale: 'exact', mode : 'log'}],
-                yaxes: [{ autoScale: 'exact' }],
-                zoom: { interactive: true, active: true, amount: 10 },
-                pan: { interactive: true, active: true, frameRate: -1 }
+                xaxes: [{autoScale: 'exact', mode: 'log'}],
+                yaxes: [{autoScale: 'exact'}],
+                zoom: {interactive: true, active: true, amount: 10},
+                pan: {interactive: true, active: true, frameRate: -1}
             });
 
             xaxis = plot.getXAxes()[0];
@@ -664,8 +664,8 @@ describe("flot navigate plugin", function () {
             expect(yaxis.max).toBe(10);
         });
 
-        describe('with large numbers', function() {
-            it ('limits the navigation offsets', function () {
+        describe('with large numbers', function () {
+            it('limits the navigation offsets', function () {
                 var yaxis;
 
                 plot = $.plot(placeholder, [
@@ -690,8 +690,8 @@ describe("flot navigate plugin", function () {
         })
     });
 
-    describe('mousePan', function() {
-        it ('pans on xaxis only', function () {
+    describe('mousePan', function () {
+        it('pans on xaxis only', function () {
             plot = $.plot(placeholder, [
                 [
                     [0, 0],
@@ -705,8 +705,8 @@ describe("flot navigate plugin", function () {
                 initialXmax = xaxis.max,
                 eventHolder = plot.getEventHolder(),
                 pointCoords = [
-                    { x: xaxis.p2c(4), y: xaxis.box.top + plot.offset().top + 10 },
-                    { x: xaxis.p2c(5), y: xaxis.box.top + plot.offset().top + 15 }
+                    {x: xaxis.p2c(4), y: xaxis.box.top + plot.offset().top + 10},
+                    {x: xaxis.p2c(5), y: xaxis.box.top + plot.offset().top + 15}
                 ];
 
             simulate.mouseDown(eventHolder, pointCoords[0].x, pointCoords[0].y);
@@ -721,7 +721,7 @@ describe("flot navigate plugin", function () {
 
         });
 
-        it ('pans on yaxis only', function () {
+        it('pans on yaxis only', function () {
             plot = $.plot(placeholder, [
                 [
                     [0, 0],
@@ -735,8 +735,8 @@ describe("flot navigate plugin", function () {
                 initialYmax = yaxis.max,
                 eventHolder = plot.getEventHolder(),
                 pointCoords = [
-                        { x: xaxis.box.left - 10, y: yaxis.p2c(4) },
-                        { x: yaxis.p2c(3), y: yaxis.p2c(8) }
+                    {x: xaxis.box.left - 10, y: yaxis.p2c(4)},
+                    {x: yaxis.p2c(3), y: yaxis.p2c(8)}
                 ];
 
             simulate.mouseDown(eventHolder, pointCoords[0].x, pointCoords[0].y);
@@ -752,50 +752,50 @@ describe("flot navigate plugin", function () {
         });
     });
 
-    describe('click', function(){
-        it('on plot activates plot\'s zoom and pan active propriety', function() {
+    describe('click', function () {
+        it('on plot activates plot\'s zoom and pan active propriety', function () {
             plot = $.plot(placeholder, [
                 [
                     [0, 0],
                     [10, 10]
                 ]
-              ], {
-                  zoom: { interactive: true, active: false, amount: 10 },
-                  pan: { interactive: true, active: false}
-              });
+            ], {
+                zoom: {interactive: true, active: false, amount: 10},
+                pan: {interactive: true, active: false}
+            });
 
-              var eventHolder = plot.getEventHolder(),
-                  pointCoords = { x: 0, y: plot.height() };
+            var eventHolder = plot.getEventHolder(),
+                pointCoords = {x: 0, y: plot.height()};
 
-              simulate.click(eventHolder, pointCoords.x, pointCoords.y);
+            simulate.click(eventHolder, pointCoords.x, pointCoords.y);
 
-              expect(plot.getOptions().pan.active).toBe(true);
-              expect(plot.getOptions().zoom.active).toBe(true);
+            expect(plot.getOptions().pan.active).toBe(true);
+            expect(plot.getOptions().zoom.active).toBe(true);
         });
     });
 
-    describe('mouse dblclick', function(){
-        it('on plot activates plot\'s zoom and pan active propriety', function() {
+    describe('mouse dblclick', function () {
+        it('on plot activates plot\'s zoom and pan active propriety', function () {
             plot = $.plot(placeholder, [
                 [
                     [0, 0],
                     [10, 10]
                 ]
-              ], {
-                  zoom: { interactive: true, active: false, amount: 10 },
-                  pan: { interactive: true, active: false}
-              });
+            ], {
+                zoom: {interactive: true, active: false, amount: 10},
+                pan: {interactive: true, active: false}
+            });
 
-              var eventHolder = plot.getEventHolder(),
-                  pointCoords = { x: 0, y: plot.height() };
+            var eventHolder = plot.getEventHolder(),
+                pointCoords = {x: 0, y: plot.height()};
 
-              simulate.dblclick(eventHolder, pointCoords.x, pointCoords.y);
+            simulate.dblclick(eventHolder, pointCoords.x, pointCoords.y);
 
-              expect(plot.getOptions().pan.active).toBe(true);
-              expect(plot.getOptions().zoom.active).toBe(true);
+            expect(plot.getOptions().pan.active).toBe(true);
+            expect(plot.getOptions().zoom.active).toBe(true);
         });
 
-        it('sends touched axis for double click on axis', function(){
+        it('sends touched axis for double click on axis', function () {
             plot = $.plot(placeholder, [
                 [
                     [-1, 2],
@@ -805,7 +805,7 @@ describe("flot navigate plugin", function () {
 
             var eventHolder = plot.getEventHolder(),
                 xaxis = plot.getXAxes()[0],
-                coords = { x: xaxis.p2c(4), y: xaxis.box.top + 10 };
+                coords = {x: xaxis.p2c(4), y: xaxis.box.top + 10};
 
             var spyRecenter = jasmine.createSpy('spy');
             $(plot.getPlaceholder()).on('re-center', spyRecenter);

@@ -8,27 +8,45 @@ toc: true
 
 ## Overview
 
-Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They're made interactive with the included Bootstrap dropdown JavaScript plugin. They're toggled by clicking, not by hovering; this is [an intentional design decision](http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/).
+Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They're made interactive with the
+included Bootstrap dropdown JavaScript plugin. They're toggled by clicking, not by hovering; this
+is [an intentional design decision](http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/).
 
-Dropdowns are built on a third party library, [Popper.js](https://popper.js.org/), which provides dynamic positioning and viewport detection. Be sure to include [popper.min.js]({{ site.cdn.popper }}) before Bootstrap's JavaScript or use `bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper.js. Popper.js isn't used to position dropdowns in navbars though as dynamic positioning isn't required.
+Dropdowns are built on a third party library, [Popper.js](https://popper.js.org/), which provides dynamic positioning
+and viewport detection. Be sure to include [popper.min.js]({{ site.cdn.popper }}) before Bootstrap's JavaScript or use
+`bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper.js. Popper.js isn't used to position dropdowns
+in navbars though as dynamic positioning isn't required.
 
-If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#util).
+If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version
+}}/getting-started/javascript/#util).
 
 ## Accessibility
 
-The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>](https://www.w3.org/TR/wai-aria/) standard defines an actual [`role="menu"` widget](https://www.w3.org/WAI/PF/aria/roles#menu), but this is specific to application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and sub-menus.
+The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>](https://www.w3.org/TR/wai-aria/)
+standard defines an actual [`role="menu"` widget](https://www.w3.org/WAI/PF/aria/roles#menu), but this is specific to
+application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">
+ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and
+sub-menus.
 
-Bootstrap's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures. For instance, it is possible to create dropdowns that contain additional inputs and form controls, such as search fields or login forms. For this reason, Bootstrap does not expect (nor automatically add) any of the `role` and `aria-` attributes required for true <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus. Authors will have to include these more specific attributes themselves.
+Bootstrap's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and
+markup structures. For instance, it is possible to create dropdowns that contain additional inputs and form controls,
+such as search fields or login forms. For this reason, Bootstrap does not expect (nor automatically add) any of the
+`role` and `aria-` attributes required for true <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus.
+Authors will have to include these more specific attributes themselves.
 
-However, Bootstrap does add built-in support for most standard keyboard menu interactions, such as the ability to move through individual `.dropdown-item` elements using the cursor keys and close the menu with the <kbd>ESC</kbd> key.
+However, Bootstrap does add built-in support for most standard keyboard menu interactions, such as the ability to move
+through individual `.dropdown-item` elements using the cursor keys and close the menu with the <kbd>ESC</kbd> key.
 
 ## Examples
 
-Wrap the dropdown's toggle (your button or link) and the dropdown menu within `.dropdown`, or another element that declares `position: relative;`. Dropdowns can be triggered from `<a>` or `<button>` elements to better fit your potential needs.
+Wrap the dropdown's toggle (your button or link) and the dropdown menu within `.dropdown`, or another element that
+declares `position: relative;`. Dropdowns can be triggered from `<a>` or `<button>` elements to better fit your
+potential needs.
 
 ### Single button
 
-Any single `.btn` can be turned into a dropdown toggle with some markup changes. Here's how you can put them to work with either `<button>` elements:
+Any single `.btn` can be turned into a dropdown toggle with some markup changes. Here's how you can put them to work
+with either `<button>` elements:
 
 {% capture example %}
 <div class="dropdown">
@@ -144,9 +162,12 @@ The best part is you can do this with any button variant, too:
 
 ### Split button
 
-Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of `.dropdown-toggle-split` for proper spacing around the dropdown caret.
+Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the
+addition of `.dropdown-toggle-split` for proper spacing around the dropdown caret.
 
-We use this extra class to reduce the horizontal `padding` on either side of the caret by 25% and remove the `margin-left` that's added for regular button dropdowns. Those extra changes keep the caret centered in the split button and provide a more appropriately sized hit area next to the main button.
+We use this extra class to reduce the horizontal `padding` on either side of the caret by 25% and remove the
+`margin-left` that's added for regular button dropdowns. Those extra changes keep the caret centered in the split button
+and provide a more appropriately sized hit area next to the main button.
 
 <div class="bd-example">
   <div class="btn-group">
@@ -539,7 +560,8 @@ Trigger dropdown menus at the left of the elements by adding `.dropleft` to the 
 
 ## Menu items
 
-Historically dropdown menu contents *had* to be links, but that's no longer the case with v4. Now you can optionally use `<button>` elements in your dropdowns instead of just `<a>`s.
+Historically dropdown menu contents *had* to be links, but that's no longer the case with v4. Now you can optionally use
+`<button>` elements in your dropdowns instead of just `<a>`s.
 
 {% capture example %}
 <div class="dropdown">
@@ -555,7 +577,8 @@ Historically dropdown menu contents *had* to be links, but that's no longer the 
 {% endcapture %}
 {% include example.html content=example %}
 
-You can also create non-interactive dropdown items with `.dropdown-item-text`. Feel free to style further with custom CSS or text utilities.
+You can also create non-interactive dropdown items with `.dropdown-item-text`. Feel free to style further with custom
+CSS or text utilities.
 
 {% capture example %}
 <div class="dropdown-menu">
@@ -595,7 +618,8 @@ Add `.disabled` to items in the dropdown to **style them as disabled**.
 
 ## Menu alignment
 
-By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add `.dropdown-menu-right` to a `.dropdown-menu` to right align the dropdown menu.
+By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add
+`.dropdown-menu-right` to a `.dropdown-menu` to right align the dropdown menu.
 
 {% capture callout %}
 **Heads up!** Dropdowns are positioned thanks to Popper.js (except when they are contained in a navbar).
@@ -618,7 +642,8 @@ By default, a dropdown menu is automatically positioned 100% from the top and al
 
 ### Responsive alignment
 
-If you want to use responsive alignment, disable dynamic positioning by adding the `data-display="static"` attribute and use the responsive variation classes.
+If you want to use responsive alignment, disable dynamic positioning by adding the `data-display="static"` attribute and
+use the responsive variation classes.
 
 To align **right** the dropdown menu with the given breakpoint or larger, add `.dropdown-menu{-sm|-md|-lg|-xl}-right`.
 
@@ -636,7 +661,8 @@ To align **right** the dropdown menu with the given breakpoint or larger, add `.
 {% endcapture %}
 {% include example.html content=example %}
 
-To align **left** the dropdown menu with the given breakpoint or larger, add `.dropdown-menu-right` and `.dropdown-menu{-sm|-md|-lg|-xl}-left`.
+To align **left** the dropdown menu with the given breakpoint or larger, add `.dropdown-menu-right` and
+`.dropdown-menu{-sm|-md|-lg|-xl}-left`.
 
 {% capture example %}
 <div class="btn-group">
@@ -652,7 +678,8 @@ To align **left** the dropdown menu with the given breakpoint or larger, add `.d
 {% endcapture %}
 {% include example.html content=example %}
 
-Note that you don't need to add a `data-display="static"` attribute to dropdown buttons in navbars, since Popper.js isn't used in navbars.
+Note that you don't need to add a `data-display="static"` attribute to dropdown buttons in navbars, since Popper.js
+isn't used in navbars.
 
 ## Menu content
 
@@ -686,7 +713,9 @@ Separate groups of related menu items with a divider.
 
 ### Text
 
-Place any freeform text within a dropdown menu with text and use [spacing utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/spacing/). Note that you'll likely need additional sizing styles to constrain the menu width.
+Place any freeform text within a dropdown menu with text and use [spacing utilities]({{ site.baseurl }}/docs/{{
+site.docs_version }}/utilities/spacing/). Note that you'll likely need additional sizing styles to constrain the menu
+width.
 
 {% capture example %}
 <div class="dropdown-menu p-4 text-muted" style="max-width: 200px;">
@@ -702,7 +731,8 @@ Place any freeform text within a dropdown menu with text and use [spacing utilit
 
 ### Forms
 
-Put a form within a dropdown menu, or make it into a dropdown menu, and use [margin or padding utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/spacing/) to give it the negative space you require.
+Put a form within a dropdown menu, or make it into a dropdown menu, and use [margin or padding utilities]({{
+site.baseurl }}/docs/{{ site.docs_version }}/utilities/spacing/) to give it the negative space you require.
 
 {% capture example %}
 <div class="dropdown-menu">
@@ -790,10 +820,16 @@ Use `data-offset` or `data-reference` to change the location of the dropdown.
 
 ## Usage
 
-Via data attributes or JavaScript, the dropdown plugin toggles hidden content (dropdown menus) by toggling the `.show` class on the parent list item. The `data-toggle="dropdown"` attribute is relied on for closing dropdown menus at an application level, so it's a good idea to always use it.
+Via data attributes or JavaScript, the dropdown plugin toggles hidden content (dropdown menus) by toggling the `.show`
+class on the parent list item. The `data-toggle="dropdown"` attribute is relied on for closing dropdown menus at an
+application level, so it's a good idea to always use it.
 
 {% capture callout %}
-On touch-enabled devices, opening a dropdown adds empty (`$.noop`) `mouseover` handlers to the immediate children of the `<body>` element. This admittedly ugly hack is necessary to work around a [quirk in iOS' event delegation](https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html), which would otherwise prevent a tap anywhere outside of the dropdown from triggering the code that closes the dropdown. Once the dropdown is closed, these additional empty `mouseover` handlers are removed.
+On touch-enabled devices, opening a dropdown adds empty (`$.noop`) `mouseover` handlers to the immediate children of the
+`<body>` element. This admittedly ugly hack is necessary to work around
+a [quirk in iOS' event delegation](https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html), which would
+otherwise prevent a tap anywhere outside of the dropdown from triggering the code that closes the dropdown. Once the
+dropdown is closed, these additional empty `mouseover` handlers are removed.
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 
@@ -821,15 +857,18 @@ $('.dropdown-toggle').dropdown()
 {% endhighlight %}
 
 {% capture callout %}
+
 ##### `data-toggle="dropdown"` still required
 
-Regardless of whether you call your dropdown via JavaScript or instead use the data-api, `data-toggle="dropdown"` is always required to be present on the dropdown's trigger element.
+Regardless of whether you call your dropdown via JavaScript or instead use the data-api, `data-toggle="dropdown"` is
+always required to be present on the dropdown's trigger element.
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 
 ### Options
 
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-offset=""`.
+Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in
+`data-offset=""`.
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -878,32 +917,35 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
   </tbody>
 </table>
 
-Note when `boundary` is set to any value other than `'scrollParent'`, the style `position: static` is applied to the `.dropdown` container.
+Note when `boundary` is set to any value other than `'scrollParent'`, the style `position: static` is applied to the
+`.dropdown` container.
 
 ### Methods
 
-| Method | Description |
-| --- | --- |
-| `$().dropdown('toggle')` | Toggles the dropdown menu of a given navbar or tabbed navigation. |
-| `$().dropdown('show')` | Shows the dropdown menu of a given navbar or tabbed navigation. |
-| `$().dropdown('hide')` | Hides the dropdown menu of a given navbar or tabbed navigation. |
-| `$().dropdown('update')` | Updates the position of an element's dropdown. |
-| `$().dropdown('dispose')` | Destroys an element's dropdown. |
+| Method                    | Description                                                       |
+|---------------------------|-------------------------------------------------------------------|
+| `$().dropdown('toggle')`  | Toggles the dropdown menu of a given navbar or tabbed navigation. |
+| `$().dropdown('show')`    | Shows the dropdown menu of a given navbar or tabbed navigation.   |
+| `$().dropdown('hide')`    | Hides the dropdown menu of a given navbar or tabbed navigation.   |
+| `$().dropdown('update')`  | Updates the position of an element's dropdown.                    |
+| `$().dropdown('dispose')` | Destroys an element's dropdown.                                   |
 
 ### Events
 
-All dropdown events are fired at the `.dropdown-menu`'s parent element and have a `relatedTarget` property, whose value is the toggling anchor element.
-`hide.bs.dropdown` and `hidden.bs.dropdown` events have a `clickEvent` property (only when the original event type is `click`) that contains an Event Object for the click event.
+All dropdown events are fired at the `.dropdown-menu`'s parent element and have a `relatedTarget` property, whose value
+is the toggling anchor element.
+`hide.bs.dropdown` and `hidden.bs.dropdown` events have a `clickEvent` property (only when the original event type is
+`click`) that contains an Event Object for the click event.
 
-| Event | Description |
-| --- | --- |
-| `show.bs.dropdown` | This event fires immediately when the show instance method is called. |
-| `shown.bs.dropdown` | This event is fired when the dropdown has been made visible to the user (will wait for CSS transitions, to complete). |
-| `hide.bs.dropdown` | This event is fired immediately when the hide instance method has been called. |
-| `hidden.bs.dropdown`| This event is fired when the dropdown has finished being hidden from the user (will wait for CSS transitions, to complete). |
+| Event                | Description                                                                                                                 |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `show.bs.dropdown`   | This event fires immediately when the show instance method is called.                                                       |
+| `shown.bs.dropdown`  | This event is fired when the dropdown has been made visible to the user (will wait for CSS transitions, to complete).       |
+| `hide.bs.dropdown`   | This event is fired immediately when the hide instance method has been called.                                              |
+| `hidden.bs.dropdown` | This event is fired when the dropdown has finished being hidden from the user (will wait for CSS transitions, to complete). |
 
 {% highlight js %}
 $('#myDropdown').on('show.bs.dropdown', function () {
-  // do something...
+// do something...
 })
 {% endhighlight %}

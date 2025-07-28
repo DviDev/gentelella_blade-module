@@ -10,15 +10,21 @@ toc: true
 
 Things to know when using the popover plugin:
 
-- Popovers rely on the 3rd party library [Popper.js](https://popper.js.org/) for positioning. You must include [popper.min.js]({{ site.cdn.popper }}) before bootstrap.js or use `bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper.js in order for popovers to work!
-- Popovers require the [tooltip plugin]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/tooltips/) as a dependency.
-- If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#util).
+- Popovers rely on the 3rd party library [Popper.js](https://popper.js.org/) for positioning. You must
+  include [popper.min.js]({{ site.cdn.popper }}) before bootstrap.js or use `bootstrap.bundle.min.js` /
+  `bootstrap.bundle.js` which contains Popper.js in order for popovers to work!
+- Popovers require the [tooltip plugin]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/tooltips/) as a
+  dependency.
+- If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version
+  }}/getting-started/javascript/#util).
 - Popovers are opt-in for performance reasons, so **you must initialize them yourself**.
 - Zero-length `title` and `content` values will never show a popover.
-- Specify `container: 'body'` to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+- Specify `container: 'body'` to avoid rendering problems in more complex components (like our input groups, button
+  groups, etc).
 - Triggering popovers on hidden elements will not work.
 - Popovers for `.disabled` or `disabled` elements must be triggered on a wrapper element.
-- When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use `.text-nowrap` on your `<a>`s to avoid this behavior.
+- When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall
+  width. Use `.text-nowrap` on your `<a>`s to avoid this behavior.
 - Popovers must be hidden before their corresponding elements have been removed from the DOM.
 - Popovers can be triggered thanks to an element inside a shadow DOM.
 
@@ -32,26 +38,28 @@ One way to initialize all popovers on a page would be to select them by their `d
 
 {% highlight js %}
 $(function () {
-  $('[data-toggle="popover"]').popover()
+$('[data-toggle="popover"]').popover()
 })
 {% endhighlight %}
 
 ## Example: Using the `container` option
 
-When you have some styles on a parent element that interfere with a popover, you'll want to specify a custom `container` so that the popover's HTML appears within that element instead.
+When you have some styles on a parent element that interfere with a popover, you'll want to specify a custom `container`
+so that the popover's HTML appears within that element instead.
 
 {% highlight js %}
 $(function () {
-  $('.example-popover').popover({
-    container: 'body'
-  })
+$('.example-popover').popover({
+container: 'body'
+})
 })
 {% endhighlight %}
 
 ## Example
 
 {% capture example %}
-<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">
+Click to toggle popover</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -78,16 +86,17 @@ Four options are available: top, right, bottom, and left aligned.
 
 {% highlight html %}
 <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-  Popover on top
+Popover on top
 </button>
 
 <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
   Popover on right
 </button>
 
-<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom"
+data-content="Vivamus
 sagittis lacus vel augue laoreet rutrum faucibus.">
-  Popover on bottom
+Popover on bottom
 </button>
 
 <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
@@ -100,32 +109,38 @@ sagittis lacus vel augue laoreet rutrum faucibus.">
 Use the `focus` trigger to dismiss popovers on the user's next click of a different element than the toggle element.
 
 {% capture callout %}
+
 #### Specific markup required for dismiss-on-next-click
 
-For proper cross-browser and cross-platform behavior, you must use the `<a>` tag, _not_ the `<button>` tag, and you also must include a [`tabindex`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) attribute.
+For proper cross-browser and cross-platform behavior, you must use the `<a>` tag, _not_ the `<button>` tag, and you also
+must include a [`tabindex`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) attribute.
 {% endcapture %}
 {% include callout.html content=callout type="danger" %}
 
 {% capture example %}
-<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">
+Dismissible popover</a>
 {% endcapture %}
 {% include example.html content=example %}
 
 {% highlight js %}
 $('.popover-dismiss').popover({
-  trigger: 'focus'
+trigger: 'focus'
 })
 {% endhighlight %}
 
 ### Disabled elements
 
-Elements with the `disabled` attribute aren't interactive, meaning users cannot hover or click them to trigger a popover (or tooltip). As a workaround, you'll want to trigger the popover from a wrapper `<div>` or `<span>` and override the `pointer-events` on the disabled element.
+Elements with the `disabled` attribute aren't interactive, meaning users cannot hover or click them to trigger a
+popover (or tooltip). As a workaround, you'll want to trigger the popover from a wrapper `<div>` or `<span>` and
+override the `pointer-events` on the disabled element.
 
-For disabled popover triggers, you may also prefer `data-trigger="hover"` so that the popover appears as immediate visual feedback to your users as they may not expect to _click_ on a disabled element.
+For disabled popover triggers, you may also prefer `data-trigger="hover"` so that the popover appears as immediate
+visual feedback to your users as they may not expect to _click_ on a disabled element.
 
 {% capture example %}
 <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">
-  <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
+<button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
 </span>
 {% endcapture %}
 {% include example.html content=example %}
@@ -138,10 +153,12 @@ Enable popovers via JavaScript:
 
 ### Options
 
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-animation=""`.
+Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in
+`data-animation=""`.
 
 {% capture callout %}
-Note that for security reasons the `sanitize`, `sanitizeFn` and `whiteList` options cannot be supplied using data attributes.
+Note that for security reasons the `sanitize`, `sanitizeFn` and `whiteList` options cannot be supplied using data
+attributes.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 
@@ -277,6 +294,7 @@ Note that for security reasons the `sanitize`, `sanitizeFn` and `whiteList` opti
 </table>
 
 {% capture callout %}
+
 #### Data attributes for individual popovers
 
 Options for individual popovers can alternatively be specified through the use of data attributes, as explained above.
@@ -293,25 +311,31 @@ Initializes popovers for an element collection.
 
 #### `.popover('show')`
 
-Reveals an element's popover. **Returns to the caller before the popover has actually been shown** (i.e. before the `shown.bs.popover` event occurs). This is considered a "manual" triggering of the popover. Popovers whose both title and content are zero-length are never displayed.
+Reveals an element's popover. **Returns to the caller before the popover has actually been shown** (i.e. before the
+`shown.bs.popover` event occurs). This is considered a "manual" triggering of the popover. Popovers whose both title and
+content are zero-length are never displayed.
 
 {% highlight js %}$('#element').popover('show'){% endhighlight %}
 
 #### `.popover('hide')`
 
-Hides an element's popover. **Returns to the caller before the popover has actually been hidden** (i.e. before the `hidden.bs.popover` event occurs). This is considered a "manual" triggering of the popover.
+Hides an element's popover. **Returns to the caller before the popover has actually been hidden** (i.e. before the
+`hidden.bs.popover` event occurs). This is considered a "manual" triggering of the popover.
 
 {% highlight js %}$('#element').popover('hide'){% endhighlight %}
 
 #### `.popover('toggle')`
 
-Toggles an element's popover. **Returns to the caller before the popover has actually been shown or hidden** (i.e. before the `shown.bs.popover` or `hidden.bs.popover` event occurs). This is considered a "manual" triggering of the popover.
+Toggles an element's popover. **Returns to the caller before the popover has actually been shown or hidden** (i.e.
+before the `shown.bs.popover` or `hidden.bs.popover` event occurs). This is considered a "manual" triggering of the
+popover.
 
 {% highlight js %}$('#element').popover('toggle'){% endhighlight %}
 
 #### `.popover('dispose')`
 
-Hides and destroys an element's popover. Popovers that use delegation (which are created using [the `selector` option](#options)) cannot be individually destroyed on descendant trigger elements.
+Hides and destroys an element's popover. Popovers that use delegation (which are created using [the
+`selector` option](#options)) cannot be individually destroyed on descendant trigger elements.
 
 {% highlight js %}$('#element').popover('dispose'){% endhighlight %}
 
@@ -374,6 +398,6 @@ Updates the position of an element's popover.
 
 {% highlight js %}
 $('#myPopover').on('hidden.bs.popover', function () {
-  // do something...
+// do something...
 })
 {% endhighlight %}

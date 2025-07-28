@@ -1,16 +1,16 @@
-describe('flot', function() {
-    describe('setRange', function() {
+describe('flot', function () {
+    describe('setRange', function () {
         var placeholder, plot;
 
         var options = {
             series: {
                 shadowSize: 0, // don't draw shadows
-                lines: { show: false },
-                points: { show: true, fill: false, symbol: 'circle' }
+                lines: {show: false},
+                points: {show: true, fill: false, symbol: 'circle'}
             }
         };
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
@@ -253,18 +253,18 @@ describe('flot', function() {
         });
     });
 
-    describe('computeRangeForDataSeries', function() {
+    describe('computeRangeForDataSeries', function () {
         var placeholder, plot;
 
         var options = {
             series: {
                 shadowSize: 0, // don't draw shadows
-                lines: { show: false },
-                points: { show: true, fill: false, symbol: 'circle' }
+                lines: {show: false},
+                points: {show: true, fill: false, symbol: 'circle'}
             }
         };
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
@@ -334,21 +334,21 @@ describe('flot', function() {
         });
     });
 
-    describe('adjustSeriesDataRange', function() {
+    describe('adjustSeriesDataRange', function () {
         var placeholder, plot;
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
             plot = $.plot(placeholder, [[]], {});
         });
 
         it('should set the minimum to zero if needed when {lines|bars}.show=true and {lines|bars}.zero=true', function () {
-            [true, false].forEach(function(show) {
+            [true, false].forEach(function (show) {
                 var series = {
-                        lines: { show: show, zero: show },
-                        bars: { show: !show, zero: !show, barWidth: 0.8 },
-                        datapoints: { pointsize: 1 }
+                        lines: {show: show, zero: show},
+                        bars: {show: !show, zero: !show, barWidth: 0.8},
+                        datapoints: {pointsize: 1}
                     },
                     limits = {xmin: 10, ymin: 11, xmax: 12, ymax: 13};
 
@@ -360,11 +360,11 @@ describe('flot', function() {
         });
 
         it('should set the maximum to zero if needed when {lines|bars}.show=true and {lines|bars}.zero=true', function () {
-            [true, false].forEach(function(show) {
+            [true, false].forEach(function (show) {
                 var series = {
-                        lines: { show: show, zero: show },
-                        bars: { show: !show, zero: !show, barWidth: 0.8 },
-                        datapoints: { pointsize: 1 }
+                        lines: {show: show, zero: show},
+                        bars: {show: !show, zero: !show, barWidth: 0.8},
+                        datapoints: {pointsize: 1}
                     },
                     limits = {xmin: 10, ymin: -11, xmax: 12, ymax: -9};
 
@@ -376,11 +376,11 @@ describe('flot', function() {
         });
 
         it('should not change the limits of the y when {lines|bars}.show=true, {lines|bars}.zero=true, but datapoints.pointsize>2', function () {
-            [true, false].forEach(function(show) {
+            [true, false].forEach(function (show) {
                 var series = {
-                        lines: { show: show, zero: show },
-                        bars: { show: !show, zero: !show, barWidth: 0.8 },
-                        datapoints: { pointsize: 3 }
+                        lines: {show: show, zero: show},
+                        bars: {show: !show, zero: !show, barWidth: 0.8},
+                        datapoints: {pointsize: 3}
                     },
                     limits = {xmin: 10, ymin: -11, xmax: 12, ymax: -9};
 
@@ -393,8 +393,8 @@ describe('flot', function() {
 
         it('should change the limits of x to fit the width of the bars', function () {
             var series = {
-                    lines: { show: false },
-                    bars: { show: true, align: 'center', barWidth: 6 }
+                    lines: {show: false},
+                    bars: {show: true, align: 'center', barWidth: 6}
                 },
                 limits = {xmin: 10, ymin: 11, xmax: 12, ymax: 13};
 
@@ -406,8 +406,8 @@ describe('flot', function() {
 
         it('should change the limits of x to reserve only the needed space given by width of the bars', function () {
             var series = {
-                    lines: { show: false },
-                    bars: { show: true, align: 'center', barWidth: 6 },
+                    lines: {show: false},
+                    bars: {show: true, align: 'center', barWidth: 6},
                     datapoints: {points: [0.1, 1, 0.2, 10], pointsize: 2}
                 },
                 limits = {xmin: 10, ymin: 11, xmax: 12, ymax: 13};
@@ -419,17 +419,17 @@ describe('flot', function() {
         });
     });
 
-    describe('findNearbyItem', function() {
+    describe('findNearbyItem', function () {
         var placeholder, plot, sampledata = [[0, 1], [1, 1.1], [2, 1.2]];
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
 
-        it('should be able to find the nearest point to the given coordinates', function() {
+        it('should be able to find the nearest point to the given coordinates', function () {
             plot = $.plot(placeholder, [sampledata], {});
-            var item = plot.findNearbyItem(0, 0, function() {
+            var item = plot.findNearbyItem(0, 0, function () {
                 return true;
             }, Number.MAX_VALUE);
             expect(item.datapoint[0]).toEqual(sampledata[0][0]);
@@ -437,51 +437,51 @@ describe('flot', function() {
             expect(item.dataIndex).toEqual(0);
         });
 
-        it('should be able to search in a certain radius', function() {
+        it('should be able to search in a certain radius', function () {
             plot = $.plot(placeholder, [sampledata], {});
-            var item = plot.findNearbyItem(0, 0, function() {
+            var item = plot.findNearbyItem(0, 0, function () {
                 return true;
             }, 1);
             expect(item).toEqual(null);
 
-            item = plot.findNearbyItem(0, 0, function() {
+            item = plot.findNearbyItem(0, 0, function () {
                 return true;
             }, 1000);
             expect(item).not.toEqual(null);
         });
 
-        it('should work for bars', function() {
+        it('should work for bars', function () {
             plot = $.plot(placeholder, [sampledata], {
                 bars: {show: true}
             });
 
-            item = plot.findNearbyItem(0, 0, function() {
+            item = plot.findNearbyItem(0, 0, function () {
                 return true;
             }, 1000);
             expect(item).not.toEqual(null);
         });
     });
 
-    describe('findNearbyInterpolationPoint', function() {
+    describe('findNearbyInterpolationPoint', function () {
         var placeholder, plot, sampledata = [[0, 1], [1, 1.1], [2, 1.2]];
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
 
-        it('should be able to find the nearest point to the given coordinates', function() {
+        it('should be able to find the nearest point to the given coordinates', function () {
             plot = $.plot(placeholder, [sampledata], {});
-            var item = plot.findNearbyInterpolationPoint(0, 0, function() {
+            var item = plot.findNearbyInterpolationPoint(0, 0, function () {
                 return true;
             });
             expect(item.datapoint[0]).toEqual(sampledata[0][0]);
             expect(item.datapoint[1]).toEqual(sampledata[0][1]);
         });
 
-        it('should interpolate the intersections properly with linear scales', function() {
+        it('should interpolate the intersections properly with linear scales', function () {
             plot = $.plot(placeholder, [sampledata], {});
-            var item = plot.findNearbyInterpolationPoint(0.5, 0, function() {
+            var item = plot.findNearbyInterpolationPoint(0.5, 0, function () {
                 return true;
             });
             var expectedY = sampledata[0][1] + (sampledata[1][1] - sampledata[0][1]) / 2;
@@ -490,9 +490,9 @@ describe('flot', function() {
             expect(item.datapoint[1]).toEqual(expectedY);
         });
 
-        it('should return the interpolation with the closest point for multiple series', function() {
+        it('should return the interpolation with the closest point for multiple series', function () {
             plot = $.plot(placeholder, [[[-10, 0], [10, 1], [100, 2]], [[5, 0], [20, 1], [21, 2]], [[0, 0], [2, 1], [4, 2]]], {});
-            var item = plot.findNearbyInterpolationPoint(1, 1, function() {
+            var item = plot.findNearbyInterpolationPoint(1, 1, function () {
                 return true;
             });
             var expectedY = 0 + (1 - 0) / 2;
@@ -505,7 +505,7 @@ describe('flot', function() {
             const reversedData = [[4, 1.4], [3, 1.3], [2, 1.2], [1, 1.1], [0, 1.0], [-1, 0.9]];
 
             plot = $.plot(placeholder, [reversedData], {});
-            var point1 = plot.findNearbyInterpolationPoint(0.5, 0, function() {
+            var point1 = plot.findNearbyInterpolationPoint(0.5, 0, function () {
                 return true;
             });
 
@@ -527,18 +527,18 @@ describe('flot', function() {
             expect(point3.datapoint[1]).toEqual(0.95);
         });
 
-        it('should return null for empty dataseries', function() {
+        it('should return null for empty dataseries', function () {
             plot = $.plot(placeholder, [], {});
-            var item = plot.findNearbyInterpolationPoint(0.5, 0, function() {
+            var item = plot.findNearbyInterpolationPoint(0.5, 0, function () {
                 return true;
             });
 
             expect(item).toEqual(null);
         });
 
-        it('for a dataserie with a single point should return null', function() {
+        it('for a dataserie with a single point should return null', function () {
             plot = $.plot(placeholder, [[[1, 2]]], {});
-            var item = plot.findNearbyInterpolationPoint(0, 0, function() {
+            var item = plot.findNearbyInterpolationPoint(0, 0, function () {
                 return true;
             });
 
@@ -547,7 +547,7 @@ describe('flot', function() {
 
         it('should return null if below the data bounds', function () {
             plot = $.plot(placeholder, [[[-10, 0], [10, 1], [100, 2]]], {});
-            var item = plot.findNearbyInterpolationPoint(-20, 1, function() {
+            var item = plot.findNearbyInterpolationPoint(-20, 1, function () {
                 return true;
             });
 
@@ -556,7 +556,7 @@ describe('flot', function() {
 
         it('should return null if above the data bounds', function () {
             plot = $.plot(placeholder, [[[-10, 0], [10, 1], [100, 2]]], {});
-            var item = plot.findNearbyInterpolationPoint(120, 1, function() {
+            var item = plot.findNearbyInterpolationPoint(120, 1, function () {
                 return true;
             });
 
@@ -564,32 +564,32 @@ describe('flot', function() {
         });
     });
 
-    describe('setupTickFormatter', function() {
+    describe('setupTickFormatter', function () {
         var placeholder, plot, sampledata = [[0, 1], [1, 1.1], [2, 1.2]];
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
 
         it('should set a default tick formatter to each default axis', function () {
-            plot = $.plot(placeholder, [sampledata], { });
+            plot = $.plot(placeholder, [sampledata], {});
 
-            plot.getXAxes().concat(plot.getYAxes()).forEach(function(axis) {
+            plot.getXAxes().concat(plot.getYAxes()).forEach(function (axis) {
                 expect(typeof axis.tickFormatter).toBe('function');
             });
         });
 
         it('should set a default tick formatter to each specified axis', function () {
             plot = $.plot(placeholder, [sampledata], {
-                xaxis: { autoScale: 'exact' },
+                xaxis: {autoScale: 'exact'},
                 yaxes: [
-                    { autoScale: 'exact' },
-                    { autoScale: 'none', min: -1, max: 1 }
+                    {autoScale: 'exact'},
+                    {autoScale: 'none', min: -1, max: 1}
                 ]
             });
 
-            plot.getXAxes().concat(plot.getYAxes()).forEach(function(axis) {
+            plot.getXAxes().concat(plot.getYAxes()).forEach(function (axis) {
                 expect(typeof axis.tickFormatter).toBe('function');
             });
         });
@@ -601,21 +601,21 @@ describe('flot', function() {
                 jasmine.createSpy('formatter')
             ];
             plot = $.plot(placeholder, [sampledata], {
-                xaxis: { autoScale: 'exact', tickFormatter: formatters[0] },
+                xaxis: {autoScale: 'exact', tickFormatter: formatters[0]},
                 yaxes: [
-                    { autoScale: 'exact', tickFormatter: formatters[1] },
-                    { autoScale: 'none', min: -1, max: 1, tickFormatter: formatters[2], show: true }
+                    {autoScale: 'exact', tickFormatter: formatters[1]},
+                    {autoScale: 'none', min: -1, max: 1, tickFormatter: formatters[2], show: true}
                 ]
             });
 
-            formatters.forEach(function(formatter) {
+            formatters.forEach(function (formatter) {
                 expect(formatter).toHaveBeenCalled();
             });
         });
 
         it('should leave the formatter set to the axis unchanged when updating the plot', function () {
             var formatter = jasmine.createSpy('formatter');
-            plot = $.plot(placeholder, [sampledata], { });
+            plot = $.plot(placeholder, [sampledata], {});
 
             // the absolute/relative time plugin is setting the tickFormatter
             //directly to the axes just like here:
@@ -629,12 +629,12 @@ describe('flot', function() {
         });
     });
 
-    describe('computeTickSize', function() {
+    describe('computeTickSize', function () {
         var placeholder;
         var plot;
         var sampledata = [[0, 1], [1, 1.1], [2, 1.2]];
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
@@ -664,7 +664,7 @@ describe('flot', function() {
             });
         });
 
-        it('should depend on tickDecimals when specified', function() {
+        it('should depend on tickDecimals when specified', function () {
             plot = $.plot(placeholder, [sampledata], {});
 
             var testVector = [
@@ -680,7 +680,7 @@ describe('flot', function() {
                 [0, 1000, 4, 2, 250]
             ];
 
-            testVector.forEach(function(t) {
+            testVector.forEach(function (t) {
                 var min = t[0],
                     max = t[1],
                     ticks = t[2],
@@ -694,10 +694,10 @@ describe('flot', function() {
         });
     });
 
-    describe('defaultTickGenerator', function() {
+    describe('defaultTickGenerator', function () {
         var placeholder;
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
@@ -711,10 +711,10 @@ describe('flot', function() {
         });
     });
 
-    describe('drawAxisLabels', function() {
+    describe('drawAxisLabels', function () {
         var placeholder, sampledata = [[1.1e18, 0.1], [1.2e18, 5.1], [1.3e18, 10.1]];
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
@@ -758,7 +758,7 @@ describe('flot', function() {
             expect(tickLabels.length).toBeGreaterThan(2);
         });
 
-        ['major', 'endpoints', 'all'].forEach(function(showTickLabels) {
+        ['major', 'endpoints', 'all'].forEach(function (showTickLabels) {
             it('should not overlap the tick labels when the values are large and showTickLabels = ' + showTickLabels, function () {
                 $.plot(placeholder, [sampledata], {
                     xaxis: {
@@ -768,8 +768,8 @@ describe('flot', function() {
                 });
 
                 var tickLabelBoxes = xTickLabelBoxes(placeholder),
-                    overlaps = tickLabelBoxes.some(function(b1) {
-                        return tickLabelBoxes.some(function(b2) {
+                    overlaps = tickLabelBoxes.some(function (b1) {
+                        return tickLabelBoxes.some(function (b2) {
                             return b1 !== b2 && overlapping(b1, b2);
                         });
                     });
@@ -780,7 +780,7 @@ describe('flot', function() {
 
         function xTickLabels(placeholder) {
             var labels$ = placeholder.find('.flot-x-axis').find('.flot-tick-label'),
-                labels = labels$.map(function(i, label) {
+                labels = labels$.map(function (i, label) {
                     return label.textContent;
                 }).get();
             return labels;
@@ -788,22 +788,25 @@ describe('flot', function() {
 
         function xTickLabelBoxes(placeholder) {
             var labels$ = placeholder.find('.flot-x-axis').find('.flot-tick-label'),
-                boxes = labels$.map(function(i, label) {
+                boxes = labels$.map(function (i, label) {
                     var label$ = $(label),
                         pos = label$.position();
                     return {
-                        x1: pos.left, y1: pos.top, x2: label$.outerWidth() + pos.left, y2: label$.outerHeight() + pos.top
+                        x1: pos.left,
+                        y1: pos.top,
+                        x2: label$.outerWidth() + pos.left,
+                        y2: label$.outerHeight() + pos.top
                     };
                 }).get();
             return boxes;
         }
 
-        overlapping = function(b1, b2) {
+        overlapping = function (b1, b2) {
             return (b1.x1 <= b2.x1 && b2.x1 <= b1.x2) || (b2.x1 <= b1.x1 && b1.x1 <= b2.x2);
         }
 
-        describe('for bars', function() {
-            it('should not show x axis endpoints for bars with showTickLabels = all', function() {
+        describe('for bars', function () {
+            it('should not show x axis endpoints for bars with showTickLabels = all', function () {
                 var plot = $.plot(placeholder, [[[-3, 1], [30, 15], [20, 7], [5, 2]]], {
                     xaxis: {
                         autoScale: 'exact',
@@ -833,21 +836,22 @@ describe('flot', function() {
                 expect(yaxis.max).toEqual(ticks[ticks.length - 1].v);
             });
 
-            it('should show endpoints for multiple series type where showTickLabels = all', function() {
+            it('should show endpoints for multiple series type where showTickLabels = all', function () {
                 var plot = $.plot(placeholder, [{
                     data: [[-3, 2], [20, 15], [4, 5]],
-                    lines: { show: true, fill: true }
+                    lines: {show: true, fill: true}
                 }, {
                     data: [[-3, 1], [30, 15], [20, 7], [5, 2]],
-                    bars: { show: true }
+                    bars: {show: true}
                 }, {
                     data: [[-1, 1], [30, 10], [20, 7], [6, 3]],
-                    points: { show: true }
+                    points: {show: true}
                 }], {
                     xaxis: {
                         autoScale: 'exact',
                         showTickLabels: 'all'
-                    }});
+                    }
+                });
 
                 var xaxis = plot.getXAxes()[0],
                     ticks = xaxis.ticks;
@@ -860,7 +864,7 @@ describe('flot', function() {
     describe('decimation', function () {
         var placeholder;
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
@@ -900,7 +904,7 @@ describe('flot', function() {
         var placeholder;
         var data = [[[1, 2], [3, 4]]];
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
@@ -944,16 +948,16 @@ describe('flot', function() {
         });
     });
 
-    describe('draw axis', function() {
+    describe('draw axis', function () {
         var placeholder;
 
-        beforeEach(function() {
+        beforeEach(function () {
             placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
                 .find('#test-container');
         });
 
-        ['left', 'right'].forEach(function(axisPosition) {
-            it('should draw ' + axisPosition + ' y axis next to plot', function() {
+        ['left', 'right'].forEach(function (axisPosition) {
+            it('should draw ' + axisPosition + ' y axis next to plot', function () {
                 var testVector = [
                     [200000000000, 4000000000000],
                     [200000000000000, 400000000000000],
@@ -973,7 +977,8 @@ describe('flot', function() {
                         },
                         yaxis: {
                             position: axisPosition
-                        }});
+                        }
+                    });
 
                     var yaxis = plot.getYAxes()[0];
 
@@ -986,8 +991,8 @@ describe('flot', function() {
             });
         });
 
-        ['top', 'bottom'].forEach(function(axisPosition) {
-            it('should draw ' + axisPosition + ' x axis next to plot', function() {
+        ['top', 'bottom'].forEach(function (axisPosition) {
+            it('should draw ' + axisPosition + ' x axis next to plot', function () {
                 var testVector = [20, 28, 36, 44, 52, 60, 68, 76, 84];
 
                 testVector.forEach(function (fontSize) {
@@ -999,7 +1004,8 @@ describe('flot', function() {
                             font: {
                                 size: fontSize
                             }
-                        }});
+                        }
+                    });
 
                     var xaxis = plot.getXAxes()[0];
 
@@ -1012,7 +1018,7 @@ describe('flot', function() {
             });
         });
 
-        it('should draw y axis next to plot for multiple axis on the same side', function() {
+        it('should draw y axis next to plot for multiple axis on the same side', function () {
             var testVector = [
                 [200000000000, 4000000000000],
                 [200000000000000, 400000000000000],
@@ -1042,7 +1048,8 @@ describe('flot', function() {
                     }, {
                         position: 'left',
                         show: true
-                    }]});
+                    }]
+                });
 
                 var yaxis = plot.getYAxes()[0];
 
@@ -1051,17 +1058,17 @@ describe('flot', function() {
         });
     });
 
-    describe('Grid margin', function() {
+    describe('Grid margin', function () {
         var placeholder, placeholder2, fixtures;
 
-        beforeEach(function() {
+        beforeEach(function () {
             fixtures = setFixtures('<div id="test-container" style="width: 600px;height: 400px"/>' +
                 '<div id="test-container2" style="width: 600px;height: 400px"/>');
             placeholder = fixtures.find('#test-container');
             placeholder2 = fixtures.find('#test-container2');
         });
 
-        it('should change plot dimensions', function() {
+        it('should change plot dimensions', function () {
             var testVector = [
                 [-20, 0, 0, 0],
                 [20, 0, 0, 0],
@@ -1082,19 +1089,22 @@ describe('flot', function() {
             testVector.forEach(function (testValue) {
                 var plot1 = $.plot(placeholder, [[]], {}),
                     plot2 = $.plot(placeholder2, [[]], {
-                        grid: { margin: {
-                            left: testValue[0],
-                            right: testValue[1],
-                            top: testValue[2],
-                            bottom: testValue[3]
-                        }}});
+                        grid: {
+                            margin: {
+                                left: testValue[0],
+                                right: testValue[1],
+                                top: testValue[2],
+                                bottom: testValue[3]
+                            }
+                        }
+                    });
 
                 expect(plot2.width()).toBe(plot1.width() - testValue[0] - testValue[1]);
                 expect(plot2.height()).toBe(plot1.height() - testValue[2] - testValue[3]);
             });
         });
 
-        it('should move the axis according to grid margin', function() {
+        it('should move the axis according to grid margin', function () {
             var testVector = [
                 [-20, 0, 0, 0],
                 [20, 0, 0, 0],
@@ -1144,12 +1154,15 @@ describe('flot', function() {
                             position: 'right',
                             show: true
                         }],
-                        grid: { margin: {
-                            left: testValue[0],
-                            right: testValue[1],
-                            top: testValue[2],
-                            bottom: testValue[3]
-                        }}});
+                        grid: {
+                            margin: {
+                                left: testValue[0],
+                                right: testValue[1],
+                                top: testValue[2],
+                                bottom: testValue[3]
+                            }
+                        }
+                    });
 
                 var yaxis1 = plot1.getYAxes()[0],
                     yaxis2 = plot2.getYAxes()[0];
@@ -1169,10 +1182,10 @@ describe('flot', function() {
             });
         });
 
-        it('should work for margin: number', function() {
+        it('should work for margin: number', function () {
             var plot1 = $.plot(placeholder, [[]], {}),
                 plot2 = $.plot(placeholder2, [[]], {
-                    grid: { margin: 20 }
+                    grid: {margin: 20}
                 });
 
             expect(plot2.width()).toBe(plot1.width() - 20 - 20);

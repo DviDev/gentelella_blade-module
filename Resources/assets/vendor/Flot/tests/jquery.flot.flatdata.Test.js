@@ -1,23 +1,25 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe("flatdata plugin", function() {
+describe("flatdata plugin", function () {
     var placeholder, plot;
     var options = {
         series: {
             shadowSize: 0, // don't draw shadows
-            lines: { show: false},
-            points: { show: true, fill: false, symbol: 'circle' }
+            lines: {show: false},
+            points: {show: true, fill: false, symbol: 'circle'}
         }
     };
 
-    beforeEach(function() {
+    beforeEach(function () {
         placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
             .find('#test-container');
     });
 
     it('registers an init hook', function () {
-        var flatdata = $.plot.plugins.find(function(plugin) { return plugin.name === 'flatdata'; });
+        var flatdata = $.plot.plugins.find(function (plugin) {
+            return plugin.name === 'flatdata';
+        });
         expect(flatdata).toBeTruthy();
         expect(flatdata.init).toBeTruthy();
     });

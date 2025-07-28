@@ -8,7 +8,8 @@ toc: true
 
 ## Basic example
 
-Place one add-on or button on either side of an input. You may also place one on both sides of an input. Remember to place `<label>`s outside the input group.
+Place one add-on or button on either side of an input. You may also place one on both sides of an input. Remember to
+place `<label>`s outside the input group.
 
 {% capture example %}
 <div class="input-group mb-3">
@@ -54,7 +55,8 @@ Place one add-on or button on either side of an input. You may also place one on
 
 ## Wrapping
 
-Input groups wrap by default via `flex-wrap: wrap` in order to accommodate custom form field validation within an input group. You may disable this with `.flex-nowrap`.
+Input groups wrap by default via `flex-wrap: wrap` in order to accommodate custom form field validation within an input
+group. You may disable this with `.flex-nowrap`.
 
 {% capture example %}
 <div class="input-group flex-nowrap">
@@ -68,7 +70,8 @@ Input groups wrap by default via `flex-wrap: wrap` in order to accommodate custo
 
 ## Sizing
 
-Add the relative form sizing classes to the `.input-group` itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+Add the relative form sizing classes to the `.input-group` itself and contents within will automatically resize—no need
+for repeating the form control size classes on each element.
 
 **Sizing on the individual input group elements isn't supported.**
 
@@ -123,7 +126,8 @@ Place any checkbox or radio option within an input group's addon instead of text
 
 ## Multiple inputs
 
-While multiple `<input>`s are supported visually, validation styles are only available for input groups with a single `<input>`.
+While multiple `<input>`s are supported visually, validation styles are only available for input groups with a single
+`<input>`.
 
 {% capture example %}
 <div class="input-group">
@@ -268,7 +272,8 @@ Multiple add-ons are supported and can be mixed with checkbox and radio input ve
 
 ## Custom forms
 
-Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
+Input groups include support for custom selects and custom file inputs. Browser default versions of these are not
+supported.
 
 ### Custom select
 
@@ -370,6 +375,10 @@ Input groups include support for custom selects and custom file inputs. Browser 
 
 ## Accessibility
 
-Screen readers will have trouble with your forms if you don't include a label for every input. For these input groups, ensure that any additional label or functionality is conveyed to assistive technologies.
+Screen readers will have trouble with your forms if you don't include a label for every input. For these input groups,
+ensure that any additional label or functionality is conveyed to assistive technologies.
 
-The exact technique to be used (`<label>` elements hidden using the `.sr-only` class, or use of the `aria-label` and `aria-labelledby` attributes, possibly in combination with `aria-describedby`) and what additional information will need to be conveyed will vary depending on the exact type of interface widget you're implementing. The examples in this section provide a few suggested, case-specific approaches.
+The exact technique to be used (`<label>` elements hidden using the `.sr-only` class, or use of the `aria-label` and
+`aria-labelledby` attributes, possibly in combination with `aria-describedby`) and what additional information will need
+to be conveyed will vary depending on the exact type of interface widget you're implementing. The examples in this
+section provide a few suggested, case-specific approaches.

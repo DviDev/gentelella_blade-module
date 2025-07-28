@@ -5,7 +5,8 @@ description: Lightweight, flexible component for showcasing hero unit style cont
 group: components
 ---
 
-A lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing messages on your site.
+A lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing messages on
+your site.
 
 {% capture example %}
 <div class="jumbotron">
@@ -18,7 +19,8 @@ A lightweight, flexible component that can optionally extend the entire viewport
 {% endcapture %}
 {% include example.html content=example %}
 
-To make the jumbotron full width, and without rounded corners, add the `.jumbotron-fluid` modifier class and add a `.container` or `.container-fluid` within.
+To make the jumbotron full width, and without rounded corners, add the `.jumbotron-fluid` modifier class and add a
+`.container` or `.container-fluid` within.
 
 {% capture example %}
 <div class="jumbotron jumbotron-fluid">

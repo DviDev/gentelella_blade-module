@@ -1,16 +1,16 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe("flot symbol plugin", function() {
+describe("flot symbol plugin", function () {
     var placeholder, plot;
     var options;
 
-    beforeEach(function() {
+    beforeEach(function () {
         options = {
             series: {
                 shadowSize: 0, // don't draw shadows
-                lines: { show: false},
-                points: { show: true, fill: false, symbol: 'circle' }
+                lines: {show: false},
+                points: {show: true, fill: false, symbol: 'circle'}
             }
         };
 
@@ -18,12 +18,12 @@ describe("flot symbol plugin", function() {
             .find('#test-container');
     });
 
-    it ('provides a list of draw symbols functions', function () {
+    it('provides a list of draw symbols functions', function () {
         plot = $.plot(placeholder, [[]], options);
         expect(typeof plot.drawSymbol).toBe('object');
     })
 
-    var shapes = ['square', 'rectangle', 'diamond', 'triangle',  'cross', 'ellipse', 'plus'];
+    var shapes = ['square', 'rectangle', 'diamond', 'triangle', 'cross', 'ellipse', 'plus'];
     shapes.forEach(function (shape) {
         it('should provide a way to draw ' + shape + ' shapes', function () {
             plot = $.plot(placeholder, [[]], options);
@@ -33,7 +33,7 @@ describe("flot symbol plugin", function() {
     })
 
     shapes.forEach(function (shape) {
-        it ('' + shape + ' method should be called when the point shape is ' + shape, function () {
+        it('' + shape + ' method should be called when the point shape is ' + shape, function () {
             options.series.points.symbol = shape;
             plot = $.plot(placeholder, [[]], options);
             spyOn(plot.drawSymbol, shape).and.callThrough();

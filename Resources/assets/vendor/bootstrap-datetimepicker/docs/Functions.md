@@ -21,7 +21,8 @@ Shows or hides the widget
 
 * `dp.show` - if the widget is show after the toggle call
 
-* `dp.change` - if the widget is opened for the first time and the input element is empty and `options.useCurrent != false`
+* `dp.change` - if the widget is opened for the first time and the input element is empty and
+  `options.useCurrent != false`
 
 ----------------------
 
@@ -33,7 +34,8 @@ Shows the widget
 
 * `dp.show` - if the widget was hidden before that call
 
-* `dp.change` - if the widget is opened for the first time and the useCurrent is set to true or to a granularity value and the input element the component is attached to has an empty value
+* `dp.change` - if the widget is opened for the first time and the useCurrent is set to true or to a granularity value
+  and the input element the component is attached to has an empty value
 
 ----------------------
 
@@ -49,7 +51,8 @@ Hides the widget
 
 ### disable()
 
-Disables the input element, the component is attached to, by adding a `disabled="true"` attribute to it. If the widget was visible before that call it is hidden.
+Disables the input element, the component is attached to, by adding a `disabled="true"` attribute to it. If the widget
+was visible before that call it is hidden.
 
 #### Emits
 

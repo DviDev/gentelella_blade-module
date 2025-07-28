@@ -1,15 +1,15 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe('drawSeries', function() {
+describe('drawSeries', function () {
 
-    describe('drawSeriesLines', function() {
+    describe('drawSeriesLines', function () {
         var minx = 0, maxx = 200, miny = 0, maxy = 100,
             series, ctx, plotWidth, plotHeight, plotOffset,
             drawSeriesLines = jQuery.plot.drawSeries.drawSeriesLines,
             getColorOrGradient;
 
-        beforeEach(function() {
+        beforeEach(function () {
             series = {
                 lines: {
                     lineWidth: 1
@@ -22,12 +22,16 @@ describe('drawSeries', function() {
                 xaxis: {
                     min: minx,
                     max: maxx,
-                    p2c: function(p) { return p; }
+                    p2c: function (p) {
+                        return p;
+                    }
                 },
                 yaxis: {
                     min: miny,
                     max: maxy,
-                    p2c: function(p) { return p; }
+                    p2c: function (p) {
+                        return p;
+                    }
                 }
             };
             ctx = setFixtures('<div id="test-container" style="width: 200px;height: 100px;border-style: solid;border-width: 1px"><canvas id="theCanvas" style="width: 100%; height: 100%" /></div>')
@@ -35,7 +39,7 @@ describe('drawSeries', function() {
                 .getContext('2d');
             plotWidth = 200;
             plotHeight = 100;
-            plotOffset = { top: 0, left: 0 };
+            plotOffset = {top: 0, left: 0};
             getColorOrGradient = jasmine.createSpy().and.returnValue('rgb(10,200,10)');
         });
 
@@ -63,7 +67,7 @@ describe('drawSeries', function() {
 
         it('should decimate when a decimate function is provided', function () {
             series.datapoints.points = [-1, -1, 0, 0, 1, 1, 2, 2, 3, 3];
-            series.decimate = function() {
+            series.decimate = function () {
                 return [0, 0, 1, 1];
             };
 
@@ -143,7 +147,7 @@ describe('drawSeries', function() {
         });
 
         function validatePointsAreInsideTheAxisRanges(points) {
-            points.forEach(function(point) {
+            points.forEach(function (point) {
                 var x = point[0], y = point[1];
                 expect(minx <= x && x <= maxx).toBe(true);
                 expect(miny <= y && y <= maxy).toBe(true);
@@ -152,13 +156,13 @@ describe('drawSeries', function() {
 
     });
 
-    describe('drawSeriesPoints', function() {
+    describe('drawSeriesPoints', function () {
         var minx = 0, maxx = 200, miny = 0, maxy = 100,
             series, ctx, plotWidth, plotHeight, plotOffset,
             drawSeriesPoints = jQuery.plot.drawSeries.drawSeriesPoints,
             dollar, getColorOrGradient;
 
-        beforeEach(function() {
+        beforeEach(function () {
             series = {
                 points: {
                     show: true,
@@ -173,12 +177,16 @@ describe('drawSeries', function() {
                 xaxis: {
                     min: minx,
                     max: maxx,
-                    p2c: function(p) { return p; }
+                    p2c: function (p) {
+                        return p;
+                    }
                 },
                 yaxis: {
                     min: miny,
                     max: maxy,
-                    p2c: function(p) { return p; }
+                    p2c: function (p) {
+                        return p;
+                    }
                 }
             };
             ctx = setFixtures('<div id="test-container" style="width: 200px;height: 100px;border-style: solid;border-width: 1px"><canvas id="theCanvas" style="width: 100%; height: 100%" /></div>')
@@ -186,7 +194,7 @@ describe('drawSeries', function() {
                 .getContext('2d');
             plotWidth = 200;
             plotHeight = 100;
-            plotOffset = { top: 0, left: 0 };
+            plotOffset = {top: 0, left: 0};
             dollar = jasmine.createSpy().and.callFake(function (ctx, x, y, radius, shadow) {
                 ctx.strokeText('$', x, y);
             });
@@ -259,13 +267,13 @@ describe('drawSeries', function() {
         });
     });
 
-    describe('drawSeriesBars', function() {
+    describe('drawSeriesBars', function () {
         var minx = -200, maxx = 200, miny = -100, maxy = 100,
             series, ctx, plotWidth, plotHeight, plotOffset,
             drawSeriesBars = jQuery.plot.drawSeries.drawSeriesBars,
             getColorOrGradient;
 
-        beforeEach(function() {
+        beforeEach(function () {
             series = {
                 bars: {
                     lineWidth: 1,
@@ -282,13 +290,17 @@ describe('drawSeries', function() {
                     min: minx,
                     max: maxx,
                     autoScale: 'exact',
-                    p2c: function(p) { return p; }
+                    p2c: function (p) {
+                        return p;
+                    }
                 },
                 yaxis: {
                     min: miny,
                     max: maxy,
                     autoScale: 'exact',
-                    p2c: function(p) { return p; }
+                    p2c: function (p) {
+                        return p;
+                    }
                 }
             };
             ctx = setFixtures('<div id="test-container" style="width: 200px;height: 100px;border-style: solid;border-width: 1px"><canvas id="theCanvas" style="width: 100%; height: 100%" /></div>')
@@ -296,7 +308,7 @@ describe('drawSeries', function() {
                 .getContext('2d');
             plotWidth = 200;
             plotHeight = 100;
-            plotOffset = { top: 0, left: 0 };
+            plotOffset = {top: 0, left: 0};
         });
 
         function getPixelColor(ctx, x, y) {
@@ -433,16 +445,16 @@ describe('drawSeries', function() {
                         fillColor: 'blue'
                     }
                 },
-                xaxis: { autoScale:'exact' }
+                xaxis: {autoScale: 'exact'}
             });
             var ctx = $(placeholder).find('.flot-base').get(0).getContext('2d')
-                insideColor1 = getPixelColor(ctx, ctx.canvas.width / 2, ctx.canvas.height / 2),
+            insideColor1 = getPixelColor(ctx, ctx.canvas.width / 2, ctx.canvas.height / 2),
                 insideColor2 = getPixelColor(ctx, ctx.canvas.width / 2 + 35, ctx.canvas.height / 2 - 20),
-                insideColor3 =getPixelColor(ctx, ctx.canvas.width / 2 - 10, ctx.canvas.height / 2 + 30);
+                insideColor3 = getPixelColor(ctx, ctx.canvas.width / 2 - 10, ctx.canvas.height / 2 + 30);
 
-            expect(Array.prototype.slice.call(insideColor1)).toEqual(rgba(0,0,255,1));
-            expect(Array.prototype.slice.call(insideColor2)).toEqual(rgba(0,0,255,1));
-            expect(Array.prototype.slice.call(insideColor3)).toEqual(rgba(0,0,255,1));
+            expect(Array.prototype.slice.call(insideColor1)).toEqual(rgba(0, 0, 255, 1));
+            expect(Array.prototype.slice.call(insideColor2)).toEqual(rgba(0, 0, 255, 1));
+            expect(Array.prototype.slice.call(insideColor3)).toEqual(rgba(0, 0, 255, 1));
         });
 
         it('should use a barWidth based on points distance', function () {
@@ -450,13 +462,13 @@ describe('drawSeries', function() {
                 placeholder = $('<div id="placeholder" style="width: 100%;height: 100%">');
             placeholder.appendTo(fixture);
             var testVector = [[[[[0.1, 1], [0.2, 10]]], 0.08],
-                            [[[[1, 1], [2, 10]]], 0.8],
-                            [[[[10, 1], [20, 10]]], 8],
-                            [[[[1000, 1], [2000, 10], [2100, 10]]], 80],
-                            [[[]], 0.8],
-                            [[[[-5, 1], [30, 15], [20, 7], [5, 2]]], 8]],
+                    [[[[1, 1], [2, 10]]], 0.8],
+                    [[[[10, 1], [20, 10]]], 8],
+                    [[[[1000, 1], [2000, 10], [2100, 10]]], 80],
+                    [[[]], 0.8],
+                    [[[[-5, 1], [30, 15], [20, 7], [5, 2]]], 8]],
                 plot;
-            for (var i = 0; i< testVector.length; i++) {
+            for (var i = 0; i < testVector.length; i++) {
                 plot = $.plot(placeholder, testVector[i][0], {
                     series: {
                         bars: {

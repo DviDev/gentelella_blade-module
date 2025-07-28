@@ -4,7 +4,7 @@
 var module;
 
 
-module.exports = function(config) {
+module.exports = function (config) {
     'use strict';
 
     var browsersMatrix = {
@@ -64,7 +64,7 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: sources.concat([
             'node_modules/webcharts-development-settings/testsUtils/*.js',
-            { pattern: 'tests/svgstyle.css', included: true, served: true },
+            {pattern: 'tests/svgstyle.css', included: true, served: true},
             'tests/*.Test.js'
         ]),
 
@@ -125,7 +125,7 @@ module.exports = function(config) {
     };
 
     if (config.coverage) {
-        coverage_sources.forEach(function(pattern) {
+        coverage_sources.forEach(function (pattern) {
             if (!settings.preprocessors[pattern]) {
                 settings.preprocessors[pattern] = ['coverage'];
             } else {

@@ -1,13 +1,18 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe('fillbetween plugin', function() {
+describe('fillbetween plugin', function () {
     var placeholder, plot, options, dataset;
 
-    beforeEach(function() {
+    beforeEach(function () {
         dataset = [
-            { data: [[0, 2], [1, 2], [2, 4]], lines: { show: true }, color: "rgb(255,50,50)", id: "fillToPlot" },
-            { data: [[0, 3], [1, 3], [2, 1]], lines: { show: true, lineWidth: 0, fill: 0.2 }, fillBetween: "fillToPlot", color: "rgb(255,50,50)" }
+            {data: [[0, 2], [1, 2], [2, 4]], lines: {show: true}, color: "rgb(255,50,50)", id: "fillToPlot"},
+            {
+                data: [[0, 3], [1, 3], [2, 1]],
+                lines: {show: true, lineWidth: 0, fill: 0.2},
+                fillBetween: "fillToPlot",
+                color: "rgb(255,50,50)"
+            }
         ];
 
         placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')

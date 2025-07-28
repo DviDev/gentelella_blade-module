@@ -31,14 +31,14 @@ var files = [
     './source/jquery.flot.legend.js'
 ];
 
-gulp.task('build_flot_source', function() {
-    return gulp.src(filesExist(files, { exceptionMessage: 'Missing file' }))
+gulp.task('build_flot_source', function () {
+    return gulp.src(filesExist(files, {exceptionMessage: 'Missing file'}))
         .pipe(concat('jquery.flot.js'))
         .pipe(gulp.dest('dist/source'));
 });
 
-gulp.task('build_flot_minified', function() {
-    return gulp.src(filesExist(files, { exceptionMessage: 'Missing file' }))
+gulp.task('build_flot_minified', function () {
+    return gulp.src(filesExist(files, {exceptionMessage: 'Missing file'}))
         .pipe(maps.init())
         .pipe(babel({
             "presets": [

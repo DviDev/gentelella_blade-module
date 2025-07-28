@@ -1,16 +1,16 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe("flot legend plugin", function() {
+describe("flot legend plugin", function () {
     var placeholder, plot;
     var options, legendContainer, legendSettings
 
-    beforeEach(function() {
+    beforeEach(function () {
         var legendSettings = {
-                position: "nw",
-                show: true,
-                container: null
-            };
+            position: "nw",
+            show: true,
+            container: null
+        };
 
         options = {
             legend: legendSettings,
@@ -25,7 +25,7 @@ describe("flot legend plugin", function() {
 
     var positions = ['nw', 'ne', 'sw', 'se'];
     positions.forEach(function (pos) {
-        it ('shold draw a legend over graph at cardinal position: ' + pos + ', if a container is not provided', function () {
+        it('shold draw a legend over graph at cardinal position: ' + pos + ', if a container is not provided', function () {
             options.legend.position = pos;
             plot = $.plot(placeholder, [[1, 3, 5, 6]], options);
 
@@ -61,7 +61,7 @@ describe("flot legend plugin", function() {
         });
     });
 
-    it('should draw the legend inside the container if one is provided', function(){
+    it('should draw the legend inside the container if one is provided', function () {
         var legendContainer = document.createElement("div");
         document.body.appendChild(legendContainer);
 
@@ -73,7 +73,7 @@ describe("flot legend plugin", function() {
         document.body.removeChild(legendContainer);
     });
 
-    it('should assign a default plot label if none is provided', function(){
+    it('should assign a default plot label if none is provided', function () {
         plot = $.plot(placeholder, [[1, 3, 5, 6]], options);
 
         var legendSvg = document.getElementsByClassName('legendLayer')[0];
@@ -83,19 +83,19 @@ describe("flot legend plugin", function() {
         expect(entryLabel.textContent).toBe('Plot 1');
     });
 
-    it('should display the plot label', function(){
+    it('should display the plot label', function () {
         var label = 'custom label';
         options.series.label = label;
         plot = $.plot(placeholder, [[1, 3, 5, 6]], options);
 
         var legendSvg = document.getElementsByClassName('legendLayer')[0];
         var firstLegendEntry = legendSvg.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'g')[0];
-        var entryLabel =  firstLegendEntry.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'text')[0];
+        var entryLabel = firstLegendEntry.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'text')[0];
 
         expect(entryLabel.textContent).toBe(label);
     });
 
-    it('should take into account the show option', function() {
+    it('should take into account the show option', function () {
         options.legend.show = false;
         plot = $.plot(placeholder, [[1, 3, 5, 6]], options);
 
@@ -104,4 +104,3 @@ describe("flot legend plugin", function() {
         expect(legendSvg).toBe(undefined);
     });
 });
-

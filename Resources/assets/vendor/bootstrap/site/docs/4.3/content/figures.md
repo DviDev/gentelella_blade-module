@@ -7,7 +7,9 @@ group: content
 
 Anytime you need to display a piece of content—like an image with an optional caption, consider using a `<figure>`.
 
-Use the included `.figure` , `.figure-img` and `.figure-caption` classes to provide some baseline styles for the HTML5 `<figure>` and `<figcaption>` elements. Images in figures have no explicit size, so be sure to add the `.img-fluid` class to your `<img>` to make it responsive.
+Use the included `.figure` , `.figure-img` and `.figure-caption` classes to provide some baseline styles for the HTML5
+`<figure>` and `<figcaption>` elements. Images in figures have no explicit size, so be sure to add the `.img-fluid`
+class to your `<img>` to make it responsive.
 
 {% capture example %}
 <figure class="figure">
@@ -17,7 +19,8 @@ Use the included `.figure` , `.figure-img` and `.figure-caption` classes to prov
 {% endcapture %}
 {% include example.html content=example %}
 
-Aligning the figure's caption is easy with our [text utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/text/#text-alignment).
+Aligning the figure's caption is easy with our [text utilities]({{ site.baseurl }}/docs/{{ site.docs_version
+}}/utilities/text/#text-alignment).
 
 {% capture example %}
 <figure class="figure">

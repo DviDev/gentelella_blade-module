@@ -9,6 +9,7 @@
     $id = $id ?: ($label ? Str::slug($label) : rand('1000', '9999'));
 @endphp
 <div class="item form-group">
+    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     @if($label)
         <label class="col-form-label col-md-3 col-sm-3 label-align" for="{{$id}}">
             {{ $label }}

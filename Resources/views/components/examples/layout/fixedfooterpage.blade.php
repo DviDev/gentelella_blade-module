@@ -6,6 +6,7 @@
 <x-gentelella::assets.malihu-custom-scrollbar-plugin/>
 
 <x-gentelella::layout.v1 footer_fixed>
+    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <div class="">
         <div class="page-title">
             <div class="title_left">

@@ -1,10 +1,10 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe('stacking plugin', function() {
+describe('stacking plugin', function () {
     var placeholder, plot, options;
 
-    beforeEach(function() {
+    beforeEach(function () {
         options = {
             series: {
                 stack: true,

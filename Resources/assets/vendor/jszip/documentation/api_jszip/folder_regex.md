@@ -10,9 +10,9 @@ The regex is tested against the relative path.
 
 __Arguments__
 
-name  | type   | description
-------|--------|------------
-regex | RegExp | the regex to use.
+ name  | type   | description       
+-------|--------|-------------------
+ regex | RegExp | the regex to use. 
 
 __Returns__ : An array of matching folders (an empty array if none matched).
 Each maching folder is an instance of [ZipObject]({{site.baseurl}}/documentation/api_zipobject.html).
@@ -37,4 +37,3 @@ zip.folder(/videos/); // array of size 2
 
 zip.folder("home/Jean").folder(/^vid/); // array of 1
 ```
-

@@ -1,5 +1,6 @@
 <!-- top navigation -->
 <div class="top_nav">
+    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <div class="nav_menu">
         <div class="nav toggle">
             <a id="menu_toggle"><i class="fa fa-bars"></i></a>

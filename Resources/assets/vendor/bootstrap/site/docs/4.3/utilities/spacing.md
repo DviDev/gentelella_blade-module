@@ -8,13 +8,18 @@ toc: true
 
 ## How it works
 
-Assign responsive-friendly `margin` or `padding` values to an element or a subset of its sides with shorthand classes. Includes support for individual properties, all properties, and vertical and horizontal properties. Classes are built from a default Sass map ranging from `.25rem` to `3rem`.
+Assign responsive-friendly `margin` or `padding` values to an element or a subset of its sides with shorthand classes.
+Includes support for individual properties, all properties, and vertical and horizontal properties. Classes are built
+from a default Sass map ranging from `.25rem` to `3rem`.
 
 ## Notation
 
-Spacing utilities that apply to all breakpoints, from `xs` to `xl`, have no breakpoint abbreviation in them. This is because those classes are applied from `min-width: 0` and up, and thus are not bound by a media query. The remaining breakpoints, however, do include a breakpoint abbreviation.
+Spacing utilities that apply to all breakpoints, from `xs` to `xl`, have no breakpoint abbreviation in them. This is
+because those classes are applied from `min-width: 0` and up, and thus are not bound by a media query. The remaining
+breakpoints, however, do include a breakpoint abbreviation.
 
-The classes are named using the format `{property}{sides}-{size}` for `xs` and `{property}{sides}-{breakpoint}-{size}` for `sm`, `md`, `lg`, and `xl`.
+The classes are named using the format `{property}{sides}-{size}` for `xs` and `{property}{sides}-{breakpoint}-{size}`
+for `sm`, `md`, `lg`, and `xl`.
 
 Where *property* is one of:
 
@@ -49,26 +54,27 @@ Here are some representative examples of these classes:
 
 {% highlight scss %}
 .mt-0 {
-  margin-top: 0 !important;
+margin-top: 0 !important;
 }
 
 .ml-1 {
-  margin-left: ($spacer * .25) !important;
+margin-left: ($spacer * .25) !important;
 }
 
 .px-2 {
-  padding-left: ($spacer * .5) !important;
-  padding-right: ($spacer * .5) !important;
+padding-left: ($spacer * .5) !important;
+padding-right: ($spacer * .5) !important;
 }
 
 .p-3 {
-  padding: $spacer !important;
+padding: $spacer !important;
 }
 {% endhighlight %}
 
 ### Horizontal centering
 
-Additionally, Bootstrap also includes an `.mx-auto` class for horizontally centering fixed-width block level content—that is, content that has `display: block` and a `width` set—by setting the horizontal margins to `auto`.
+Additionally, Bootstrap also includes an `.mx-auto` class for horizontally centering fixed-width block level
+content—that is, content that has `display: block` and a `width` set—by setting the horizontal margins to `auto`.
 
 <div class="bd-example">
   <div class="mx-auto" style="width: 200px; background-color: rgba(86,61,124,.15);">
@@ -84,17 +90,21 @@ Additionally, Bootstrap also includes an `.mx-auto` class for horizontally cente
 
 ### Negative margin
 
-In CSS, `margin` properties can utilize negative values (`padding` cannot). As of 4.2, we've added negative margin utilities for every non-zero integer size listed above (e.g., `1`, `2`, `3`, `4`, `5`). These utilities are ideal for customizing grid column gutters across breakpoints.
+In CSS, `margin` properties can utilize negative values (`padding` cannot). As of 4.2, we've added negative margin
+utilities for every non-zero integer size listed above (e.g., `1`, `2`, `3`, `4`, `5`). These utilities are ideal for
+customizing grid column gutters across breakpoints.
 
-The syntax is nearly the same as the default, positive margin utilities, but with the addition of `n` before the requested size. Here's an example class that's the opposite of `.mt-1`:
+The syntax is nearly the same as the default, positive margin utilities, but with the addition of `n` before the
+requested size. Here's an example class that's the opposite of `.mt-1`:
 
 {% highlight scss %}
 .mt-n1 {
-  margin-top: -0.25rem !important;
+margin-top: -0.25rem !important;
 }
 {% endhighlight %}
 
-Here's an example of customizing the Bootstrap grid at the medium (`md`) breakpoint and above. We've increased the `.col` padding with `.px-md-5` and then counteracted that with `.mx-md-n5` on the parent `.row`.
+Here's an example of customizing the Bootstrap grid at the medium (`md`) breakpoint and above. We've increased the
+`.col` padding with `.px-md-5` and then counteracted that with `.mx-md-n5` on the parent `.row`.
 
 {% capture example %}
 <div class="row mx-md-n5">

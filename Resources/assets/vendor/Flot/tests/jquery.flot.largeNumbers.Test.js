@@ -1,12 +1,12 @@
-describe('flot with large numbers', function() {
+describe('flot with large numbers', function () {
     var placeholder, plot;
 
-    beforeEach(function() {
+    beforeEach(function () {
         placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
             .find('#test-container');
     });
 
-    describe('on linear axis', function() {
+    describe('on linear axis', function () {
         it('should work with large negative and positive numbers', function () {
             plot = $.plot(placeholder, [[[0, 1e308], [1, -1e308]]], {});
 
@@ -15,7 +15,7 @@ describe('flot with large numbers', function() {
             expect(yaxis.max).toBeGreaterThan(1e308);
             expect(yaxis.min).toBeLessThan(-1e308);
             expect(yaxis.ticks.length).toBeGreaterThan(2);
-            yaxis.ticks.forEach(function(tick) {
+            yaxis.ticks.forEach(function (tick) {
                 expect(isFinite(tick.v)).toBe(true);
             });
         });
@@ -26,7 +26,7 @@ describe('flot with large numbers', function() {
             var yaxis = plot.getAxes().yaxis;
 
             expect(yaxis.ticks.length).toBeGreaterThan(2);
-            yaxis.ticks.forEach(function(tick) {
+            yaxis.ticks.forEach(function (tick) {
                 expect(isFinite(tick.v)).toBe(true);
             });
         });
@@ -43,34 +43,36 @@ describe('flot with large numbers', function() {
             expect(yaxis.max).toBeGreaterThan(1e308);
             expect(yaxis.min).toBeLessThan(-1e308);
             expect(yaxis.ticks.length).toBeGreaterThan(2);
-            yaxis.ticks.forEach(function(tick) {
+            yaxis.ticks.forEach(function (tick) {
                 expect(isFinite(tick.v)).toBe(true);
             });
         });
     });
 
-    describe('on logaritmic axis', function() {
+    describe('on logaritmic axis', function () {
         it('should work with large positive numbers', function () {
             plot = $.plot(placeholder, [[[0, 1.1e308], [1, 0]]], {
-                yaxis: {mode: 'log'}});
+                yaxis: {mode: 'log'}
+            });
 
             var yaxis = plot.getAxes().yaxis;
 
             expect(yaxis.max).toBeGreaterThan(1e308);
             expect(yaxis.ticks.length).toBeGreaterThan(2);
-            yaxis.ticks.forEach(function(tick) {
+            yaxis.ticks.forEach(function (tick) {
                 expect(isFinite(tick.v)).toBe(true);
             });
         });
 
         it('should work with Number.MAX_VALUE', function () {
             plot = $.plot(placeholder, [[[0, Number.MAX_VALUE], [1, 0]]], {
-                yaxis: {mode: 'log'}});
+                yaxis: {mode: 'log'}
+            });
 
             var yaxis = plot.getAxes().yaxis;
 
             expect(yaxis.ticks.length).toBeGreaterThan(2);
-            yaxis.ticks.forEach(function(tick) {
+            yaxis.ticks.forEach(function (tick) {
                 expect(isFinite(tick.v)).toBe(true);
             });
         });
@@ -88,7 +90,7 @@ describe('flot with large numbers', function() {
             expect(yaxis.max).toBeGreaterThan(1e308);
             expect(yaxis.min).toEqual(0.1);
             expect(yaxis.ticks.length).toBeGreaterThan(2);
-            yaxis.ticks.forEach(function(tick) {
+            yaxis.ticks.forEach(function (tick) {
                 expect(isFinite(tick.v)).toBe(true);
             });
         });

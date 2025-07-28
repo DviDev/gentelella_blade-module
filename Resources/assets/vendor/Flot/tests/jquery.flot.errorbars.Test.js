@@ -1,19 +1,19 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe("flot errorbars plugin", function() {
+describe("flot errorbars plugin", function () {
     var minx = 0, maxx = 200, miny = 0, maxy = 100;
     var series, ctx, plotWidth, plotHeight, plotOffset,
-    getColorOrGradient;
+        getColorOrGradient;
     var drawFuncs = {
-        drawArrow: function(ctx, x, y, radius){
+        drawArrow: function (ctx, x, y, radius) {
             ctx.beginPath();
             ctx.moveTo(x + radius, y + radius);
             ctx.lineTo(x, y);
             ctx.lineTo(x - radius, y + radius);
             ctx.stroke();
         },
-        drawSemiCircle: function(ctx, x, y, radius){
+        drawSemiCircle: function (ctx, x, y, radius) {
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI, false);
             ctx.moveTo(x - radius, y);
@@ -23,7 +23,7 @@ describe("flot errorbars plugin", function() {
     };
 
     function validatePointsAreInsideTheAxisRanges(points) {
-        points.forEach(function(point) {
+        points.forEach(function (point) {
             var x = point[0], y = point[1];
             expect(minx <= x && x <= maxx).toBe(true);
             expect(miny <= y && y <= maxy).toBe(true);
@@ -37,14 +37,14 @@ describe("flot errorbars plugin", function() {
         }
     }
 
-    beforeEach(function() {
+    beforeEach(function () {
         ctx = setFixtures('<div id="test-container" style="width: 200px;height: 100px;border-style: solid;border-width: 1px"><canvas id="theCanvas" style="width: 100%; height: 100%" /></div>')
             .find('#theCanvas')[0]
             .getContext('2d');
 
         plotWidth = 200;
         plotHeight = 100;
-        plotOffset = { top: 0, left: 0 };
+        plotOffset = {top: 0, left: 0};
         getColorOrGradient = jasmine.createSpy().and.returnValue('rgb(10,200,10)');
     });
 
@@ -83,12 +83,12 @@ describe("flot errorbars plugin", function() {
         spyOn(ctx, 'moveTo').and.callThrough();
 
         var data1 = [
-            [1,1,.5,.1,.3],
-            [2,2,.3,.5,.2],
-            [3,3,.9,.5,.2],
-            [1.5,-.05,.5,.1,.3],
-            [3.15,1.,.5,.1,.3],
-            [2.5,-1.,.5,.1,.3]
+            [1, 1, .5, .1, .3],
+            [2, 2, .3, .5, .2],
+            [3, 3, .9, .5, .2],
+            [1.5, -.05, .5, .1, .3],
+            [3.15, 1., .5, .1, .3],
+            [2.5, -1., .5, .1, .3]
         ];
 
         var data1_points = {
@@ -136,16 +136,16 @@ describe("flot errorbars plugin", function() {
         spyOn(ctx, 'moveTo').and.callThrough();
 
         var data3 = [
-            [1,2,.4],
-            [2,0.5,.3],
-            [2.7,2,.5]
+            [1, 2, .4],
+            [2, 0.5, .3],
+            [2.7, 2, .5]
         ];
 
         var data3_points = {
             //do not show points
             radius: 0,
             errorbars: "y",
-            yerr: {show:true, upperCap: "-", lowerCap: "-", radius: 5}
+            yerr: {show: true, upperCap: "-", lowerCap: "-", radius: 5}
         };
 
         var data = [
@@ -193,7 +193,7 @@ describe("flot errorbars plugin", function() {
             //do not show points
             radius: 0,
             errorbars: "y",
-            yerr: {show:true, upperCap: "-", lowerCap: "-", radius: 5}
+            yerr: {show: true, upperCap: "-", lowerCap: "-", radius: 5}
         };
 
         var data4_errors = [0.1, 0.4, 0.2];
@@ -240,20 +240,20 @@ describe("flot errorbars plugin", function() {
         spyOn(drawFuncs, 'drawSemiCircle').and.callThrough();
 
         var data2 = [
-            [.7,3,.2,.4],
-            [1.5,2.2,.3,.4],
-            [2.3,1,.5,.2]
+            [.7, 3, .2, .4],
+            [1.5, 2.2, .3, .4],
+            [2.3, 1, .5, .2]
         ];
 
         var data2_points = {
             show: true,
             radius: 5,
             errorbars: "y",
-            yerr: {show:true, asymmetric:true, upperCap: drawFuncs.drawArrow, lowerCap: drawFuncs.drawSemiCircle}
+            yerr: {show: true, asymmetric: true, upperCap: drawFuncs.drawArrow, lowerCap: drawFuncs.drawSemiCircle}
         };
 
         var data = [
-            {color: "red",  points: data2_points, data: data2, label: "data2"},
+            {color: "red", points: data2_points, data: data2, label: "data2"},
         ];
 
         var plot = $.plot($("#test-container"), data, {

@@ -39,7 +39,7 @@ describe("flot navigate plugin interactions", function () {
 
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         eventHolder = plot.getEventHolder();
@@ -85,7 +85,7 @@ describe("flot navigate plugin interactions", function () {
         options.pan.frameRate = 10;
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         eventHolder = plot.getEventHolder();
@@ -122,7 +122,7 @@ describe("flot navigate plugin interactions", function () {
 
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         eventHolder = plot.getEventHolder();
@@ -130,7 +130,7 @@ describe("flot navigate plugin interactions", function () {
         var yaxis = plot.getYAxes()[0];
 
         // drag almost horizontally do not snap
-        var movement = { x: [50, 50 + plot.width()], y: [70, 80] };
+        var movement = {x: [50, 50 + plot.width()], y: [70, 80]};
         simulate.mouseDown(eventHolder, movement.x[0], movement.y[0]);
         simulate.mouseMove(eventHolder, movement.x[0], movement.y[0]);
         simulate.mouseMove(eventHolder, movement.x[1], movement.y[1]);
@@ -146,7 +146,7 @@ describe("flot navigate plugin interactions", function () {
         options.pan.frameRate = 10;
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         eventHolder = plot.getEventHolder();
@@ -154,7 +154,7 @@ describe("flot navigate plugin interactions", function () {
         yaxis = plot.getYAxes()[0];
 
         // drag almost vertically do not snap
-        movement = { x: [50, 60], y: [70, 70 + plot.height()] };
+        movement = {x: [50, 60], y: [70, 70 + plot.height()]};
         simulate.mouseDown(eventHolder, movement.x[0], movement.y[0]);
         simulate.mouseMove(eventHolder, movement.x[0], movement.y[0]);
         jasmine.clock().tick(100);
@@ -179,7 +179,7 @@ describe("flot navigate plugin interactions", function () {
 
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         eventHolder = plot.getEventHolder();
@@ -228,7 +228,7 @@ describe("flot navigate plugin interactions", function () {
 
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         eventHolder = plot.getEventHolder();
@@ -249,12 +249,12 @@ describe("flot navigate plugin interactions", function () {
         expect(xaxis.max).toBe(initialXmax);
         expect(yaxis.min).toBe(initialYmin);
         expect(yaxis.max).toBe(initialYmax);
-        
+
         simulate.mouseDown(eventHolder, 50, 70);
         simulate.mouseMove(eventHolder, 50, 70);
         simulate.mouseMove(eventHolder, 50, 70 + plot.height());
         simulate.mouseUp(eventHolder, 50, 70 + plot.height());
-        
+
         expect(xaxis.min).toBe(initialXmin);
         expect(xaxis.max).toBe(initialXmax);
         expect(yaxis.min).toBe(initialYmin);
@@ -267,7 +267,7 @@ describe("flot navigate plugin interactions", function () {
     it('zooms out on mouse scroll down', function () {
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         var xaxis = plot.getXAxes()[0];
@@ -297,7 +297,7 @@ describe("flot navigate plugin interactions", function () {
     it('zooms in on mouse scroll up', function () {
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         var xaxis = plot.getXAxes()[0];
@@ -327,14 +327,14 @@ describe("flot navigate plugin interactions", function () {
     it('constrains the mouse scroll zoom to the hovered axis ', function () {
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         var xaxis = plot.getXAxes()[0];
         var yaxis = plot.getYAxes()[0];
 
         var clientX = plot.getPlotOffset().left + xaxis.p2c(0);
-        var clientY = xaxis.box.top + xaxis.box.height/2;
+        var clientY = xaxis.box.top + xaxis.box.height / 2;
 
         eventHolder = plot.getEventHolder();
         simulate.mouseWheel(eventHolder, clientX, clientY, 0, -100);
@@ -370,7 +370,7 @@ describe("flot navigate plugin interactions", function () {
     function plotAndScroll(amount) {
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], options);
 
         var xaxis = plot.getXAxes()[0];
@@ -393,25 +393,26 @@ describe("flot navigate plugin interactions", function () {
     it('zooms mode handles event on mouse dblclick', function () {
         plot = $.plot(placeholder, [
             [[0, 0],
-            [10, 10]]
+                [10, 10]]
         ], {
-        xaxes: [{
-            autoScale: 'exact'
-        }],
-        yaxes: [{
-            autoScale: 'exact'
-        }],
-        zoom: {
-            interactive: false,
-            highlighted: true
-        },
-        pan: {
-            interactive: true,
-            highlighted: true
-        },
-        selection: {
-            mode: 'smart',
-        }});
+            xaxes: [{
+                autoScale: 'exact'
+            }],
+            yaxes: [{
+                autoScale: 'exact'
+            }],
+            zoom: {
+                interactive: false,
+                highlighted: true
+            },
+            pan: {
+                interactive: true,
+                highlighted: true
+            },
+            selection: {
+                mode: 'smart',
+            }
+        });
 
         var xaxis = plot.getXAxes()[0];
         var yaxis = plot.getYAxes()[0];
@@ -431,7 +432,7 @@ describe("flot navigate plugin interactions", function () {
         expect(spyRecenter).toHaveBeenCalled();
     });
 
-    it('shows that the eventHolder is cleared through shutdown when the plot is replaced', function() {
+    it('shows that the eventHolder is cleared through shutdown when the plot is replaced', function () {
         plot = $.plot(placeholder, [[]], options);
 
         var eventHolder = plot.getEventHolder(),
@@ -447,8 +448,8 @@ describe("flot navigate plugin interactions", function () {
         plot = $.plot(placeholder, [
             [[0, 0], [10, 10]]
         ], {
-            xaxes: [{ autoScale: 'exact' }],
-            yaxes: [{ autoScale: 'exact' }],
+            xaxes: [{autoScale: 'exact'}],
+            yaxes: [{autoScale: 'exact'}],
         });
 
         var eventHolder = plot.getEventHolder(),
@@ -457,12 +458,12 @@ describe("flot navigate plugin interactions", function () {
             spyRecenter = jasmine.createSpy('spy');
         $(plot.getPlaceholder()).on('re-center', spyRecenter);
 
-        plot.pan({ left: 10, top: 10});
+        plot.pan({left: 10, top: 10});
 
         simulate.dblclick(eventHolder, 200, 150);
 
-        expect(xaxis.options.offset).toEqual({ below: 0, above: 0 });
-        expect(yaxis.options.offset).toEqual({ below: 0, above: 0 });
+        expect(xaxis.options.offset).toEqual({below: 0, above: 0});
+        expect(yaxis.options.offset).toEqual({below: 0, above: 0});
         expect(spyRecenter).toHaveBeenCalled();
     });
 
@@ -470,11 +471,11 @@ describe("flot navigate plugin interactions", function () {
         plot = $.plot(placeholder, [
             [[0, 0], [10, 10]]
         ], {
-            xaxes: [{ autoScale: 'exact' }],
-            yaxes: [{ autoScale: 'exact' }],
-            pan: { interactive: true },
-            zoom: { interactive: true },
-            recenter: { interactive: false },
+            xaxes: [{autoScale: 'exact'}],
+            yaxes: [{autoScale: 'exact'}],
+            pan: {interactive: true},
+            zoom: {interactive: true},
+            recenter: {interactive: false},
         });
 
         var eventHolder = plot.getEventHolder(),
@@ -483,12 +484,12 @@ describe("flot navigate plugin interactions", function () {
             spyRecenter = jasmine.createSpy('spy');
         $(plot.getPlaceholder()).on('re-center', spyRecenter);
 
-        plot.pan({ left: 10, top: 10});
+        plot.pan({left: 10, top: 10});
 
         simulate.dblclick(eventHolder, 200, 150);
 
-        expect(xaxis.options.offset).not.toEqual({ below: 0, above: 0 });
-        expect(yaxis.options.offset).not.toEqual({ below: 0, above: 0 });
+        expect(xaxis.options.offset).not.toEqual({below: 0, above: 0});
+        expect(yaxis.options.offset).not.toEqual({below: 0, above: 0});
         expect(spyRecenter).not.toHaveBeenCalled();
     });
 });

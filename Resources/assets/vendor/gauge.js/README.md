@@ -3,13 +3,13 @@ gauge.js
 
 100% native and cool looking animated JavaScript/CoffeScript gauge
 
- * No images, no external CSS - pure canvas
- * No dependencies
- * Highly configurable
- * Resolution independent
- * Animated guage value changes
- * Works in all major browsers
- * MIT License
+* No images, no external CSS - pure canvas
+* No dependencies
+* Highly configurable
+* Resolution independent
+* Animated guage value changes
+* Works in all major browsers
+* MIT License
 
 ## Usage
 
@@ -32,4 +32,5 @@ gauge.value = 1250; // set actual value
 gauge.maxValue = 3000; // set max gauge value
 ```
 
-For an interactive demo and a list of all supported options please refer to the [project's homepage](http://bernii.github.com/gauge.js).
+For an interactive demo and a list of all supported options please refer to
+the [project's homepage](http://bernii.github.com/gauge.js).

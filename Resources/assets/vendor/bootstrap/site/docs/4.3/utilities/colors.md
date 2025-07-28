@@ -19,7 +19,8 @@ toc: true
 {% endcapture %}
 {% include example.html content=example %}
 
-Contextual text classes also work well on anchors with the provided hover and focus states. **Note that the `.text-white` and `.text-muted` class has no additional link styling beyond underline.**
+Contextual text classes also work well on anchors with the provided hover and focus states. **Note that
+the `.text-white` and `.text-muted` class has no additional link styling beyond underline.**
 
 {% capture example %}
 {% for color in site.data.theme-colors %}
@@ -31,7 +32,9 @@ Contextual text classes also work well on anchors with the provided hover and fo
 
 ## Background color
 
-Similar to the contextual text color classes, easily set the background of an element to any contextual class. Anchor components will darken on hover, just like the text classes. Background utilities **do not set `color`**, so in some cases you'll want to use `.text-*` utilities.
+Similar to the contextual text color classes, easily set the background of an element to any contextual class. Anchor
+components will darken on hover, just like the text classes. Background utilities **do not set `color`**, so in some
+cases you'll want to use `.text-*` utilities.
 
 {% capture example %}
 {% for color in site.data.theme-colors %}
@@ -43,15 +46,20 @@ Similar to the contextual text color classes, easily set the background of an el
 
 ## Background gradient
 
-When `$enable-gradients` is set to `true` (default is `false`), you can use `.bg-gradient-` utility classes. [Learn about our Sass options]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/#sass-options) to enable these classes and more.
+When `$enable-gradients` is set to `true` (default is `false`), you can use `.bg-gradient-` utility
+classes. [Learn about our Sass options]({{ site.baseurl }}/docs/{{ site.docs_version
+}}/getting-started/theming/#sass-options) to enable these classes and more.
 
 {% for color in site.data.theme-colors %}
+
 - `.bg-gradient-{{ color.name }}`{% endfor %}
 
 {% capture callout %}
+
 #### Dealing with specificity
 
-Sometimes contextual classes cannot be applied due to the specificity of another selector. In some cases, a sufficient workaround is to wrap your element's content in a `<div>` with the class.
+Sometimes contextual classes cannot be applied due to the specificity of another selector. In some cases, a sufficient
+workaround is to wrap your element's content in a `<div>` with the class.
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 

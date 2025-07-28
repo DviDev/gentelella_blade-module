@@ -8,18 +8,18 @@ describe("flot touch plugin", function () {
         placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
             .find('#test-container');
         options = {
-            xaxes: [{ autoScale: 'exact' }],
-            yaxes: [{ autoScale: 'exact' }],
-            zoom: { interactive: true, amount: 10, active: true },
-            pan: { interactive: true, frameRate: -1, enableTouch: true, active: true }
+            xaxes: [{autoScale: 'exact'}],
+            yaxes: [{autoScale: 'exact'}],
+            zoom: {interactive: true, amount: 10, active: true},
+            pan: {interactive: true, frameRate: -1, enableTouch: true, active: true}
         };
     });
 
-    it('shows that the eventHolder is cleared through shutdown when the plot is replaced', function() {
+    it('shows that the eventHolder is cleared through shutdown when the plot is replaced', function () {
         plot = $.plot(placeholder, [[]], options);
 
         var eventPlaceholder = plot.getEventHolder();
-            spy = spyOn(eventPlaceholder, 'removeEventListener').and.callThrough();
+        spy = spyOn(eventPlaceholder, 'removeEventListener').and.callThrough();
 
         plot = $.plot(placeholder, [[]], options);
 
@@ -28,47 +28,47 @@ describe("flot touch plugin", function () {
         expect(spy).toHaveBeenCalledWith('touchend', jasmine.any(Function));
     });
 
-    it('do not stop origin touch event propagation if it is allowed', () => {	
-        jasmine.clock().install().mockDate();	
+    it('do not stop origin touch event propagation if it is allowed', () => {
+        jasmine.clock().install().mockDate();
 
-        var oldPropagateSupportedGesture = options.propagateSupportedGesture ;	
-        options.propagateSupportedGesture = true;	
+        var oldPropagateSupportedGesture = options.propagateSupportedGesture;
+        options.propagateSupportedGesture = true;
 
-        plot = $.plot(placeholder, [[]], options);	
-        var eventHolder = plot.getEventHolder(),	
-            spy = jasmine.createSpy('origin touch event handler');	
+        plot = $.plot(placeholder, [[]], options);
+        var eventHolder = plot.getEventHolder(),
+            spy = jasmine.createSpy('origin touch event handler');
 
-        eventHolder.parentNode.addEventListener('touchstart', spy, { once: true });	
-        eventHolder.parentNode.addEventListener('touchmove', spy, { once: true });	
-        eventHolder.parentNode.addEventListener('touchend', spy, { once: true });
+        eventHolder.parentNode.addEventListener('touchstart', spy, {once: true});
+        eventHolder.parentNode.addEventListener('touchmove', spy, {once: true});
+        eventHolder.parentNode.addEventListener('touchend', spy, {once: true});
 
         var bubbleTouchEvents = [
-            new UIEvent('touchstart', { bubbles: true }),
-            new UIEvent('touchmove', { bubbles: true }),
-            new UIEvent('touchend', { bubbles: true }),
+            new UIEvent('touchstart', {bubbles: true}),
+            new UIEvent('touchmove', {bubbles: true}),
+            new UIEvent('touchend', {bubbles: true}),
         ];
         bubbleTouchEvents.forEach((event) => {
-            event.touches = [{ identifier: 0, target: eventHolder }];
+            event.touches = [{identifier: 0, target: eventHolder}];
             eventHolder.dispatchEvent(event);
         });
 
-        expect(spy).toHaveBeenCalledTimes(3);	
+        expect(spy).toHaveBeenCalledTimes(3);
 
-        options.propagateSupportedGesture = oldPropagateSupportedGesture;	
-        jasmine.clock().uninstall();	
+        options.propagateSupportedGesture = oldPropagateSupportedGesture;
+        jasmine.clock().uninstall();
     });
 
-    describe('long tap', function() {
+    describe('long tap', function () {
 
-        beforeEach(function() {
+        beforeEach(function () {
             jasmine.clock().install().mockDate();
         });
 
-        afterEach(function() {
+        afterEach(function () {
             jasmine.clock().uninstall();
         });
 
-        it('should trigger the long tap event',function() {
+        it('should trigger the long tap event', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -86,7 +86,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('should trigger the long tap event even when there is a small move of the touch point',function() {
+        it('should trigger the long tap event even when there is a small move of the touch point', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -104,7 +104,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('should not trigger the long tap event when there is a large move of the touch point',function() {
+        it('should not trigger the long tap event when there is a large move of the touch point', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -121,7 +121,7 @@ describe("flot touch plugin", function () {
             expect(spy).not.toHaveBeenCalled();
         });
 
-        it('should not trigger the long tap event when the touch ends too soon',function() {
+        it('should not trigger the long tap event when the touch ends too soon', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -138,7 +138,7 @@ describe("flot touch plugin", function () {
             expect(spy).not.toHaveBeenCalled();
         });
 
-        it('should not trigger the long tap event when the plot is replaced', function() {
+        it('should not trigger the long tap event when the plot is replaced', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -154,7 +154,7 @@ describe("flot touch plugin", function () {
             expect(spy).not.toHaveBeenCalled();
         });
 
-        it('should trigger multiple long tap events',function() {
+        it('should trigger multiple long tap events', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -175,17 +175,17 @@ describe("flot touch plugin", function () {
         });
     });
 
-    describe('pinch', function() {
+    describe('pinch', function () {
 
-        beforeEach(function() {
+        beforeEach(function () {
             jasmine.clock().install().mockDate();
         });
 
-        afterEach(function() {
+        afterEach(function () {
             jasmine.clock().uninstall();
         });
 
-        it('should be able to trigger pinchstart event',function() {
+        it('should be able to trigger pinchstart event', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -200,17 +200,17 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('should not trigger pinch event for plot not active',function() {
+        it('should not trigger pinch event for plot not active', function () {
             plot = $.plot(placeholder, [
                 [
                     [0, 0],
                     [10, 10]
                 ]
-                ], {
-                xaxes: [{ autoScale: 'exact' }],
-                yaxes: [{ autoScale: 'exact' }],
-                zoom: { interactive: true, active: false, amount: 10 },
-                pan: { interactive: true, active: false, frameRate: -1 }
+            ], {
+                xaxes: [{autoScale: 'exact'}],
+                yaxes: [{autoScale: 'exact'}],
+                zoom: {interactive: true, active: false, amount: 10},
+                pan: {interactive: true, active: false, frameRate: -1}
             });
 
             var eventHolder = plot.getEventHolder(),
@@ -225,7 +225,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(0);
         });
 
-        it('should not trigger pinch event for only one touch',function() {
+        it('should not trigger pinch event for only one touch', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -240,7 +240,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(0);
         });
 
-        it('should not trigger pinch event for touch outside plot',function() {
+        it('should not trigger pinch event for touch outside plot', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -250,7 +250,8 @@ describe("flot touch plugin", function () {
 
             eventHolder.addEventListener('pinchstart', spy);
 
-            mockEventHolder.dispatchEvent = function() {};
+            mockEventHolder.dispatchEvent = function () {
+            };
 
             simulate.sendTouchEvents(coords, mockEventHolder, 'touchstart');
 
@@ -258,7 +259,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(0);
         });
 
-        it('allows default propagation for three touches',function() {
+        it('allows default propagation for three touches', function () {
             plot = $.plot(placeholder, [], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -280,17 +281,17 @@ describe("flot touch plugin", function () {
         });
     });
 
-    describe('pan', function() {
+    describe('pan', function () {
 
-        beforeEach(function() {
+        beforeEach(function () {
             jasmine.clock().install().mockDate();
         });
 
-        afterEach(function() {
+        afterEach(function () {
             jasmine.clock().uninstall();
         });
 
-        it('should be able to trigger pan event',function() {
+        it('should be able to trigger pan event', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -305,17 +306,17 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('should not trigger pan event for plot not active',function() {
+        it('should not trigger pan event for plot not active', function () {
             plot = $.plot(placeholder, [
                 [
                     [0, 0],
                     [10, 10]
                 ]
-                ], {
-                xaxes: [{ autoScale: 'exact' }],
-                yaxes: [{ autoScale: 'exact' }],
-                zoom: { interactive: true, active: false, amount: 10 },
-                pan: { interactive: true, active: false, frameRate: -1 }
+            ], {
+                xaxes: [{autoScale: 'exact'}],
+                yaxes: [{autoScale: 'exact'}],
+                zoom: {interactive: true, active: false, amount: 10},
+                pan: {interactive: true, active: false, frameRate: -1}
             });
 
             var eventHolder = plot.getEventHolder(),
@@ -330,7 +331,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(0);
         });
 
-        it('should not trigger pan event for touch outside plot',function() {
+        it('should not trigger pan event for touch outside plot', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -340,7 +341,8 @@ describe("flot touch plugin", function () {
 
             eventHolder.addEventListener('panstart', spy);
 
-            mockEventHolder.dispatchEvent = function() {};
+            mockEventHolder.dispatchEvent = function () {
+            };
 
             simulate.sendTouchEvents(coords, mockEventHolder, 'touchstart');
 
@@ -349,17 +351,17 @@ describe("flot touch plugin", function () {
         });
     });
 
-    describe('doubletap', function() {
+    describe('doubletap', function () {
 
-        beforeEach(function() {
+        beforeEach(function () {
             jasmine.clock().install().mockDate();
         });
 
-        afterEach(function() {
+        afterEach(function () {
             jasmine.clock().uninstall();
         });
 
-        it('should trigger the double tap event', function() {
+        it('should trigger the double tap event', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -376,7 +378,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('should trigger the double tap event even when there is a different touch point', function() {
+        it('should trigger the double tap event even when there is a different touch point', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -394,7 +396,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('should not trigger the double tap event for a big interval between taps', function() {
+        it('should not trigger the double tap event for a big interval between taps', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -411,7 +413,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(0);
         });
 
-        it('should not trigger the double tap event for one of the touches outside plot area', function() {
+        it('should not trigger the double tap event for one of the touches outside plot area', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -420,7 +422,8 @@ describe("flot touch plugin", function () {
                 initialCoords = [{x: 10, y: 20}],
                 finalCoords = [{x: 100, y: 200}];
 
-            mockEventHolder.dispatchEvent = function() {};
+            mockEventHolder.dispatchEvent = function () {
+            };
 
             eventHolder.addEventListener('doubletap', spy);
 
@@ -432,17 +435,17 @@ describe("flot touch plugin", function () {
         });
     });
 
-    describe('tap', function() {
+    describe('tap', function () {
 
-        beforeEach(function() {
+        beforeEach(function () {
             jasmine.clock().install().mockDate();
         });
 
-        afterEach(function() {
+        afterEach(function () {
             jasmine.clock().uninstall();
         });
 
-        it('should trigger the tap event', function() {
+        it('should trigger the tap event', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -459,7 +462,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('should trigger the tap event even when there is a different touch point', function() {
+        it('should trigger the tap event even when there is a different touch point', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -477,7 +480,7 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('should not trigger the tap event for a big interval between taps', function() {
+        it('should not trigger the tap event for a big interval between taps', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
@@ -494,13 +497,14 @@ describe("flot touch plugin", function () {
             expect(spy.calls.count()).toBe(0);
         });
 
-        it('should not trigger the tap event for a big interval between taps', function() {
+        it('should not trigger the tap event for a big interval between taps', function () {
             plot = $.plot(placeholder, [[]], options);
 
             var eventHolder = plot.getEventHolder(),
                 spy = jasmine.createSpy('tap handler'),
                 initalCoords = [{x: 10, y: 20}],
-                moveCoords = [{x: 30, y: 60}];;
+                moveCoords = [{x: 30, y: 60}];
+            ;
 
             eventHolder.addEventListener('tap', spy);
 

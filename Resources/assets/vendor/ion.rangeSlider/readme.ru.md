@@ -11,17 +11,20 @@
 * <a href="http://ionden.com/a/plugins/ion.rangeSlider/ion.rangeSlider-2.1.4.zip">Загрузить ZIP-архив</a>
 
 ## Описание
+
 * Ion.RangeSlider — классный, удобный, отзывчивый и легко настраиваемый слайдер диапазонов
 * Слайдер поддерживает события и публичные методы, имеет гибкие настройки, может быть полностью видоизменен через CSS
 * Кроссбраузерная поддержка: Google Chrome, Mozilla Firefox 3.6+, Opera 12+, Safari 5+, Internet Explorer 8+
 * Плагин поддерживает устройства с touch-экраном (iPhone, iPad, Nexus, etc.)
 * <a href="https://github.com/IonDen/ion.rangeSlider">Репозиторий на GitHub</a>
-* Плагин свободно распространяется на условиях <a href="http://ionden.com/a/plugins/licence.html" target="_blank">лицензии MIT</a>
+* Плагин свободно распространяется на условиях <a href="http://ionden.com/a/plugins/licence.html" target="_blank">
+  лицензии MIT</a>
 * Используюя этот плагин, вы сможете создавать крутейшие слайдеры диапазонов, такие как этот:
 
 ![ion.rangeSlider](http://ionden.com/a/plugins/ion.rangeSlider/static/img/ion-range-slider.png)
 
 ## Ключевые особенности
+
 * Поддержка скинов. (5 скина в комплекте и PSD для изготовления собственных)
 * Неограниченное кол-во слайдеров на одной странице без существенных потерь производительности и конфликтов между ними
 * Два режима работы с 1 или 2 ползунками
@@ -37,78 +40,80 @@
 * Любой параметр слайдера можно так же задать через data-атрибут (например data-min="10")
 * Слайдер поддерживает параметр disabled, позволяет делать слайдер неактивным
 * Слайдер поддерживает внешние методы (update, reset и remove), позволяющие управлять слайдером уже после создания
-* Для продвинутых пользователей есть поддержка колбэков (onStart, onChange, onFinish, onUpdate). Слайдер передает свои значения в эти функции первым аргументом в виде объекта
+* Для продвинутых пользователей есть поддержка колбэков (onStart, onChange, onFinish, onUpdate). Слайдер передает свои
+  значения в эти функции первым аргументом в виде объекта
 * Слайдер поддерживает работу с датой и временем
-
 
 ## Демо
 
 * <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo.html" class="switch__item">Базовые настройки</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Расширенные настройки</a>
+* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Расширенные
+  настройки</a>
 * <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" class="switch__item">Взаимодействия</a>
-
 
 ## Зависимости
 
 * <a href="http://jquery.com/" target="_blank">jQuery 1.8.x+</a>
 
-
 ## Использование
 
 Подключаем библиотеки:
+
 * jQuery
 * ion.rangeSlider.min.js
 
 Подключаем стили:
-* <a href="http://necolas.github.io/normalize.css/" target="_blank">normalize.css</a> (желательно, если он у вас еще не подключен)
+
+* <a href="http://necolas.github.io/normalize.css/" target="_blank">normalize.css</a> (желательно, если он у вас еще не
+  подключен)
 * ion.rangeSlider.css
 
 Не забываем про скин. 5 скинов включены в архив. Выберите один:
+
 * ion.rangeSlider.skinFlat.css + sprite-skin-flat.png
 * ion.rangeSlider.skinHTML5.css + без картинок
 * ion.rangeSlider.skinModern.css + sprite-skin-modern.png
 * ion.rangeSlider.skinNice.css + sprite-skin-nice.png
 * ion.rangeSlider.skinSimple.css + sprite-skin-simple.png
-                            
-Либо воспользуйтесь вложенным в архив PSD файлом, и нарисуйте собственный скин (не забудьте модифицировать размеры элементов в CSS файле)
 
+Либо воспользуйтесь вложенным в архив PSD файлом, и нарисуйте собственный скин (не забудьте модифицировать размеры
+элементов в CSS файле)
 
 ## Устанавливаем с помощью bower
 
 * bower install ionrangeslider
 
-
 ## Устанавливаем с помощью npm
 
 * npm install ion-rangeslider
 
-
 ## Инициализация
 
 Создаем базовое поле <code>input type="text"</code>:
+
 ```html
 <input type="text" id="example_id" name="example_name" value="" />
 ```
 
 Чтобы запустить слайдер, вызовите ionRangeSlider для нужного элемента:
+
 ```javascript
 $("#example_id").ionRangeSlider();
 ```
 
 ## Демо для новичков
+
 Если вы новичок в веб разработке и не уверены как правильно подключить этот плагин на вашу страницу, то скачайте вот
 <a href="http://ionden.com/a/plugins/ion.rangeSlider/ionRangeSliderDemo.zip" class="button">этот демо пример</a>
 
-
 ## Миграция с версии 1.x на 2.x
+
 * Все параметры (кроме функций) теперь записываются так: <b>param_name</b>, а не paramName
 * Изменились названия некоторых параметров: hasGrid &rarr; <b>grid</b>, onLoad &rarr; <b>onStart</b>
 * Изменился формат объекта с данными слайдера, возвращаемый в колбэки. Например: fromNumber &rarr; <b>from</b>
 * Слайдер теперь постоянно записывает свои значения в поле value и в атрибуты data-from и data-to
 
-
 ## <a href="http://jsfiddle.net/IonDen/qv6yrjrv/" target="_blank">Площадка для эксперементов с плагином</a>
-
 
 ## Настройка
 
@@ -383,12 +388,13 @@ $("#example_id").ionRangeSlider();
             <td>Коллбэк. Вызывается когда слайдер обновляется методом <code>update</code> или <code>reset</code>.</td>
         </tr>
     </tbody>
-</table>
 
+</table>
 
 ## Описание данных передаваемых в колбэки (onChange и т.д):
 
 Результат имеет тип object и передается коллбэк первым аргументом:
+
 ```javascript
 Obj: {
     "input": object,    // jQuery-ссылка на input
@@ -407,6 +413,7 @@ Obj: {
 ## Создание слайдера c параметрами
 
 Пример
+
 ```javascript
 $("#example").ionRangeSlider({
     min: 0,
@@ -421,6 +428,7 @@ $("#example").ionRangeSlider({
 ```
 
 Слайдер с параметрами можно также инициализировать используя атрибуты <code>data-*</code> у тэга <code>input</code>:
+
 ```html
 data-min="0"
 data-max="10000"
@@ -435,6 +443,7 @@ data-grid-num="10"
 ## Публичные методы
 
 Для того чтобы использовать публичные методы, вначале нужно записать значение слайдера в переменную::
+
 ```javascript
 // Запускаем слайдер
 $("#range").ionRangeSlider({
@@ -454,6 +463,7 @@ slider.reset();
 ```
 
 Всего существует 3 публичных метода:
+
 ```javascript
 // UPDATE - обновляет значения слайдера (можно менять любые значения)
 slider.update({
@@ -471,11 +481,11 @@ slider.destroy();
 ## Еще раз взглянем на демо
 
 * <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo.html" class="switch__item">Базовые настройки</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Расширенные настройки</a>
+* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Расширенные
+  настройки</a>
 * <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" class="switch__item">Взаимодействия</a>
 
 В демках есть примеры использования всех опций слайдера
-
 
 ### <a href="history.md">История обновлений</a>
 
@@ -483,7 +493,8 @@ slider.destroy();
 
 #### Поддержите разработку плагинов серии Ion:
 
-* Пожертвовать через сервис Pledgie: [![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
+* Пожертвовать через сервис
+  Pledgie: [![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
 
 * Пожертвовать напрямую через Paypal: https://www.paypal.me/IonDen
 

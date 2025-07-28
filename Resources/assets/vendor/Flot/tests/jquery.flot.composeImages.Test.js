@@ -1,12 +1,12 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe("composeImages", function() {
+describe("composeImages", function () {
     var placeholder, plot;
     var composeImages = $.plot.composeImages,
         canvasData = window.colors.canvasData;
 
-    beforeEach(function() {
+    beforeEach(function () {
         placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px; padding: 0px margin: 0px; border: 0px; font-size:0pt; font-family:sans-serif; line-height:0px;">')
             .find('#test-container');
 
@@ -15,8 +15,8 @@ describe("composeImages", function() {
 
     it('should call composeImages on an empty array of sources, so the destination canvas should stay unmodified', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
@@ -29,7 +29,7 @@ describe("composeImages", function() {
 
         drawCircleOnToCanvas(destinationCanvas); //make sure composeImages won't modify this content
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(canvasData(destinationCanvas, 80, 10, 1, 1)).toMatchPixelColor([0, 0, 0, 255]);
             expect(destinationCanvas.width).toBe(300);
             expect(destinationCanvas.height).toBe(150);
@@ -47,18 +47,18 @@ describe("composeImages", function() {
 
     it('should call composeImages on one SVG as a source', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg id="svgSource" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg">' +
+            '<svg id="svgSource" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(100);
             expect(destinationCanvas.height).toBe(100);
             expect(canvasData(destinationCanvas, 10, 10, 1, 1)).toMatchPixelColor([255, 0, 0, 255]);
@@ -72,23 +72,23 @@ describe("composeImages", function() {
 
     it('should call composeImages on two identical SVGs, one near the other', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg id="svgSource" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg">' +
+            '<svg id="svgSource" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '<svg id="svgSource2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg2">' +
+            '</svg>' +
+            '<svg id="svgSource2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg2">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(200); //204 - //200 + 2 * 2px_spacing
             expect(destinationCanvas.height).toBe(100);
             expect(canvasData(destinationCanvas, 10, 10, 1, 1)).toMatchPixelColor([255, 0, 0, 255]);
@@ -105,24 +105,24 @@ describe("composeImages", function() {
 
     it('should call composeImages on two identical SVGs, one after the other', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg id="svgSource" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg">' +
+            '<svg id="svgSource" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:#FF0000"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:#0000FF"/>' +
-        '</svg>' +
-        '<br>' +
-        '<svg id="svgSource2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg2">' +
+            '</svg>' +
+            '<br>' +
+            '<svg id="svgSource2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg2">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:#FF0000"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:#0000FF"/>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(100);
             expect(destinationCanvas.height).toBe(200);  //204 - //200 + 2 * 2px_spacing
             expect(canvasData(destinationCanvas, 10, 10, 1, 1)).toMatchPixelColor([255, 0, 0, 255]);
@@ -138,29 +138,29 @@ describe("composeImages", function() {
 
     it('should call composeImages on three identical SVGs, placed in an L-shape', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg id="svgSource1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg1">' +
+            '<svg id="svgSource1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg1">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '<svg id="svgSource2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg2">' +
+            '</svg>' +
+            '<svg id="svgSource2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg2">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '<br>' +
-        '<svg id="svgSource3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg3">' +
+            '</svg>' +
+            '<br>' +
+            '<svg id="svgSource3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg3">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(200);  //204 - //200 + 2 * 2px_spacing
             expect(destinationCanvas.height).toBe(200);  //204 - //200 + 2 * 2px_spacing
             expect(canvasData(destinationCanvas, 10, 10, 1, 1)).toMatchPixelColor([255, 0, 0, 255]);
@@ -179,9 +179,9 @@ describe("composeImages", function() {
 
     it('should call composeImages on one canvas as a source', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<canvas id="canvasSource" width="20" height="20" title="canvasSource"></canvas>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '<canvas id="canvasSource" width="20" height="20" title="canvasSource"></canvas>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('#canvasSource').toArray();
 
         var originalCanvas = document.getElementById("canvasSource");
@@ -189,7 +189,7 @@ describe("composeImages", function() {
 
         drawSomeLinesOnCanvas(originalCanvas);
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(20);
             expect(destinationCanvas.height).toBe(20);
 
@@ -202,14 +202,14 @@ describe("composeImages", function() {
 
     it('should call composeImages on one canvas and one SVG', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<canvas class="imgsrc" id="canvasSource" width="20" height="20" title="canvasSource"></canvas>' +
-        '<svg class="imgsrc" id="svgSource1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg1">' +
+            '<canvas class="imgsrc" id="canvasSource" width="20" height="20" title="canvasSource"></canvas>' +
+            '<svg class="imgsrc" id="svgSource1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg1">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('.imgsrc').toArray();
 
         var originalCanvas = document.getElementById("canvasSource");
@@ -217,7 +217,7 @@ describe("composeImages", function() {
 
         drawSomeLinesOnCanvas(originalCanvas);
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(120); //124 - //120 + 2 * 2px_spacing
             expect(destinationCanvas.height).toBe(100);
 
@@ -234,10 +234,10 @@ describe("composeImages", function() {
 
     it('should call composeImages on two canvases', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
-        '<canvas class="imgsrc" id="canvasSource2" width="20" height="20" title="canvasSource2"></canvas>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
+            '<canvas class="imgsrc" id="canvasSource2" width="20" height="20" title="canvasSource2"></canvas>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('.imgsrc').toArray();
 
         var originalCanvas1 = document.getElementById("canvasSource1");
@@ -247,7 +247,7 @@ describe("composeImages", function() {
         drawARectangleOnCanvas(originalCanvas1, "#FF0000");
         drawARectangleOnCanvas(originalCanvas2, "#00FF00");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(40); //44 - //2 * 20 + 2 * spacing
             expect(destinationCanvas.height).toBe(20);
 
@@ -263,13 +263,13 @@ describe("composeImages", function() {
 
     it('should call composeImages on two partially overlapped canvases', function (done) {
         var sources = placeholder.html('<style type="text/css">' +
-        '#canvasSource2 {position:relative; left:-10px;}' +
-        '</style>' +
-        '<div id="test-container" style="width: 600px;height: 400px">' +
-        '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
-        '<canvas class="imgsrc" id="canvasSource2" width="20" height="20" title="canvasSource2"></canvas>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '#canvasSource2 {position:relative; left:-10px;}' +
+            '</style>' +
+            '<div id="test-container" style="width: 600px;height: 400px">' +
+            '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
+            '<canvas class="imgsrc" id="canvasSource2" width="20" height="20" title="canvasSource2"></canvas>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('.imgsrc').toArray();
 
         var originalCanvas1 = document.getElementById("canvasSource1");
@@ -279,7 +279,7 @@ describe("composeImages", function() {
         drawARectangleOnCanvas(originalCanvas1, "#FF0000");
         drawARectangleOnCanvas(originalCanvas2, "#00FF00");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(30); //34 - //2 * 20 + 2 * spacing - 10    //10px is the offset of the second canvas, defined in style
             expect(destinationCanvas.height).toBe(20);
 
@@ -295,13 +295,13 @@ describe("composeImages", function() {
 
     it('should call composeImages on two partially overlapped canvases. Same as above test, but the two canvases have the opposite Z order.', function (done) {
         var sources = placeholder.html('<style type="text/css">' +
-        '#canvasSource2 {position:relative; left:-10px;}' +
-        '</style>' +
-        '<div id="test-container" style="width: 600px;height: 400px">' +
-        '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
-        '<canvas class="imgsrc" id="canvasSource2" width="20" height="20" title="canvasSource2"></canvas>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '#canvasSource2 {position:relative; left:-10px;}' +
+            '</style>' +
+            '<div id="test-container" style="width: 600px;height: 400px">' +
+            '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
+            '<canvas class="imgsrc" id="canvasSource2" width="20" height="20" title="canvasSource2"></canvas>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('.imgsrc').toArray();
 
         var originalCanvas1 = document.getElementById("canvasSource1");
@@ -313,7 +313,7 @@ describe("composeImages", function() {
 
         sources.reverse(); //make sure the images are composed in the inverse order
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(30); //34 - //2 * 20 + 2 * spacing - 10    //10px is the offset of the second canvas, defined in style
             expect(destinationCanvas.height).toBe(20);
 
@@ -329,13 +329,13 @@ describe("composeImages", function() {
 
     it('should call composeImages on two separate canvases, where one canvas is outside of view area', function (done) {
         var sources = placeholder.html('<style type="text/css">' +
-        '#canvasSource2 {position:relative; left:-100px;}' +
-        '</style>' +
-        '<div id="test-container" style="width: 600px;height: 400px">' +
-        '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
-        '<canvas class="imgsrc" id="canvasSource2" width="20" height="20" title="canvasSource2"></canvas>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '#canvasSource2 {position:relative; left:-100px;}' +
+            '</style>' +
+            '<div id="test-container" style="width: 600px;height: 400px">' +
+            '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
+            '<canvas class="imgsrc" id="canvasSource2" width="20" height="20" title="canvasSource2"></canvas>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('.imgsrc').toArray();
 
         var originalCanvas1 = document.getElementById("canvasSource1");
@@ -345,7 +345,7 @@ describe("composeImages", function() {
         drawARectangleOnCanvas(originalCanvas1, "#FF0000");
         drawARectangleOnCanvas(originalCanvas2, "#00FF00");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(100 - 0); //100 - 4
             expect(destinationCanvas.height).toBe(20);
 
@@ -361,18 +361,18 @@ describe("composeImages", function() {
 
     it('should call composeImages on one canvas and an SVG, which are totally overlapped with transparency', function (done) {
         var sources = placeholder.html('<style type="text/css">' +
-        '#canvasSource1 {position:relative; left:-40px; top:-80px;}' +
-        'circle { stroke: black; stroke-width: 2px;}' +
-        '</style>' +
-        '<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg class="imgsrc" id="svgSource1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg1">' +
+            '#canvasSource1 {position:relative; left:-40px; top:-80px;}' +
+            'circle { stroke: black; stroke-width: 2px;}' +
+            '</style>' +
+            '<div id="test-container" style="width: 600px;height: 400px">' +
+            '<svg class="imgsrc" id="svgSource1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg1">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('.imgsrc').toArray();
 
         var originalCanvas1 = document.getElementById("canvasSource1");
@@ -380,7 +380,7 @@ describe("composeImages", function() {
 
         drawARectangleOnCanvas(originalCanvas1, "#FF0000");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(100);
             expect(destinationCanvas.height).toBe(100);
 
@@ -397,18 +397,18 @@ describe("composeImages", function() {
 
     it('should call composeImages on one canvas and an SVG, which are totally overlapped with transparency. The SVG has a different size than the ones from other tests. One component of the SVG is partially outside of the view area.', function (done) {
         var sources = placeholder.html('<style type="text/css">' +
-        '#canvasSource1 {position:relative; left:-180px; top:-10px;}' +
-        'circle { stroke: black; stroke-width: 4px;}' +
-        '</style>' +
-        '<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg class="imgsrc" id="svgSource1" viewBox="0 0 250 150" xmlns="http://www.w3.org/2000/svg" width="250" height="150" title="svg1">' +
+            '#canvasSource1 {position:relative; left:-180px; top:-10px;}' +
+            'circle { stroke: black; stroke-width: 4px;}' +
+            '</style>' +
+            '<div id="test-container" style="width: 600px;height: 400px">' +
+            '<svg class="imgsrc" id="svgSource1" viewBox="0 0 250 150" xmlns="http://www.w3.org/2000/svg" width="250" height="150" title="svg1">' +
             '<circle id="c1" cx="230" cy="20" r="15" style="fill:red"/>' +
             '<circle id="c2" cx="175" cy="100" r="25" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="130" r="40" style="fill:blue"/>' +
-        '</svg>' +
-        '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('.imgsrc').toArray();
 
         var originalCanvas1 = document.getElementById("canvasSource1");
@@ -416,7 +416,7 @@ describe("composeImages", function() {
 
         drawARectangleOnCanvas(originalCanvas1, "#FF0000");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(250);
             expect(destinationCanvas.height).toBe(150);
 
@@ -442,17 +442,17 @@ describe("composeImages", function() {
 
     it('should call composeImages on one canvas and an SVG, which are totally overlapped with transparency, using external CSS. The SVG has a different size than the ones from other tests. One component of the SVG is partially outside of the view area.', function (done) {
         var sources = placeholder.html('<style type="text/css">' +
-        '#canvasSource1 {position:relative; left:-180px; top:-10px;}' +
-        '</style>' +
-        '<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg class="imgsrc" id="svgSource1" viewBox="0 0 250 150" xmlns="http://www.w3.org/2000/svg" width="250" height="150" title="svg1">' +
+            '#canvasSource1 {position:relative; left:-180px; top:-10px;}' +
+            '</style>' +
+            '<div id="test-container" style="width: 600px;height: 400px">' +
+            '<svg class="imgsrc" id="svgSource1" viewBox="0 0 250 150" xmlns="http://www.w3.org/2000/svg" width="250" height="150" title="svg1">' +
             '<circle class="externalCSS" id="c1" cx="230" cy="20" r="15" style="fill:red"/>' +
             '<circle class="externalCSS" id="c2" cx="175" cy="100" r="25" style="fill:#00FF00"/>' +
             '<circle class="externalCSS" id="c3" cx="50" cy="130" r="40" style="fill:blue"/>' +
-        '</svg>' +
-        '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '<canvas class="imgsrc" id="canvasSource1" width="20" height="20" title="canvasSource1"></canvas>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('.imgsrc').toArray();
 
         var originalCanvas1 = document.getElementById("canvasSource1");
@@ -460,7 +460,7 @@ describe("composeImages", function() {
 
         drawARectangleOnCanvas(originalCanvas1, "#FF0000");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(250);
             expect(destinationCanvas.height).toBe(150);
             expect(canvasData(originalCanvas1, 0, 0, 20, 20))
@@ -485,8 +485,8 @@ describe("composeImages", function() {
 
     it('should call composeImages on one dynamically created canvas as a source, without being able to compose', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('#canvasSource').toArray();
 
         var originalCanvas = document.createElement('canvas');
@@ -497,7 +497,7 @@ describe("composeImages", function() {
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(30);
             expect(destinationCanvas.height).toBe(15);
 
@@ -507,8 +507,8 @@ describe("composeImages", function() {
 
     it('should call composeImages on two dynamically created canvas as sources, without being able to compose', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('#canvasSource').toArray();
 
         var originalCanvas = document.createElement('canvas');
@@ -525,7 +525,7 @@ describe("composeImages", function() {
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(30);
             expect(destinationCanvas.height).toBe(15);
 
@@ -535,8 +535,8 @@ describe("composeImages", function() {
 
     it('should call composeImages on two dynamically created canvas as sources (with left/top properties set), without being able to compose', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '</div>' +
-        '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
+            '</div>' +
+            '<canvas id="myCanvas" width="30" height="15" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('#canvasSource').toArray();
 
         var originalCanvas = document.createElement('canvas');
@@ -557,7 +557,7 @@ describe("composeImages", function() {
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(30);
             expect(destinationCanvas.height).toBe(15);
 
@@ -567,8 +567,8 @@ describe("composeImages", function() {
 
     it('should call composeImages on one canvas as a source and a dynamically generated destination Canvas', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<canvas id="canvasSource" width="20" height="20" title="canvasSource"></canvas>' +
-        '</div>'
+            '<canvas id="canvasSource" width="20" height="20" title="canvasSource"></canvas>' +
+            '</div>'
         ).find('#canvasSource').toArray();
 
         var originalCanvas = document.getElementById("canvasSource");
@@ -578,7 +578,7 @@ describe("composeImages", function() {
 
         drawSomeLinesOnCanvas(originalCanvas);
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(20);
             expect(destinationCanvas.height).toBe(20);
 
@@ -591,18 +591,18 @@ describe("composeImages", function() {
 
     xit('should call composeImages on one SVG as a source, which defines only its viewbox, without width and height', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg id="svgSource" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" title="svg">' +
+            '<svg id="svgSource" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" title="svg">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(600);
             expect(destinationCanvas.height).toBe(600);
             expect(canvasData(destinationCanvas, 10, 10, 1, 1)).toMatchPixelColor([255, 0, 0, 255]);
@@ -615,18 +615,18 @@ describe("composeImages", function() {
 
     xit('should call composeImages on one SVG as a source, which defines only its width and height, without its viewbox', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg id="svgSource" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg">' +
+            '<svg id="svgSource" xmlns="http://www.w3.org/2000/svg" width="100" height="100" title="svg">' +
             '<circle id="c1" cx="10" cy="10" r="5" style="fill:red"/>' +
             '<circle id="c2" cx="30" cy="40" r="7" style="fill:#00FF00"/>' +
             '<circle id="c3" cx="50" cy="70" r="9" style="fill:blue"/>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(100);
             expect(destinationCanvas.height).toBe(100);
             expect(canvasData(destinationCanvas, 10, 10, 1, 1)).toMatchPixelColor([255, 0, 0, 255]);
@@ -639,28 +639,28 @@ describe("composeImages", function() {
 
     xit('should call composeImages on one potentially unsupported SVG as a source, because it contains "uses". Only its viewBox is defined.', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg class="legendLayer" style="width:inherit;height:inherit;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
+            '<svg class="legendLayer" style="width:inherit;height:inherit;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
             '<defs>' +
-                '<symbol id="line" fill="none" viewBox="-5 -5 25 25">' +
-                    '<polyline points="0,15 5,5 10,10 15,0"></polyline>' +
-                '</symbol>' +
+            '<symbol id="line" fill="none" viewBox="-5 -5 25 25">' +
+            '<polyline points="0,15 5,5 10,10 15,0"></polyline>' +
+            '</symbol>' +
             '</defs>' +
             '<g>' +
-                '<use xlink:href="#line" class="legendIcon" x="0em" y="0em" stroke="#82A3D1" stroke-width="2" width="1.5em" height="1.5em"></use>' +
-                '<text x="0em" y="0em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 1</tspan></text>' +
+            '<use xlink:href="#line" class="legendIcon" x="0em" y="0em" stroke="#82A3D1" stroke-width="2" width="1.5em" height="1.5em"></use>' +
+            '<text x="0em" y="0em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 1</tspan></text>' +
             '</g>' +
             '<g>' +
-                '<use xlink:href="#line" class="legendIcon" x="0em" y="1.5em" stroke="#862323" stroke-width="1" width="1.5em" height="1.5em"></use>' +
-                '<text x="0em" y="1.5em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 2</tspan></text>' +
+            '<use xlink:href="#line" class="legendIcon" x="0em" y="1.5em" stroke="#862323" stroke-width="1" width="1.5em" height="1.5em"></use>' +
+            '<text x="0em" y="1.5em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 2</tspan></text>' +
             '</g>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(600);
             expect(destinationCanvas.height).toBe(400);
 
@@ -670,28 +670,28 @@ describe("composeImages", function() {
 
     xit('should call composeImages on one potentially unsupported SVG as a source, because it contains "uses". Only the width and height properties are defined.', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg class="legendLayer" style="width:inherit;height:inherit;" xmlns="http://www.w3.org/2000/svg" width="20" height="20">' +
+            '<svg class="legendLayer" style="width:inherit;height:inherit;" xmlns="http://www.w3.org/2000/svg" width="20" height="20">' +
             '<defs>' +
-                '<symbol id="line" fill="none" viewBox="-5 -5 25 25">' +
-                    '<polyline points="0,15 5,5 10,10 15,0"></polyline>' +
-                '</symbol>' +
+            '<symbol id="line" fill="none" viewBox="-5 -5 25 25">' +
+            '<polyline points="0,15 5,5 10,10 15,0"></polyline>' +
+            '</symbol>' +
             '</defs>' +
             '<g>' +
-                '<use xlink:href="#line" class="legendIcon" x="0em" y="0em" stroke="#82A3D1" stroke-width="2" width="1.5em" height="1.5em"></use>' +
-                '<text x="0em" y="0em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 1</tspan></text>' +
+            '<use xlink:href="#line" class="legendIcon" x="0em" y="0em" stroke="#82A3D1" stroke-width="2" width="1.5em" height="1.5em"></use>' +
+            '<text x="0em" y="0em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 1</tspan></text>' +
             '</g>' +
             '<g>' +
-                '<use xlink:href="#line" class="legendIcon" x="0em" y="1.5em" stroke="#862323" stroke-width="1" width="1.5em" height="1.5em"></use>' +
-                '<text x="0em" y="1.5em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 2</tspan></text>' +
+            '<use xlink:href="#line" class="legendIcon" x="0em" y="1.5em" stroke="#862323" stroke-width="1" width="1.5em" height="1.5em"></use>' +
+            '<text x="0em" y="1.5em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 2</tspan></text>' +
             '</g>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(600);
             expect(destinationCanvas.height).toBe(400);
 
@@ -701,28 +701,28 @@ describe("composeImages", function() {
 
     it('should call composeImages on one potentially unsupported SVG as a source, because it contains "uses". ViewBox, width and height properties are defined.', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg class="legendLayer" style="width:inherit;height:inherit;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 100 100">' +
+            '<svg class="legendLayer" style="width:inherit;height:inherit;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 100 100">' +
             '<defs>' +
-                '<symbol id="line" fill="none" viewBox="-5 -5 25 25">' +
-                    '<polyline points="0,15 5,5 10,10 15,0"></polyline>' +
-                '</symbol>' +
+            '<symbol id="line" fill="none" viewBox="-5 -5 25 25">' +
+            '<polyline points="0,15 5,5 10,10 15,0"></polyline>' +
+            '</symbol>' +
             '</defs>' +
             '<g>' +
-                '<use xlink:href="#line" class="legendIcon" x="0em" y="0em" stroke="#82A3D1" stroke-width="2" width="1.5em" height="1.5em"></use>' +
-                '<text x="0em" y="0em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 1</tspan></text>' +
+            '<use xlink:href="#line" class="legendIcon" x="0em" y="0em" stroke="#82A3D1" stroke-width="2" width="1.5em" height="1.5em"></use>' +
+            '<text x="0em" y="0em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 1</tspan></text>' +
             '</g>' +
             '<g>' +
-                '<use xlink:href="#line" class="legendIcon" x="0em" y="1.5em" stroke="#862323" stroke-width="1" width="1.5em" height="1.5em"></use>' +
-                '<text x="0em" y="1.5em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 2</tspan></text>' +
+            '<use xlink:href="#line" class="legendIcon" x="0em" y="1.5em" stroke="#862323" stroke-width="1" width="1.5em" height="1.5em"></use>' +
+            '<text x="0em" y="1.5em" text-anchor="start"><tspan dx="2em" dy="1.2em">Plot 2</tspan></text>' +
             '</g>' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(600);
             expect(destinationCanvas.height).toBe(400);
 
@@ -732,15 +732,15 @@ describe("composeImages", function() {
 
     xit('should call composeImages on one empty SVG as a source. This may block composeImages.', function (done) {
         var sources = placeholder.html('<div id="test-container" style="width: 600px;height: 400px">' +
-        '<svg class="legendLayer" style="width:inherit;height:inherit;" xmlns="http://www.w3.org/2000/svg" id="blockingTest">' +
-        '</svg>' +
-        '</div>' +
-        '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
+            '<svg class="legendLayer" style="width:inherit;height:inherit;" xmlns="http://www.w3.org/2000/svg" id="blockingTest">' +
+            '</svg>' +
+            '</div>' +
+            '<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>'
         ).find('svg').toArray();
 
         var destinationCanvas = document.getElementById("myCanvas");
 
-        composeImages(sources, destinationCanvas).then(function() {
+        composeImages(sources, destinationCanvas).then(function () {
             expect(destinationCanvas.width).toBe(600);
             expect(destinationCanvas.height).toBe(400);
 

@@ -83,7 +83,7 @@ define(function (require) {
             if (this.type === 'category') {
                 var labelInterval = this.getLabelInterval();
                 return ((typeof labelInterval === 'function')
-                    && !labelInterval(idx, this.scale.getLabel(idx)))
+                        && !labelInterval(idx, this.scale.getLabel(idx)))
                     || idx % (labelInterval + 1);
             }
         }

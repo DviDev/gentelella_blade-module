@@ -5,9 +5,12 @@ anchor: getting-started
 
 ### Download Chart.js
 
-To download a zip, go to [Chart.js on Github](https://github.com/chartjs/Chart.js) and choose the version that is right for your application.
+To download a zip, go to [Chart.js on Github](https://github.com/chartjs/Chart.js) and choose the version that is right
+for your application.
+
 * [Standard build](https://raw.githubusercontent.com/chartjs/Chart.js/master/dist/Chart.js) (~31kB gzipped)
-* [Bundled with Moment.js](https://raw.githubusercontent.com/chartjs/Chart.js/master/dist/Chart.bundle.js) (~45kB gzipped)
+* [Bundled with Moment.js](https://raw.githubusercontent.com/chartjs/Chart.js/master/dist/Chart.bundle.js) (~45kB
+  gzipped)
 * [CDN Versions](https://cdnjs.com/libraries/Chart.js)
 
 To install via npm / bower:
@@ -15,15 +18,21 @@ To install via npm / bower:
 ```bash
 npm install chart.js --save
 ```
+
 ```bash
 bower install Chart.js --save
 ```
 
 ### Selecting the Correct Build
 
-Chart.js provides two different builds that are available for your use. The `Chart.js` and `Chart.min.js` files include Chart.js and the accompanying color parsing library. If this version is used and you require the use of the time axis, [Moment.js](http://momentjs.com/) will need to be included before Chart.js.
+Chart.js provides two different builds that are available for your use. The `Chart.js` and `Chart.min.js` files include
+Chart.js and the accompanying color parsing library. If this version is used and you require the use of the time
+axis, [Moment.js](http://momentjs.com/) will need to be included before Chart.js.
 
-The `Chart.bundle.js` and `Chart.bundle.min.js` builds include Moment.js in a single file. This version should be used if you require time axes and want a single file to include, select this version. Do not use this build if your application already includes Moment.js. If you do, Moment.js will be included twice, increasing the page load time and potentially introducing version issues.
+The `Chart.bundle.js` and `Chart.bundle.min.js` builds include Moment.js in a single file. This version should be used
+if you require time axes and want a single file to include, select this version. Do not use this build if your
+application already includes Moment.js. If you do, Moment.js will be included twice, increasing the page load time and
+potentially introducing version issues.
 
 ### Installation
 
@@ -57,7 +66,8 @@ require(['path/to/Chartjs'], function(Chart){
 
 ### Creating a Chart
 
-To create a chart, we need to instantiate the `Chart` class. To do this, we need to pass in the node, jQuery instance, or 2d context of the canvas of where we want to draw the chart. Here's an example.
+To create a chart, we need to instantiate the `Chart` class. To do this, we need to pass in the node, jQuery instance,
+or 2d context of the canvas of where we want to draw the chart. Here's an example.
 
 ```html
 <canvas id="myChart" width="400" height="400"></canvas>
@@ -72,7 +82,8 @@ var ctx = $("#myChart");
 
 Once you have the element or context, you're ready to instantiate a pre-defined chart-type or create your own!
 
-The following example instantiates a bar chart showing the number of votes for different colors and the y-axis starting at 0.
+The following example instantiates a bar chart showing the number of votes for different colors and the y-axis starting
+at 0.
 
 ```html
 <canvas id="myChart" width="400" height="400"></canvas>
@@ -117,4 +128,5 @@ var myChart = new Chart(ctx, {
 </script>
 ```
 
-It's that easy to get started using Chart.js! From here you can explore the many options that can help you customise your charts with scales, tooltips, labels, colors, custom actions, and much more.
+It's that easy to get started using Chart.js! From here you can explore the many options that can help you customise
+your charts with scales, tooltips, labels, colors, custom actions, and much more.

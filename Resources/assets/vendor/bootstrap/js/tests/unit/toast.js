@@ -61,9 +61,9 @@ $(function () {
 
     var toastHtml =
       '<div class="toast" data-delay="1">' +
-        '<div class="toast-body">' +
-          'a simple toast' +
-        '</div>' +
+      '<div class="toast-body">' +
+      'a simple toast' +
+      '</div>' +
       '</div>'
 
     var $toast = $(toastHtml)
@@ -83,9 +83,9 @@ $(function () {
 
     var toastHtml =
       '<div class="toast" data-delay="1" data-animation="false">' +
-        '<div class="toast-body">' +
-          'a simple toast' +
-        '</div>' +
+      '<div class="toast-body">' +
+      'a simple toast' +
+      '</div>' +
       '</div>'
 
     var $toast = $(toastHtml)
@@ -105,9 +105,9 @@ $(function () {
 
     var toastHtml =
       '<div class="toast" data-delay="1" data-autohide="false">' +
-        '<div class="toast-body">' +
-          'a simple toast' +
-        '</div>' +
+      '<div class="toast-body">' +
+      'a simple toast' +
+      '</div>' +
       '</div>'
 
     var $toast = $(toastHtml)
@@ -159,9 +159,9 @@ $(function () {
 
     var toastHtml =
       '<div class="toast" data-delay="0" data-autohide="false">' +
-        '<div class="toast-body">' +
-          'a simple toast' +
-        '</div>' +
+      '<div class="toast-body">' +
+      'a simple toast' +
+      '</div>' +
       '</div>'
 
     var $toast = $(toastHtml)
@@ -190,9 +190,9 @@ $(function () {
 
     var toastHtml =
       '<div class="toast">' +
-        '<div class="toast-body">' +
-          'a simple toast' +
-        '</div>' +
+      '<div class="toast-body">' +
+      'a simple toast' +
+      '</div>' +
       '</div>'
 
     var $toast = $(toastHtml)
@@ -215,9 +215,9 @@ $(function () {
 
     var toastHtml =
       '<div class="toast" data-delay="1" data-autohide="false" data-animation="false">' +
-        '<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">' +
-          'close' +
-        '</button>' +
+      '<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">' +
+      'close' +
+      '</button>' +
       '</div>'
 
     var $toast = $(toastHtml)
@@ -245,9 +245,9 @@ $(function () {
 
     var toastHtml =
       '<div class="toast" data-autohide="false" data-animation="false">' +
-        '<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">' +
-          'close' +
-        '</button>' +
+      '<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">' +
+      'close' +
+      '</button>' +
       '</div>'
 
     var $toast = $(toastHtml)

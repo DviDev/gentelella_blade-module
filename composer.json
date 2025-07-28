@@ -18,10 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Gentelella\\": "",
-            "Modules\\Gentelella\\App\\": "app/",
-            "Modules\\Gentelella\\Database\\Factories\\": "database/factories/",
-            "Modules\\Gentelella\\Database\\Seeders\\": "database/seeders/"
+            "Modules\\Gentelella\\": "app/"
         }
     },
     "autoload-dev": {

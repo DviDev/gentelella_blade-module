@@ -6,6 +6,7 @@
 <x-gentelella::assets.echarts/>
 
 <x-gentelella::layout.v1 title="ECharts Chart Bootstrap Examples">
+    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <div class="">
         <div class="page-title">
             <div class="title_left">

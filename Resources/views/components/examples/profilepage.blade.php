@@ -9,6 +9,7 @@
 <x-gentelella::assets.raphael/>
 
 <x-gentelella::layout.v1>
+    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <div class="">
         <div class="page-title">
             <div class="title_left">

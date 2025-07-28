@@ -8,7 +8,8 @@ toc: true
 
 ## Basic example
 
-Wrap a series of buttons with `.btn` in `.btn-group`. Add on optional JavaScript radio and checkbox style behavior with [our buttons plugin]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#button-plugin).
+Wrap a series of buttons with `.btn` in `.btn-group`. Add on optional JavaScript radio and checkbox style behavior
+with [our buttons plugin]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#button-plugin).
 
 {% capture example %}
 <div class="btn-group" role="group" aria-label="Basic example">
@@ -20,17 +21,23 @@ Wrap a series of buttons with `.btn` in `.btn-group`. Add on optional JavaScript
 {% include example.html content=example %}
 
 {% capture callout %}
+
 ##### Ensure correct `role` and provide a label
 
-In order for assistive technologies (such as screen readers) to convey that a series of buttons is grouped, an appropriate `role` attribute needs to be provided. For button groups, this would be `role="group"`, while toolbars should have a `role="toolbar"`.
+In order for assistive technologies (such as screen readers) to convey that a series of buttons is grouped, an
+appropriate `role` attribute needs to be provided. For button groups, this would be `role="group"`, while toolbars
+should have a `role="toolbar"`.
 
-In addition, groups and toolbars should be given an explicit label, as most assistive technologies will otherwise not announce them, despite the presence of the correct role attribute. In the examples provided here, we use `aria-label`, but alternatives such as `aria-labelledby` can also be used.
+In addition, groups and toolbars should be given an explicit label, as most assistive technologies will otherwise not
+announce them, despite the presence of the correct role attribute. In the examples provided here, we use `aria-label`,
+but alternatives such as `aria-labelledby` can also be used.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 
 ## Button toolbar
 
-Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space
+out groups, buttons, and more.
 
 {% capture example %}
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -52,7 +59,8 @@ Combine sets of button groups into button toolbars for more complex components. 
 {% endcapture %}
 {% include example.html content=example %}
 
-Feel free to mix input groups with button groups in your toolbars. Similar to the example above, you'll likely need some utilities though to space things properly.
+Feel free to mix input groups with button groups in your toolbars. Similar to the example above, you'll likely need some
+utilities though to space things properly.
 
 {% capture example %}
 <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
@@ -89,7 +97,8 @@ Feel free to mix input groups with button groups in your toolbars. Similar to th
 
 ## Sizing
 
-Instead of applying button sizing classes to every button in a group, just add `.btn-group-*` to each `.btn-group`, including each one when nesting multiple groups.
+Instead of applying button sizing classes to every button in a group, just add `.btn-group-*` to each `.btn-group`,
+including each one when nesting multiple groups.
 
 <div class="bd-example">
   <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
@@ -141,7 +150,8 @@ Place a `.btn-group` within another `.btn-group` when you want dropdown menus mi
 
 ## Vertical variation
 
-Make a set of buttons appear vertically stacked rather than horizontally. **Split button dropdowns are not supported here.**
+Make a set of buttons appear vertically stacked rather than horizontally. **Split button dropdowns are not supported
+here.**
 
 <div class="bd-example">
   <div class="btn-group-vertical" role="group" aria-label="Vertical button group">

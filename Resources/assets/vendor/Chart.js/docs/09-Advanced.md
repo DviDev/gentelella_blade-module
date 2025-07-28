@@ -3,10 +3,10 @@ title: Advanced usage
 anchor: advanced-usage
 ---
 
-
 ### Prototype Methods
 
-For each chart, there are a set of global prototype methods on the shared `ChartType` which you may find useful. These are available on all charts created with Chart.js, but for the examples, let's use a line chart we've made.
+For each chart, there are a set of global prototype methods on the shared `ChartType` which you may find useful. These
+are available on all charts created with Chart.js, but for the examples, let's use a line chart we've made.
 
 ```javascript
 // For example:
@@ -15,7 +15,8 @@ var myLineChart = new Chart(ctx, config);
 
 #### .destroy()
 
-Use this to destroy any chart instances that are created. This will clean up any references stored to the chart object within Chart.js, along with any associated event listeners attached by Chart.js.
+Use this to destroy any chart instances that are created. This will clean up any references stored to the chart object
+within Chart.js, along with any associated event listeners attached by Chart.js.
 This must be called before the canvas is reused for a new chart.
 
 ```javascript
@@ -25,7 +26,8 @@ myLineChart.destroy();
 
 #### .update(duration, lazy)
 
-Triggers an update of the chart. This can be safely called after replacing the entire data object. This will update all scales, legends, and then re-render the chart.
+Triggers an update of the chart. This can be safely called after replacing the entire data object. This will update all
+scales, legends, and then re-render the chart.
 
 ```javascript
 // duration is the time for the animation of the redraw in miliseconds
@@ -46,7 +48,8 @@ myLineChart.render(duration, lazy);
 
 #### .stop()
 
-Use this to stop any current animation loop. This will pause the chart during any current animation frame. Call `.render()` to re-animate.
+Use this to stop any current animation loop. This will pause the chart during any current animation frame. Call
+`.render()` to re-animate.
 
 ```javascript
 // Stops the charts animation loop at its current frame
@@ -56,7 +59,8 @@ myLineChart.stop();
 
 #### .resize()
 
-Use this to manually resize the canvas element. This is run each time the canvas container is resized, but you can call this method manually if you change the size of the canvas nodes container element.
+Use this to manually resize the canvas element. This is run each time the canvas container is resized, but you can call
+this method manually if you change the size of the canvas nodes container element.
 
 ```javascript
 // Resizes & redraws to fill its container element
@@ -94,7 +98,8 @@ myLineChart.generateLegend();
 
 #### .getElementAtEvent(e)
 
-Calling `getElementAtEvent(event)` on your Chart instance passing an argument of an event, or jQuery event, will return the single element at the event position. If there are multiple items within range, only the first is returned
+Calling `getElementAtEvent(event)` on your Chart instance passing an argument of an event, or jQuery event, will return
+the single element at the event position. If there are multiple items within range, only the first is returned
 
 ```javascript
 myLineChart.getElementAtEvent(e);
@@ -103,9 +108,11 @@ myLineChart.getElementAtEvent(e);
 
 #### .getElementsAtEvent(e)
 
-Looks for the element under the event point, then returns all elements at the same data index. This is used internally for 'label' mode highlighting.
+Looks for the element under the event point, then returns all elements at the same data index. This is used internally
+for 'label' mode highlighting.
 
-Calling `getElementsAtEvent(event)` on your Chart instance passing an argument of an event, or jQuery event, will return the point elements that are at that the same position of that event.
+Calling `getElementsAtEvent(event)` on your Chart instance passing an argument of an event, or jQuery event, will return
+the point elements that are at that the same position of that event.
 
 ```javascript
 canvas.onclick = function(evt){
@@ -114,11 +121,13 @@ canvas.onclick = function(evt){
 };
 ```
 
-This functionality may be useful for implementing DOM based tooltips, or triggering custom behaviour in your application.
+This functionality may be useful for implementing DOM based tooltips, or triggering custom behaviour in your
+application.
 
 #### .getDatasetAtEvent(e)
 
-Looks for the element under the event point, then returns all elements from that dataset. This is used internally for 'dataset' mode highlighting
+Looks for the element under the event point, then returns all elements from that dataset. This is used internally for '
+dataset' mode highlighting
 
 ```javascript
 myLineChart.getDatasetAtEvent(e);
@@ -173,7 +182,9 @@ var MyScale = Chart.Scale.extend({
 // MyScale is now derived from Chart.Scale
 ```
 
-Once you have created your scale class, you need to register it with the global chart object so that it can be used. A default config for the scale may be provided when registering the constructor. The first parameter to the register function is a string key that is used later to identify which scale type to use for a chart.
+Once you have created your scale class, you need to register it with the global chart object so that it can be used. A
+default config for the scale may be provided when registering the constructor. The first parameter to the register
+function is a string key that is used later to identify which scale type to use for a chart.
 
 ```javascript
 Chart.scaleService.registerScaleType('myScale', MyScale, defaultConfigObject);
@@ -203,12 +214,12 @@ Scale instances are given the following properties during the fitting process.
 {
 	left: Number, // left edge of the scale bounding box
 	right: Number, // right edge of the bounding box'
-	top: Number, 
+	top: Number,
 	bottom: Number,
 	width: Number, // the same as right - left
 	height: Number, // the same as bottom - top
 
-	// Margin on each side. Like css, this is outside the bounding box. 
+	// Margin on each side. Like css, this is outside the bounding box.
 	margins: {
 		left: Number,
 		right: Number,
@@ -225,7 +236,8 @@ Scale instances are given the following properties during the fitting process.
 ```
 
 #### Scale Interface
-To work with Chart.js, custom scale types must implement the following interface. 
+
+To work with Chart.js, custom scale types must implement the following interface.
 
 ```javascript
 {
@@ -257,13 +269,14 @@ To work with Chart.js, custom scale types must implement the following interface
 }
 ```
 
-Optionally, the following methods may also be overwritten, but an implementation is already provided by the `Chart.Scale` base class.
+Optionally, the following methods may also be overwritten, but an implementation is already provided by the
+`Chart.Scale` base class.
 
 ```javascript
-	// Transform the ticks array of the scale instance into strings. The default implementation simply calls this.options.ticks.callback(numericalTick, index, ticks); 
+	// Transform the ticks array of the scale instance into strings. The default implementation simply calls this.options.ticks.callback(numericalTick, index, ticks);
 	convertTicksToLabels: function() {},
 
-	// Determine how much the labels will rotate by. The default implementation will only rotate labels if the scale is horizontal. 
+	// Determine how much the labels will rotate by. The default implementation will only rotate labels if the scale is horizontal.
 	calculateTickRotation: function() {},
 
 	// Fits the scale into the canvas.
@@ -279,8 +292,9 @@ Optionally, the following methods may also be overwritten, but an implementation
 ```
 
 The Core.Scale base class also has some utility functions that you may find useful.
+
 ```javascript
-{	
+{
 	// Returns true if the scale instance is horizontal
 	isHorizontal: function() {},
 
@@ -295,7 +309,8 @@ The Core.Scale base class also has some utility functions that you may find usef
 
 ### Writing New Chart Types
 
-Chart.js 2.0 introduces the concept of controllers for each dataset. Like scales, new controllers can be written as needed.
+Chart.js 2.0 introduces the concept of controllers for each dataset. Like scales, new controllers can be written as
+needed.
 
 ```javascript
 Chart.controllers.MyType = Chart.DatasetController.extend({
@@ -341,6 +356,7 @@ Dataset controllers must implement the following interface.
 ```
 
 The following methods may optionally be overridden by derived dataset controllers
+
 ```javascript
 {
 	// Initializes the controller
@@ -350,16 +366,18 @@ The following methods may optionally be overridden by derived dataset controller
 	// chart types using a single scale
 	linkScales: function() {},
 
-	// Called by the main chart controller when an update is triggered. The default implementation handles the number of data points changing and creating elements appropriately. 
+	// Called by the main chart controller when an update is triggered. The default implementation handles the number of data points changing and creating elements appropriately.
 	buildOrUpdateElements: function() {}
 }
 ```
 
 ### Extending Existing Chart Types
 
-Extending or replacing an existing controller type is easy. Simply replace the constructor for one of the built in types with your own.
+Extending or replacing an existing controller type is easy. Simply replace the constructor for one of the built in types
+with your own.
 
 The built in controller types are:
+
 * `Chart.controllers.line`
 * `Chart.controllers.bar`
 * `Chart.controllers.radar`
@@ -368,12 +386,18 @@ The built in controller types are:
 * `Chart.controllers.bubble`
 
 #### Bar Controller
-The bar controller has a special property that you should be aware of. To correctly calculate the width of a bar, the controller must determine the number of datasets that map to bars. To do this, the bar controller attaches a property `bar` to the dataset during initialization. If you are creating a replacement or updated bar controller, you should do the same. This will ensure that charts with regular bars and your new derived bars will work seamlessly.
+
+The bar controller has a special property that you should be aware of. To correctly calculate the width of a bar, the
+controller must determine the number of datasets that map to bars. To do this, the bar controller attaches a property
+`bar` to the dataset during initialization. If you are creating a replacement or updated bar controller, you should do
+the same. This will ensure that charts with regular bars and your new derived bars will work seamlessly.
 
 ### Creating Plugins
 
-Starting with v2.1.0, you can create plugins for chart.js. To register your plugin, simply call `Chart.pluginService.register` and pass your plugin in.
+Starting with v2.1.0, you can create plugins for chart.js. To register your plugin, simply call
+`Chart.pluginService.register` and pass your plugin in.
 Plugins will be called at the following times
+
 * Start of initialization
 * End of initialization
 * Start of update
@@ -384,6 +408,7 @@ Plugins will be called at the following times
 * Before an animation is started
 
 Plugins should derive from Chart.PluginBase and implement the following interface
+
 ```javascript
 {
 	beforeInit: function(chartInstance) { },
@@ -393,7 +418,7 @@ Plugins should derive from Chart.PluginBase and implement the following interfac
 	afterScaleUpdate: function(chartInstance) { }
 	afterUpdate: function(chartInstance) { },
 
-	// This is called at the start of a render. It is only called once, even if the animation will run for a number of frames. Use beforeDraw or afterDraw 
+	// This is called at the start of a render. It is only called once, even if the animation will run for a number of frames. Use beforeDraw or afterDraw
 	// to do something on each animation frame
 	beforeRender: function(chartInstance) { },
 
@@ -407,16 +432,18 @@ Plugins should derive from Chart.PluginBase and implement the following interfac
 
 ### Building Chart.js
 
-Chart.js uses <a href="http://gulpjs.com/" target="_blank">gulp</a> to build the library into a single JavaScript file. 
+Chart.js uses <a href="http://gulpjs.com/" target="_blank">gulp</a> to build the library into a single JavaScript file.
 
-Firstly, we need to ensure development dependencies are installed. With node and npm installed, after cloning the Chart.js repo to a local directory, and navigating to that directory in the command line, we can run the following:
+Firstly, we need to ensure development dependencies are installed. With node and npm installed, after cloning the
+Chart.js repo to a local directory, and navigating to that directory in the command line, we can run the following:
 
 ```bash
 npm install
 npm install -g gulp
 ```
 
-This will install the local development dependencies for Chart.js, along with a CLI for the JavaScript task runner <a href="http://gulpjs.com/" target="_blank">gulp</a>.
+This will install the local development dependencies for Chart.js, along with a CLI for the JavaScript task
+runner <a href="http://gulpjs.com/" target="_blank">gulp</a>.
 
 Now, we can run the `gulp build` task.
 

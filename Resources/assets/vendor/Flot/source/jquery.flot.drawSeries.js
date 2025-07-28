@@ -1,12 +1,12 @@
 /**
-## jquery.flot.drawSeries.js
+ ## jquery.flot.drawSeries.js
 
-This plugin is used by flot for drawing lines, plots, bars or area.
+ This plugin is used by flot for drawing lines, plots, bars or area.
 
-### Public methods
-*/
+ ### Public methods
+ */
 
-(function($) {
+(function ($) {
     "use strict";
 
     function DrawSeries() {
@@ -36,7 +36,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
                     continue;
                 }
 
-                if(steps){
+                if (steps) {
                     if (mx !== null && my !== null) {
                         // if middle point exists, transfer p2 -> p1 and p1 -> mp
                         x2 = x1;
@@ -195,7 +195,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
                     continue;
                 }
 
-                if(steps){
+                if (steps) {
                     if (mx !== null && my !== null) {
                         // if middle point exists, transfer p2 -> p1 and p1 -> mp
                         x2 = x1;
@@ -321,7 +321,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
         }
 
         /**
-        - drawSeriesLines(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient)
+         - drawSeriesLines(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient)
 
          This function is used for drawing lines or area fill.  In case the series has line decimation function
          attached, before starting to draw, as an optimization the points will first be decimated.
@@ -329,7 +329,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
          The series parameter contains the series to be drawn on ctx context. The plotOffset, plotWidth and
          plotHeight are the corresponding parameters of flot used to determine the drawing surface.
          The function getColorOrGradient is used to compute the fill style of lines and area.
-        */
+         */
         function drawSeriesLines(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient) {
             ctx.save();
             ctx.translate(plotOffset.left, plotOffset.top);
@@ -367,7 +367,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
         }
 
         /**
-        - drawSeriesPoints(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient)
+         - drawSeriesPoints(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient)
 
          This function is used for drawing points using a given symbol. In case the series has points decimation
          function attached, before starting to draw, as an optimization the points will first be decimated.
@@ -375,13 +375,15 @@ This plugin is used by flot for drawing lines, plots, bars or area.
          The series parameter contains the series to be drawn on ctx context. The plotOffset, plotWidth and
          plotHeight are the corresponding parameters of flot used to determine the drawing surface.
          The function drawSymbol is used to compute and draw the symbol chosen for the points.
-        */
+         */
         function drawSeriesPoints(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient) {
             function drawCircle(ctx, x, y, radius, shadow, fill) {
                 ctx.moveTo(x + radius, y);
                 ctx.arc(x, y, radius, 0, shadow ? Math.PI : Math.PI * 2, false);
             }
+
             drawCircle.fill = true;
+
             function plotPoints(datapoints, radius, fill, offset, shadow, axisx, axisy, drawSymbolFn) {
                 var points = datapoints.points,
                     ps = datapoints.pointsize;
@@ -475,8 +477,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
                     drawLeft = true;
                     drawRight = false;
                 }
-            }
-            else {
+            } else {
                 drawLeft = drawRight = drawTop = true;
                 drawBottom = false;
                 left = x + barLeft;
@@ -566,7 +567,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
         }
 
         /**
-        - drawSeriesBars(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient)
+         - drawSeriesBars(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient)
 
          This function is used for drawing series represented as bars. In case the series has decimation
          function attached, before starting to draw, as an optimization the points will first be decimated.
@@ -574,7 +575,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
          The series parameter contains the series to be drawn on ctx context. The plotOffset, plotWidth and
          plotHeight are the corresponding parameters of flot used to determine the drawing surface.
          The function getColorOrGradient is used to compute the fill style of bars.
-        */
+         */
         function drawSeriesBars(series, ctx, plotOffset, plotWidth, plotHeight, drawSymbol, getColorOrGradient) {
             function plotBars(datapoints, barLeft, barRight, fillStyleCallback, axisx, axisy) {
                 var points = datapoints.points,
@@ -622,7 +623,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
                     barLeft = -barWidth / 2;
             }
 
-            var fillStyleCallback = series.bars.fill ? function(bottom, top) {
+            var fillStyleCallback = series.bars.fill ? function (bottom, top) {
                 return getFillStyle(series.bars, series.color, bottom, top, getColorOrGradient);
             } : null;
 

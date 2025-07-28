@@ -46,6 +46,7 @@
 </head>
 
 <body @class(["nav-md", 'footer_fixed' => $footer_fixed])>
+<x-gentelella::dev.info :alias="$componentAlias->value"/>
 <div class="container body">
     <div class="main_container">
         @if($menu)

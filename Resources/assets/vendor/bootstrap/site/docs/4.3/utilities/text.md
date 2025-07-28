@@ -15,7 +15,8 @@ Easily realign text to components with text alignment classes.
 {% endcapture %}
 {% include example.html content=example %}
 
-For left, right, and center alignment, responsive classes are available that use the same viewport width breakpoints as the grid system.
+For left, right, and center alignment, responsive classes are available that use the same viewport width breakpoints as
+the grid system.
 
 {% capture example %}
 <p class="text-left">Left aligned text on all viewport sizes.</p>
@@ -49,7 +50,8 @@ Prevent text from wrapping with a `.text-nowrap` class.
 {% endcapture %}
 {% include example.html content=example %}
 
-For longer content, you can add a `.text-truncate` class to truncate the text with an ellipsis. **Requires `display: inline-block` or `display: block`.**
+For longer content, you can add a `.text-truncate` class to truncate the text with an ellipsis. *
+*Requires `display: inline-block` or `display: block`.**
 
 {% capture example %}
 <!-- Block level -->
@@ -68,7 +70,8 @@ For longer content, you can add a `.text-truncate` class to truncate the text wi
 
 ## Word break
 
-Prevent long strings of text from breaking your components' layout by using `.text-break` to set `overflow-wrap: break-word` (and `word-break: break-word` for IE & Edge compatibility).
+Prevent long strings of text from breaking your components' layout by using `.text-break` to set
+`overflow-wrap: break-word` (and `word-break: break-word` for IE & Edge compatibility).
 
 {% capture example %}
 <p class="text-break">mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>
@@ -86,7 +89,8 @@ Transform text in components with text capitalization classes.
 {% endcapture %}
 {% include example.html content=example %}
 
-Note how `.text-capitalize` only changes the first letter of each word, leaving the case of any other letters unaffected.
+Note how `.text-capitalize` only changes the first letter of each word, leaving the case of any other letters
+unaffected.
 
 ## Font weight and italics
 

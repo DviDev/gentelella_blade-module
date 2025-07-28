@@ -12,6 +12,7 @@
 <x-gentelella::assets.bootstrap-daterangepicker/>
 
 <x-gentelella::layout.v1>
+    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <!-- top tiles -->
     <div class="row" style="display: inline-block;">
         <div class="tile_count">
@@ -576,56 +577,56 @@
                                 <ul class="to_do">
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Schedule meeting with new client
                                         </p>
 
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Create email address for new intern
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Have IT fix the network printer
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Copy backups to offsite location
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Food truck fixie locavors mcsweeney
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Food truck fixie locavors mcsweeney
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Create email address for new intern
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Have IT fix the network printer
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            <x-gentelella::form.check.check/>
+                                            {{--                                            <x-gentelella::form.check.check/>--}}
                                             Copy backups to offsite location
                                         </p>
                                     </li>

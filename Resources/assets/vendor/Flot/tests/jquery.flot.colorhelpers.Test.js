@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe("colorhelpers plugin", function() {
+describe("colorhelpers plugin", function () {
 
     it('can make a new color', function () {
         var color = $.color.make(10, 20, 30, 0.5);
@@ -51,13 +51,13 @@ describe("colorhelpers plugin", function() {
         expect(color.a).toBe(0);
     });
 
-    it('can make a new color object based on different color format string', function() {
+    it('can make a new color object based on different color format string', function () {
         [
             'rgb(17, 170, 187)',
             'rgba(17, 170, 187, 1)',
             '#1ab',
             '#11aabb'
-        ].forEach(function(str) {
+        ].forEach(function (str) {
             color = $.color.parse(str);
 
             expect(color.r).toBe(17);
@@ -67,11 +67,11 @@ describe("colorhelpers plugin", function() {
         });
     });
 
-    it('can make a new color object based on a named color string', function() {
+    it('can make a new color object based on a named color string', function () {
         [
-            { str: 'darkolivegreen', rgba: [85, 107, 47, 1] },
-            { str: 'transparent', rgba: [255, 255, 255, 0] }
-        ].forEach(function(tc) {
+            {str: 'darkolivegreen', rgba: [85, 107, 47, 1]},
+            {str: 'transparent', rgba: [255, 255, 255, 0]}
+        ].forEach(function (tc) {
             color = $.color.parse(tc.str);
 
             expect(color.r).toBe(tc.rgba[0]);
@@ -81,22 +81,22 @@ describe("colorhelpers plugin", function() {
         });
     });
 
-    describe('by looking in DOM', function() {
+    describe('by looking in DOM', function () {
 
         var testElement;
 
-        beforeEach(function() {
+        beforeEach(function () {
             testElement = setFixtures('<div style="color: red"><div id="test-element" style="background-color: yellow" /></div>')
                 .find('#test-element');
         });
 
-        it('extracts a specified CSS color from a given element', function() {
+        it('extracts a specified CSS color from a given element', function () {
             var color = $.color.extract(testElement, 'background-color');
 
             expect($.color.parse('yellow').toString()).toBe(color.toString());
         });
 
-        it('extracts a specified CSS color from the parent of a given element', function() {
+        it('extracts a specified CSS color from the parent of a given element', function () {
             var color = $.color.extract(testElement, 'color');
 
             expect($.color.parse('red').toString()).toBe(color.toString());

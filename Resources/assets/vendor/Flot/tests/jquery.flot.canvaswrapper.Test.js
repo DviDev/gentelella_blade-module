@@ -1,21 +1,21 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe('CanvasWrapper', function() {
+describe('CanvasWrapper', function () {
     var placeholder;
-    beforeEach(function() {
+    beforeEach(function () {
         placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
             .find('#test-container');
     });
 
-    it('should create a new canvas element', function() {
+    it('should create a new canvas element', function () {
         var canvas = new Flot.Canvas('myCanvas', placeholder[0]);
 
         expect(canvas.element).toBeTruthy();
         expect(placeholder.find('.myCanvas')).toBeTruthy();
     });
 
-    it('should reuse an existing canvas with the same class', function() {
+    it('should reuse an existing canvas with the same class', function () {
         var canvas1 = new Flot.Canvas('myCanvas', placeholder[0]);
         var element1 = placeholder.find('.myCanvas')[0];
 
@@ -26,7 +26,7 @@ describe('CanvasWrapper', function() {
         expect(placeholder.find('.myCanvas').length).toBe(1);
     });
 
-    it('should resize the canvas to the given width and height', function() {
+    it('should resize the canvas to the given width and height', function () {
         var canvas = newCanvas(placeholder);
 
         canvas.resize(222, 333);
@@ -37,7 +37,7 @@ describe('CanvasWrapper', function() {
         expect(canvas.element.style.height).toBe('333px');
     });
 
-    it('should resize the canvas but not less than a minimum width and height', function() {
+    it('should resize the canvas but not less than a minimum width and height', function () {
         var canvas = newCanvas(placeholder);
 
         canvas.resize(0, 0);
@@ -48,7 +48,7 @@ describe('CanvasWrapper', function() {
         expect(canvas.element.style.height).toBe('10px');
     });
 
-    it('should measure the width and height of a text', function() {
+    it('should measure the width and height of a text', function () {
         var canvas = newCanvas(placeholder);
 
         var info = canvas.getTextInfo('', 'text');
@@ -57,7 +57,7 @@ describe('CanvasWrapper', function() {
         expect(info.height).toBeGreaterThan(0);
     });
 
-    it('should measure the width and height of a text based on its own CSS', function() {
+    it('should measure the width and height of a text based on its own CSS', function () {
         var canvas = newCanvas(placeholder);
         appendSetStyleFixtures('.a { font-size: 10px; }');
         appendSetStyleFixtures('.b { font-size: 20px; }');
@@ -69,7 +69,7 @@ describe('CanvasWrapper', function() {
         expect(info2.height).toBeGreaterThan(info1.height);
     });
 
-    it('should measure the width and height of a text based on its layer CSS', function() {
+    it('should measure the width and height of a text based on its layer CSS', function () {
         var canvas = newCanvas(placeholder);
         appendSetStyleFixtures('.a { font-size: 10px; }');
         appendSetStyleFixtures('.b { font-size: 20px; }');
@@ -81,7 +81,7 @@ describe('CanvasWrapper', function() {
         expect(info2.height).toBeGreaterThan(info1.height);
     });
 
-    it('should measure the width of a text based on its actual length', function() {
+    it('should measure the width of a text based on its actual length', function () {
         var canvas = newCanvas(placeholder);
         appendSetStyleFixtures('.a { font-size: 10px; }');
 
@@ -91,7 +91,7 @@ describe('CanvasWrapper', function() {
         expect(info2.width).toBeGreaterThan(info1.width);
     });
 
-    it('should return the same width and height for numbers with the same digit count', function() {
+    it('should return the same width and height for numbers with the same digit count', function () {
         var canvas = newCanvas(placeholder);
         var info1 = canvas.getTextInfo('', '01234');
         var info2 = canvas.getTextInfo('', '56789');
@@ -99,7 +99,7 @@ describe('CanvasWrapper', function() {
         expect(info2.width).toBe(info1.width);
     });
 
-    it('should add text at the given layer, coords, and font CSS', function() {
+    it('should add text at the given layer, coords, and font CSS', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layer', 100, 200, '123', 'a');
         canvas.render();
@@ -113,7 +113,7 @@ describe('CanvasWrapper', function() {
         expect(elem.parentNode.className.baseVal).toBe('layer');
     });
 
-    it('should add the same text with the same CSS at different coords', function() {
+    it('should add the same text with the same CSS at different coords', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.addText('layerA', 300, 400, '123', 'a');
@@ -128,7 +128,7 @@ describe('CanvasWrapper', function() {
         expect(box2.top).not.toBe(box1.top);
     });
 
-    it('should add different text with the same CSS at different coords', function() {
+    it('should add different text with the same CSS at different coords', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.addText('layerA', 300, 400, '456', 'a');
@@ -143,7 +143,7 @@ describe('CanvasWrapper', function() {
         expect(box2.top).not.toBe(box1.top);
     });
 
-    it('should add different text with the same CSS and the same coords', function() {
+    it('should add different text with the same CSS and the same coords', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.addText('layerA', 100, 200, '456', 'a');
@@ -154,7 +154,7 @@ describe('CanvasWrapper', function() {
         expect(elems.length).toBe(3);
     });
 
-    it('should add multiple tspan for text that contains br tag', function() {
+    it('should add multiple tspan for text that contains br tag', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '1<br>2<br>3<br>4', 'a');
         canvas.render();
@@ -163,7 +163,7 @@ describe('CanvasWrapper', function() {
         expect(elem.childNodes.length).toBe(4);
     });
 
-    it('should update the tspan element content', function() {
+    it('should update the tspan element content', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '1<br>2<br>3', 'a');
         canvas.render();
@@ -176,7 +176,7 @@ describe('CanvasWrapper', function() {
         expect(elem.childNodes.length).toBe(4);
     });
 
-    it('should update the cache position of the elements', function() {
+    it('should update the cache position of the elements', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.render();
@@ -192,7 +192,7 @@ describe('CanvasWrapper', function() {
         expect(elems.length).toBe(2);
     });
 
-    it('should not add the same text with the same CSS and the same coords twice', function() {
+    it('should not add the same text with the same CSS and the same coords twice', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.addText('layerA', 100, 200, '123', 'a');
@@ -202,7 +202,7 @@ describe('CanvasWrapper', function() {
         expect(elems.length).toBe(1);
     });
 
-    it('should remove all text from a given layer', function() {
+    it('should remove all text from a given layer', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.addText('layerA', 300, 400, '123', 'a');
@@ -223,7 +223,7 @@ describe('CanvasWrapper', function() {
         expect(cs.length).toBe(2);
     });
 
-    it('should remove specific text from specific layer and coords', function() {
+    it('should remove specific text from specific layer and coords', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.addText('layerA', 300, 400, '123', 'a');
@@ -244,7 +244,7 @@ describe('CanvasWrapper', function() {
         expect(cs.length).toBe(2);
     });
 
-    it('should remove specific text from specific layer and coords when more texts overlaps', function() {
+    it('should remove specific text from specific layer and coords when more texts overlaps', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.addText('layerA', 100, 200, '456', 'a');
@@ -263,7 +263,7 @@ describe('CanvasWrapper', function() {
         expect(remainingTexts).toContain('7890');
     });
 
-    it('should remove all text', function() {
+    it('should remove all text', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.addText('layerA', 300, 400, '456', 'b');
@@ -280,7 +280,7 @@ describe('CanvasWrapper', function() {
         expect(cs.length).toBe(0);
     });
 
-    it('should move&replace obsolete text', function() {
+    it('should move&replace obsolete text', function () {
         var canvas = newCanvas(placeholder);
         canvas.addText('layerA', 100, 200, '123', 'a');
         canvas.render();
@@ -296,17 +296,17 @@ describe('CanvasWrapper', function() {
         expect(elem._marker).toBe('_marker');
     });
 
-    it('should work with an object instead of a class name', function() {
+    it('should work with an object instead of a class name', function () {
         var canvas = newCanvas(placeholder)
-            settings = {
-                style: 'normal',
-                variant: 'normal',
-                weight: '400',
-                size: '40',
-                lineHeight: '23',
-                family: '"Times New Roman"',
-                fill: 'rgb(100, 200, 0)'
-            };
+        settings = {
+            style: 'normal',
+            variant: 'normal',
+            weight: '400',
+            size: '40',
+            lineHeight: '23',
+            family: '"Times New Roman"',
+            fill: 'rgb(100, 200, 0)'
+        };
         var info = canvas.getTextInfo('layerA', '123', settings);
         expect(info.width).toBeGreaterThan(10);
 

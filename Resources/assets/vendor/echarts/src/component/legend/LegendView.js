@@ -104,8 +104,7 @@ define(function (require) {
                         .on('mouseout', curry(dispatchDownplayAction, seriesModel, '', api));
 
                     legendDrawedMap[name] = true;
-                }
-                else {
+                } else {
                     // Data legend of pie, funnel
                     ecModel.eachRawSeries(function (seriesModel) {
                         // In case multiple series has same data name
@@ -192,8 +191,7 @@ define(function (require) {
             var formatter = legendModel.get('formatter');
             if (typeof formatter === 'string' && formatter) {
                 name = formatter.replace('{name}', name);
-            }
-            else if (typeof formatter === 'function') {
+            } else if (typeof formatter === 'function') {
                 name = formatter(name);
             }
 

@@ -9,6 +9,7 @@
 7. Locales: Moment's locale files are [here](https://github.com/moment/moment/tree/master/locale)
 
 # Installation Guides
+
 * [Bower](#bower-)
 * [Nuget](#nuget)
 * [Rails](#rails-)
@@ -19,11 +20,13 @@
 ## [bower](http://bower.io) ![Bower version](https://badge.fury.io/bo/eonasdan-bootstrap-datetimepicker.png)
 
 Run the following command:
+
 ```
 bower install eonasdan-bootstrap-datetimepicker#latest --save
 ```
 
 Include necessary scripts and styles:
+
 ```html
 <head>
   <!-- ... -->
@@ -35,13 +38,17 @@ Include necessary scripts and styles:
   <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 </head>
 ```
+
 ## Nuget
+
 ### [LESS](https://www.nuget.org/packages/Bootstrap.v3.Datetimepicker/): ![NuGet version](https://badge.fury.io/nu/Bootstrap.v3.Datetimepicker.png)
+
 ```
 PM> Install-Package Bootstrap.v3.Datetimepicker
 ```
 
 ### [CSS](https://www.nuget.org/packages/Bootstrap.v3.Datetimepicker.CSS/): ![NuGet version](https://badge.fury.io/nu/Bootstrap.v3.Datetimepicker.CSS.png)
+
 ```
 PM> Install-Package Bootstrap.v3.Datetimepicker.CSS
 ```
@@ -64,21 +71,24 @@ PM> Install-Package Bootstrap.v3.Datetimepicker.CSS
 ## [Rails](http://rubygems.org/gems/bootstrap3-datetimepicker-rails) ![Gem Version](https://badge.fury.io/rb/bootstrap3-datetimepicker-rails.png)
 
 Add the following to your `Gemfile`:
+
 ```ruby
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 ```
+
 Note: You may need to change the version number above to the version number on the badge above.
-Read the rest of the install instructions @ 
+Read the rest of the install instructions @
 [TrevorS/bootstrap3-datetimepicker-rails](https://github.com/TrevorS/bootstrap3-datetimepicker-rails)
 
-
 ## Angular Wrapper
+
 Follow the link [here](https://gist.github.com/eugenekgn/f00c4d764430642dca4b)
 
 ## Meteor.js
 
-This widget has been package for the [Meteor.js](http://www.meteor.com/) platform, to install it use meteorite as follows:
+This widget has been package for the [Meteor.js](http://www.meteor.com/) platform, to install it use meteorite as
+follows:
 
 `$ mrt add tsega:bootstrap3-datetimepicker`
 
@@ -87,10 +97,16 @@ For more detail see the package page on [Atmosphere](http://atmospherejs.com/pac
 ## Manual
 
 ### Acquire [jQuery](http://jquery.com)
+
 ### Acquire  [Moment.js](https://github.com/moment/moment)
+
 ### Bootstrap 3 collapse and transition plugins
-Make sure to include *.JS files for plugins [collapse](http://getbootstrap.com/javascript/#collapse) and [transitions](http://getbootstrap.com/javascript/#transitions). They are included with [bootstrap in js/ directory](https://github.com/twbs/bootstrap/tree/master/js)
-Alternatively you could include the whole bundle of bootstrap plugins from [bootstrap.js](https://github.com/twbs/bootstrap/tree/master/dist/js)
+
+Make sure to include *.JS files for plugins [collapse](http://getbootstrap.com/javascript/#collapse)
+and [transitions](http://getbootstrap.com/javascript/#transitions). They are included
+with [bootstrap in js/ directory](https://github.com/twbs/bootstrap/tree/master/js)
+Alternatively you could include the whole bundle of bootstrap plugins
+from [bootstrap.js](https://github.com/twbs/bootstrap/tree/master/dist/js)
 
 ```html
 <script type="text/javascript" src="/path/to/jquery.js"></script>
@@ -148,6 +164,7 @@ ko.bindingHandlers.dateTimePicker = {
 ### CSS styles
 
 #### Using LESS
+
 ```css
 @import "/path/to/bootstrap/less/variables";
 @import "/path/to/bootstrap-datetimepicker/src/less/bootstrap-datetimepicker-build.less";
@@ -156,6 +173,7 @@ ko.bindingHandlers.dateTimePicker = {
 ```
 
 Using CSS (default color palette)
+
 ```html
 <link rel="stylesheet" href="/path/to/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 ```

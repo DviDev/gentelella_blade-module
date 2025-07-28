@@ -7,7 +7,7 @@ Set axis.mode to "time" to enable. See the section "Time series data" in
 API.txt for details.
 */
 
-(function($) {
+(function ($) {
     'use strict';
 
     var options = {
@@ -26,19 +26,19 @@ API.txt for details.
     var floorInBase = $.plot.saturated.floorInBase;
 
     // Method to provide microsecond support to Date like classes.
-    var CreateMicroSecondDate = function(dateType, microEpoch) {
+    var CreateMicroSecondDate = function (dateType, microEpoch) {
         var newDate = new dateType(microEpoch);
 
         var oldSetTime = newDate.setTime.bind(newDate);
-        newDate.update = function(microEpoch) {
+        newDate.update = function (microEpoch) {
             oldSetTime(microEpoch);
 
             // Round epoch to 3 decimal accuracy
-            microEpoch = Math.round(microEpoch*1000)/1000;
+            microEpoch = Math.round(microEpoch * 1000) / 1000;
             this.microEpoch = microEpoch;
 
             // Microseconds are stored as integers
-            var seconds = microEpoch/1000;
+            var seconds = microEpoch / 1000;
             this.microseconds = 1000000 * (seconds - Math.floor(seconds));
         };
 
@@ -50,20 +50,24 @@ API.txt for details.
             this.update(microEpoch);
         };
 
-        newDate.getMicroseconds = function() {
+        newDate.getMicroseconds = function () {
             return this.microseconds;
         };
 
-        newDate.setMicroseconds = function(microseconds) {
+        newDate.setMicroseconds = function (microseconds) {
             // Replace the microsecond part (6 last digits) in microEpoch
-            var epochWithoutMicroseconds = 1000*Math.floor(this.microEpoch/1000);
-            var newEpoch = epochWithoutMicroseconds + microseconds/1000;
+            var epochWithoutMicroseconds = 1000 * Math.floor(this.microEpoch / 1000);
+            var newEpoch = epochWithoutMicroseconds + microseconds / 1000;
             this.update(newEpoch);
         };
 
-        newDate.setUTCMicroseconds = function(microseconds) { this.setMicroseconds(microseconds); }
+        newDate.setUTCMicroseconds = function (microseconds) {
+            this.setMicroseconds(microseconds);
+        }
 
-        newDate.getUTCMicroseconds = function() { return this.getMicroseconds(); }
+        newDate.getUTCMicroseconds = function () {
+            return this.getMicroseconds();
+        }
 
         newDate.microseconds = null;
         newDate.microEpoch = null;
@@ -79,28 +83,28 @@ API.txt for details.
             return d.strftime(fmt);
         }
 
-        var leftPad = function(n, pad) {
-			n = "" + n;
-			pad = "" + (pad == null ? "0" : pad);
-			return n.length == 1 ? pad + n : n;
-		};
+        var leftPad = function (n, pad) {
+            n = "" + n;
+            pad = "" + (pad == null ? "0" : pad);
+            return n.length == 1 ? pad + n : n;
+        };
 
-		var formatMicroseconds = function(n, dec) {
-			if (dec < 6 && dec > 0) {
-				var magnitude = Math.pow(10,dec-6);
-				n = Math.round(Math.round(n*magnitude)/magnitude);
-				n = ('00000' + n).slice(-6,-(6 - dec));
-			} else {
+        var formatMicroseconds = function (n, dec) {
+            if (dec < 6 && dec > 0) {
+                var magnitude = Math.pow(10, dec - 6);
+                n = Math.round(Math.round(n * magnitude) / magnitude);
+                n = ('00000' + n).slice(-6, -(6 - dec));
+            } else {
                 n = Math.round(n)
-				n = ('00000' + n).slice(-6);
-			}
-			return n;
-		};
+                n = ('00000' + n).slice(-6);
+            }
+            return n;
+        };
 
         var r = [];
         var escape = false;
         var hours = d.getHours();
-		var isAM = hours < 12;
+        var isAM = hours < 12;
 
         if (!monthNames) {
             monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -111,55 +115,88 @@ API.txt for details.
         }
 
         var hours12;
-		if (hours > 12) {
-			hours12 = hours - 12;
-		} else if (hours == 0) {
-			hours12 = 12;
-		} else {
-			hours12 = hours;
-		}
+        if (hours > 12) {
+            hours12 = hours - 12;
+        } else if (hours == 0) {
+            hours12 = 12;
+        } else {
+            hours12 = hours;
+        }
 
         var decimals = -1;
         for (var i = 0; i < fmt.length; ++i) {
-			var c = fmt.charAt(i);
+            var c = fmt.charAt(i);
 
             if (!isNaN(Number(c)) && Number(c) > 0) {
                 decimals = Number(c);
             } else if (escape) {
-				switch (c) {
-					case 'a': c = "" + dayNames[d.getDay()]; break;
-					case 'b': c = "" + monthNames[d.getMonth()]; break;
-					case 'd': c = leftPad(d.getDate()); break;
-					case 'e': c = leftPad(d.getDate(), " "); break;
-					case 'h':	// For back-compat with 0.7; remove in 1.0
-					case 'H': c = leftPad(hours); break;
-					case 'I': c = leftPad(hours12); break;
-					case 'l': c = leftPad(hours12, " "); break;
-					case 'm': c = leftPad(d.getMonth() + 1); break;
-					case 'M': c = leftPad(d.getMinutes()); break;
-					// quarters not in Open Group's strftime specification
-					case 'q':
-						c = "" + (Math.floor(d.getMonth() / 3) + 1); break;
-					case 'S': c = leftPad(d.getSeconds()); break;
-					case 's': c = "" + formatMicroseconds(d.getMicroseconds(),decimals); break;
-					case 'y': c = leftPad(d.getFullYear() % 100); break;
-					case 'Y': c = "" + d.getFullYear(); break;
-					case 'p': c = (isAM) ? ("" + "am") : ("" + "pm"); break;
-					case 'P': c = (isAM) ? ("" + "AM") : ("" + "PM"); break;
-					case 'w': c = "" + d.getDay(); break;
-				}
-				r.push(c);
-				escape = false;
-			} else {
-				if (c == "%") {
-					escape = true;
-				} else {
-					r.push(c);
-				}
-			}
-		}
+                switch (c) {
+                    case 'a':
+                        c = "" + dayNames[d.getDay()];
+                        break;
+                    case 'b':
+                        c = "" + monthNames[d.getMonth()];
+                        break;
+                    case 'd':
+                        c = leftPad(d.getDate());
+                        break;
+                    case 'e':
+                        c = leftPad(d.getDate(), " ");
+                        break;
+                    case 'h':	// For back-compat with 0.7; remove in 1.0
+                    case 'H':
+                        c = leftPad(hours);
+                        break;
+                    case 'I':
+                        c = leftPad(hours12);
+                        break;
+                    case 'l':
+                        c = leftPad(hours12, " ");
+                        break;
+                    case 'm':
+                        c = leftPad(d.getMonth() + 1);
+                        break;
+                    case 'M':
+                        c = leftPad(d.getMinutes());
+                        break;
+                    // quarters not in Open Group's strftime specification
+                    case 'q':
+                        c = "" + (Math.floor(d.getMonth() / 3) + 1);
+                        break;
+                    case 'S':
+                        c = leftPad(d.getSeconds());
+                        break;
+                    case 's':
+                        c = "" + formatMicroseconds(d.getMicroseconds(), decimals);
+                        break;
+                    case 'y':
+                        c = leftPad(d.getFullYear() % 100);
+                        break;
+                    case 'Y':
+                        c = "" + d.getFullYear();
+                        break;
+                    case 'p':
+                        c = (isAM) ? ("" + "am") : ("" + "pm");
+                        break;
+                    case 'P':
+                        c = (isAM) ? ("" + "AM") : ("" + "PM");
+                        break;
+                    case 'w':
+                        c = "" + d.getDay();
+                        break;
+                }
+                r.push(c);
+                escape = false;
+            } else {
+                if (c == "%") {
+                    escape = true;
+                } else {
+                    r.push(c);
+                }
+            }
+        }
 
-		return r.join("");
+        return r.join("");
     }
 
     // To have a consistent view of time-based data independent of which time
@@ -169,7 +206,7 @@ API.txt for details.
 
     function makeUtcWrapper(d) {
         function addProxyMethod(sourceObj, sourceMethod, targetObj, targetMethod) {
-            sourceObj[sourceMethod] = function() {
+            sourceObj[sourceMethod] = function () {
                 return targetObj[targetMethod].apply(targetObj, arguments);
             };
         }
@@ -306,7 +343,7 @@ API.txt for details.
         // mentioned in either of these options
         var spec = (opts.tickSize && opts.tickSize[1] ===
             "quarter") ||
-            (opts.minTickSize && opts.minTickSize[1] ===
+        (opts.minTickSize && opts.minTickSize[1] ===
             "quarter") ? specQuarters : specMonths;
 
         var timeUnitSize;
@@ -328,7 +365,7 @@ API.txt for details.
 
         for (var i = 0; i < spec.length - 1; ++i) {
             if (axis.delta < (spec[i][0] * timeUnitSize[spec[i][1]] +
-                spec[i + 1][0] * timeUnitSize[spec[i + 1][1]]) / 2 &&
+                    spec[i + 1][0] * timeUnitSize[spec[i + 1][1]]) / 2 &&
                 spec[i][0] * timeUnitSize[spec[i][1]] >= minSize) {
                 break;
             }
@@ -398,7 +435,7 @@ API.txt for details.
             if (step >= timeUnitSize.second) {
                 d.setMicroseconds(0);
             } else {
-                d.setMicroseconds(d.getMilliseconds()*1000);
+                d.setMicroseconds(d.getMilliseconds() * 1000);
             }
         }
         if (step >= timeUnitSize.minute) {
@@ -476,7 +513,7 @@ API.txt for details.
 
     function init(plot) {
         plot.hooks.processOptions.push(function (plot) {
-            $.each(plot.getAxes(), function(axisName, axis) {
+            $.each(plot.getAxes(), function (axisName, axis) {
                 var opts = axis.options;
                 if (opts.mode === "time") {
                     axis.tickGenerator = dateTickGenerator;
@@ -485,15 +522,15 @@ API.txt for details.
                         var d = dateGenerator(v, axis.options);
 
                         // first check global format
-						if (opts.timeformat != null) {
-							return formatDate(d, opts.timeformat, opts.monthNames, opts.dayNames);
-						}
+                        if (opts.timeformat != null) {
+                            return formatDate(d, opts.timeformat, opts.monthNames, opts.dayNames);
+                        }
 
-						// possibly use quarters if quarters are mentioned in
-						// any of these places
-						var useQuarters = (axis.options.tickSize &&
-								axis.options.tickSize[1] == "quarter") ||
-							(axis.options.minTickSize &&
+                        // possibly use quarters if quarters are mentioned in
+                        // any of these places
+                        var useQuarters = (axis.options.tickSize &&
+                                axis.options.tickSize[1] == "quarter") ||
+                            (axis.options.minTickSize &&
                                 axis.options.minTickSize[1] == "quarter");
 
                         var timeUnitSize;
@@ -505,12 +542,12 @@ API.txt for details.
                             timeUnitSize = timeUnitSizeMilliseconds;
                         }
 
-						var t = axis.tickSize[0] * timeUnitSize[axis.tickSize[1]];
-						var span = axis.max - axis.min;
-						var suffix = (opts.twelveHourClock) ? " %p" : "";
-						var hourCode = (opts.twelveHourClock) ? "%I" : "%H";
+                        var t = axis.tickSize[0] * timeUnitSize[axis.tickSize[1]];
+                        var span = axis.max - axis.min;
+                        var suffix = (opts.twelveHourClock) ? " %p" : "";
+                        var hourCode = (opts.twelveHourClock) ? "%I" : "%H";
                         var factor;
-						var fmt;
+                        var fmt;
 
                         if (opts.timeBase === 'seconds') {
                             factor = 1;
@@ -521,45 +558,44 @@ API.txt for details.
                         }
 
                         if (t < timeUnitSize.second) {
-                            var decimals = -Math.floor(Math.log10(t/factor))
+                            var decimals = -Math.floor(Math.log10(t / factor))
 
                             // the two-and-halves require an additional decimal
                             if (String(t).indexOf('25') > -1) {
                                 decimals++;
                             }
 
-							fmt = "%S.%" + decimals + "s";
-                        } else
-                        if (t < timeUnitSize.minute) {
-							fmt = hourCode + ":%M:%S" + suffix;
-						} else if (t < timeUnitSize.day) {
-							if (span < 2 * timeUnitSize.day) {
-								fmt = hourCode + ":%M" + suffix;
-							} else {
-								fmt = "%b %d " + hourCode + ":%M" + suffix;
-							}
-						} else if (t < timeUnitSize.month) {
-							fmt = "%b %d";
-						} else if ((useQuarters && t < timeUnitSize.quarter) ||
-							(!useQuarters && t < timeUnitSize.year)) {
-							if (span < timeUnitSize.year) {
-								fmt = "%b";
-							} else {
-								fmt = "%b %Y";
-							}
-						} else if (useQuarters && t < timeUnitSize.year) {
-							if (span < timeUnitSize.year) {
-								fmt = "Q%q";
-							} else {
-								fmt = "Q%q %Y";
-							}
-						} else {
-							fmt = "%Y";
-						}
+                            fmt = "%S.%" + decimals + "s";
+                        } else if (t < timeUnitSize.minute) {
+                            fmt = hourCode + ":%M:%S" + suffix;
+                        } else if (t < timeUnitSize.day) {
+                            if (span < 2 * timeUnitSize.day) {
+                                fmt = hourCode + ":%M" + suffix;
+                            } else {
+                                fmt = "%b %d " + hourCode + ":%M" + suffix;
+                            }
+                        } else if (t < timeUnitSize.month) {
+                            fmt = "%b %d";
+                        } else if ((useQuarters && t < timeUnitSize.quarter) ||
+                            (!useQuarters && t < timeUnitSize.year)) {
+                            if (span < timeUnitSize.year) {
+                                fmt = "%b";
+                            } else {
+                                fmt = "%b %Y";
+                            }
+                        } else if (useQuarters && t < timeUnitSize.year) {
+                            if (span < timeUnitSize.year) {
+                                fmt = "Q%q";
+                            } else {
+                                fmt = "Q%q %Y";
+                            }
+                        } else {
+                            fmt = "%Y";
+                        }
 
-						var rt = formatDate(d, fmt, opts.monthNames, opts.dayNames);
+                        var rt = formatDate(d, fmt, opts.monthNames, opts.dayNames);
 
-						return rt;
+                        return rt;
                     };
                 }
             });

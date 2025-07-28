@@ -9,8 +9,8 @@ describe("flot hover plugin", function () {
         placeholder = setFixtures('<div id="test-container" style="width: 600px;height: 400px">')
             .find('#test-container');
         options = {
-            grid: { hoverable: true, clickable: true },
-            pan: { enableTouch: true, active: true },
+            grid: {hoverable: true, clickable: true},
+            pan: {enableTouch: true, active: true},
             series: {
                 lines: {
                     show: true
@@ -26,13 +26,13 @@ describe("flot hover plugin", function () {
         jasmine.addMatchers(window.colors.jasmineMatchers);
     });
 
-    afterEach(function() {
+    afterEach(function () {
         jasmine.clock().uninstall();
     });
 
-    describe('touch hover', function() {
-        it('tap on plot triggers plothover event', function() {
-            plot = $.plot(placeholder, [ [ [0, 0], [10, 10] ] ], options);
+    describe('touch hover', function () {
+        it('tap on plot triggers plothover event', function () {
+            plot = $.plot(placeholder, [[[0, 0], [10, 10]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 axisx = plot.getXAxes()[0],
@@ -50,8 +50,8 @@ describe("flot hover plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('pan plot triggers plothovercleanup event', function() {
-            plot = $.plot(placeholder, [ [ [0, 0], [10, 10] ] ], options);
+        it('pan plot triggers plothovercleanup event', function () {
+            plot = $.plot(placeholder, [[[0, 0], [10, 10]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 axisx = plot.getXAxes()[0],
@@ -67,8 +67,8 @@ describe("flot hover plugin", function () {
             expect(spy.calls.count()).toBe(1);
         });
 
-        it('set data to the plot triggers plothovercleanup event', function() {
-            plot = $.plot(placeholder, [ [ [0, 0], [10, 10] ] ], options);
+        it('set data to the plot triggers plothovercleanup event', function () {
+            plot = $.plot(placeholder, [[[0, 0], [10, 10]]], options);
 
             var spy = jasmine.createSpy('spy');
 
@@ -80,14 +80,14 @@ describe("flot hover plugin", function () {
         });
     });
 
-    describe('mouse hover', function() {
-        beforeEach(function() {
+    describe('mouse hover', function () {
+        beforeEach(function () {
             options.series.hoverable = true;
             options.series.highlightColor = 'rgba(10, 20, 30, 1)';
         });
 
-        it('should highlight the point when hovered', function() {
-            plot = $.plot(placeholder, [ [ [0, 0], [2, 3], [10, 10] ] ], options);
+        it('should highlight the point when hovered', function () {
+            plot = $.plot(placeholder, [[[0, 0], [2, 3], [10, 10]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 canvas = eventHolder,
@@ -104,8 +104,8 @@ describe("flot hover plugin", function () {
             expect(getEntireCanvasData(canvas)).toContainPixelColor(rgba(10, 20, 30, 1));
         });
 
-        it('should highlight the point when hovered from a small distance', function() {
-            plot = $.plot(placeholder, [ [ [0, 0], [2, 3], [10, 10] ] ], options);
+        it('should highlight the point when hovered from a small distance', function () {
+            plot = $.plot(placeholder, [[[0, 0], [2, 3], [10, 10]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 canvas = eventHolder,
@@ -123,9 +123,9 @@ describe("flot hover plugin", function () {
             expect(getEntireCanvasData(canvas)).toContainPixelColor(rgba(10, 20, 30, 1));
         });
 
-        it('should not highlight the point when hovered and the grid is not hoverable', function() {
+        it('should not highlight the point when hovered and the grid is not hoverable', function () {
             options.grid.hoverable = false;
-            plot = $.plot(placeholder, [ [ [0, 0], [2, 3], [10, 10] ] ], options);
+            plot = $.plot(placeholder, [[[0, 0], [2, 3], [10, 10]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 canvas = eventHolder,
@@ -142,9 +142,9 @@ describe("flot hover plugin", function () {
             expect(getEntireCanvasData(canvas)).not.toContainPixelColor(rgba(10, 20, 30, 1));
         });
 
-        it('should not highlight the point when hovered and the series is not hoverable', function() {
+        it('should not highlight the point when hovered and the series is not hoverable', function () {
             options.series.hoverable = false;
-            plot = $.plot(placeholder, [ [ [0, 0], [2, 3], [10, 10] ] ], options);
+            plot = $.plot(placeholder, [[[0, 0], [2, 3], [10, 10]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 canvas = eventHolder,
@@ -161,8 +161,8 @@ describe("flot hover plugin", function () {
             expect(getEntireCanvasData(canvas)).not.toContainPixelColor(rgba(10, 20, 30, 1));
         });
 
-        it('should unhighlight the previouse point when hovering a new one', function() {
-            plot = $.plot(placeholder, [ [ [0, 0], [2, 3], [10, 10] ] ], options);
+        it('should unhighlight the previouse point when hovering a new one', function () {
+            plot = $.plot(placeholder, [[[0, 0], [2, 3], [10, 10]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 canvas = eventHolder,
@@ -190,7 +190,7 @@ describe("flot hover plugin", function () {
         });
 
         it('should update the current hover point to the placeholder when the plot created again', function () {
-            plot = $.plot(placeholder, [ [ [0, 0], [2, 3], [10, 10] ] ], options);
+            plot = $.plot(placeholder, [[[0, 0], [2, 3], [10, 10]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 offset = plot.getPlotOffset(),
@@ -203,16 +203,16 @@ describe("flot hover plugin", function () {
             let evt = simulate.mouseMove(eventHolder, x, y, noButton);
             jasmine.clock().tick(1000);
 
-            plot = $.plot(placeholder, [ [ [0, 0], [2, 3], [10, 10] ] ], options);
+            plot = $.plot(placeholder, [[[0, 0], [2, 3], [10, 10]]], options);
 
             expect(plot.getPlaceholder()[0].lastMouseMoveEvent.originalEvent.x).toEqual(evt.x);
             expect(plot.getPlaceholder()[0].lastMouseMoveEvent.originalEvent.y).toEqual(evt.y);
         });
 
-        it('should highlight a bar when hovered', function() {
-            options.series.bars = { show: true, barWidth: 0.5 };
+        it('should highlight a bar when hovered', function () {
+            options.series.bars = {show: true, barWidth: 0.5};
             options.series.lines = undefined;
-            plot = $.plot(placeholder, [ [ [0, 3], [1, 5], [2, 4] ] ], options);
+            plot = $.plot(placeholder, [[[0, 3], [1, 5], [2, 4]]], options);
 
             var eventHolder = plot.getEventHolder(),
                 canvas = eventHolder,

@@ -11,9 +11,9 @@ See also [the `dir` option of file()]({{site.baseurl}}/documentation/api_jszip/f
 
 __Arguments__
 
-name | type   | description
------|--------|------------
-name | string | the name of the directory.
+ name | type   | description                
+------|--------|----------------------------
+ name | string | the name of the directory. 
 
 __Returns__ : A new JSZip (for chaining), with the new folder as root.
 
@@ -31,4 +31,3 @@ zip.file("css/font.css", "body {font-family: sans-serif}")
 
 // result : images/, css/, css/style.css, css/font.css
 ```
-

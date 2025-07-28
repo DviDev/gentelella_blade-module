@@ -10,13 +10,16 @@ toc: true
 
 Scrollspy has a few requirements to function properly:
 
-- If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#util).
-- It must be used on a Bootstrap [nav component]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/navs/) or [list group]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/list-group/).
+- If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version
+  }}/getting-started/javascript/#util).
+- It must be used on a Bootstrap [nav component]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/navs/)
+  or [list group]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/list-group/).
 - Scrollspy requires `position: relative;` on the element you're spying on, usually the `<body>`.
 - When spying on elements other than the `<body>`, be sure to have a `height` set and `overflow-y: scroll;` applied.
 - Anchors (`<a>`) are required and must point to an element with that `id`.
 
-When successfully implemented, your nav or list group will update accordingly, moving the `.active` class from one item to the next based on their associated targets.
+When successfully implemented, your nav or list group will update accordingly, moving the `.active` class from one item
+to the next based on their associated targets.
 
 ## Example in navbar
 
@@ -96,7 +99,8 @@ Scroll the area below the navbar and watch the active class change. The dropdown
 
 ## Example with nested nav
 
-Scrollspy also works with nested `.nav`s. If a nested `.nav` is `.active`, its parents will also be `.active`. Scroll the area next to the navbar and watch the active class change.
+Scrollspy also works with nested `.nav`s. If a nested `.nav` is `.active`, its parents will also be `.active`. Scroll
+the area next to the navbar and watch the active class change.
 
 <div class="bd-example">
   <div class="row">
@@ -223,16 +227,17 @@ Scrollspy also works with `.list-group`s. Scroll the area next to the list group
 </div>
 {% endhighlight %}
 
-
 ## Usage
 
 ### Via data attributes
 
-To easily add scrollspy behavior to your topbar navigation, add `data-spy="scroll"` to the element you want to spy on (most typically this would be the `<body>`). Then add the `data-target` attribute with the ID or class of the parent element of any Bootstrap `.nav` component.
+To easily add scrollspy behavior to your topbar navigation, add `data-spy="scroll"` to the element you want to spy on (
+most typically this would be the `<body>`). Then add the `data-target` attribute with the ID or class of the parent
+element of any Bootstrap `.nav` component.
 
 {% highlight css %}
 body {
-  position: relative;
+position: relative;
 }
 {% endhighlight %}
 
@@ -257,16 +262,20 @@ $('body').scrollspy({ target: '#navbar-example' })
 {% endhighlight %}
 
 {% capture callout %}
+
 #### Resolvable ID targets required
 
-Navbar links must have resolvable id targets. For example, a `<a href="#home">home</a>` must correspond to something in the DOM like `<div id="home"></div>`.
+Navbar links must have resolvable id targets. For example, a `<a href="#home">home</a>` must correspond to something in
+the DOM like `<div id="home"></div>`.
 {% endcapture %}
 {% include callout.html content=callout type="danger" %}
 
 {% capture callout %}
+
 #### Non-`:visible` target elements ignored
 
-Target elements that are not [`:visible` according to jQuery](https://api.jquery.com/visible-selector/) will be ignored and their corresponding nav items will never be highlighted.
+Target elements that are not [`:visible` according to jQuery](https://api.jquery.com/visible-selector/) will be ignored
+and their corresponding nav items will never be highlighted.
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 
@@ -274,11 +283,12 @@ Target elements that are not [`:visible` according to jQuery](https://api.jquery
 
 #### `.scrollspy('refresh')`
 
-When using scrollspy in conjunction with adding or removing of elements from the DOM, you'll need to call the refresh method like so:
+When using scrollspy in conjunction with adding or removing of elements from the DOM, you'll need to call the refresh
+method like so:
 
 {% highlight js %}
 $('[data-spy="scroll"]').each(function () {
-  var $spy = $(this).scrollspy('refresh')
+var $spy = $(this).scrollspy('refresh')
 })
 {% endhighlight %}
 
@@ -288,7 +298,8 @@ Destroys an element's scrollspy.
 
 ### Options
 
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-offset=""`.
+Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in
+`data-offset=""`.
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -340,6 +351,6 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
 
 {% highlight js %}
 $('[data-spy="scroll"]').on('activate.bs.scrollspy', function () {
-  // do something...
+// do something...
 })
 {% endhighlight %}

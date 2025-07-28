@@ -8,9 +8,12 @@ toc: true
 
 ## Examples
 
-Due to the widespread use of tables across third-party widgets like calendars and date pickers, we've designed our tables to be **opt-in**. Just add the base class `.table` to any `<table>`, then extend with custom styles or our various included modifier classes.
+Due to the widespread use of tables across third-party widgets like calendars and date pickers, we've designed our
+tables to be **opt-in**. Just add the base class `.table` to any `<table>`, then extend with custom styles or our
+various included modifier classes.
 
-Using the most basic table markup, here's how `.table`-based tables look in Bootstrap. **All table styles are inherited in Bootstrap 4**, meaning any nested tables will be styled in the same manner as the parent.
+Using the most basic table markup, here's how `.table`-based tables look in Bootstrap. **All table styles are inherited
+in Bootstrap 4**, meaning any nested tables will be styled in the same manner as the parent.
 
 {% capture example %}
 <table class="table">
@@ -84,7 +87,8 @@ You can also invert the colors—with light text on dark backgrounds—with `.ta
 
 ## Table head options
 
-Similar to tables and dark tables, use the modifier classes `.thead-light` or `.thead-dark` to make `<thead>`s appear light or dark gray.
+Similar to tables and dark tables, use the modifier classes `.thead-light` or `.thead-dark` to make `<thead>`s appear
+light or dark gray.
 
 {% capture example %}
 <table class="table">
@@ -537,6 +541,7 @@ Use contextual classes to color table rows or individual cells.
         <td>Cell</td>
       </tr>{% endfor %}
     </tbody>
+
   </table>
 </div>
 
@@ -554,7 +559,9 @@ Use contextual classes to color table rows or individual cells.
 </tr>
 {% endhighlight %}
 
-Regular table background variants are not available with the dark table, however, you may use [text or background utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/colors/) to achieve similar styles.
+Regular table background variants are not available with the dark table, however, you may
+use [text or background utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/colors/) to achieve similar
+styles.
 
 <div class="bd-example">
   <table class="table table-dark">
@@ -635,13 +642,15 @@ Regular table background variants are not available with the dark table, however
 
 {% include callout-warning-color-assistive-technologies.md %}
 
-Create responsive tables by wrapping any `.table` with `.table-responsive{-sm|-md|-lg|-xl}`, making the table scroll horizontally at each `max-width` breakpoint of up to (but not including) 576px, 768px, 992px, and 1120px, respectively.
+Create responsive tables by wrapping any `.table` with `.table-responsive{-sm|-md|-lg|-xl}`, making the table scroll
+horizontally at each `max-width` breakpoint of up to (but not including) 576px, 768px, 992px, and 1120px, respectively.
 
 {% include callout-info-mediaqueries-breakpoints.md %}
 
 ## Captions
 
-A `<caption>` functions like a heading for a table. It helps users with screen readers to find a table and understand what it's about and decide if they want to read it.
+A `<caption>` functions like a heading for a table. It helps users with screen readers to find a table and understand
+what it's about and decide if they want to read it.
 
 {% capture example %}
 <table class="table">
@@ -680,12 +689,16 @@ A `<caption>` functions like a heading for a table. It helps users with screen r
 
 ## Responsive tables
 
-Responsive tables allow tables to be scrolled horizontally with ease. Make any table responsive across all viewports by wrapping a `.table` with `.table-responsive`. Or, pick a maximum breakpoint with which to have a responsive table up to by using `.table-responsive{-sm|-md|-lg|-xl}`.
+Responsive tables allow tables to be scrolled horizontally with ease. Make any table responsive across all viewports by
+wrapping a `.table` with `.table-responsive`. Or, pick a maximum breakpoint with which to have a responsive table up to
+by using `.table-responsive{-sm|-md|-lg|-xl}`.
 
 {% capture callout %}
+
 ##### Vertical clipping/truncation
 
-Responsive tables make use of `overflow-y: hidden`, which clips off any content that goes beyond the bottom or top edges of the table. In particular, this can clip off dropdown menus and other third-party widgets.
+Responsive tables make use of `overflow-y: hidden`, which clips off any content that goes beyond the bottom or top edges
+of the table. In particular, this can clip off dropdown menus and other third-party widgets.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 
@@ -762,7 +775,8 @@ Across every breakpoint, use `.table-responsive` for horizontally scrolling tabl
 
 ### Breakpoint specific
 
-Use `.table-responsive{-sm|-md|-lg|-xl}` as needed to create responsive tables up to a particular breakpoint. From that breakpoint and up, the table will behave normally and not scroll horizontally.
+Use `.table-responsive{-sm|-md|-lg|-xl}` as needed to create responsive tables up to a particular breakpoint. From that
+breakpoint and up, the table will behave normally and not scroll horizontally.
 
 **These tables may appear broken until their responsive styles apply at specific viewport widths.**
 

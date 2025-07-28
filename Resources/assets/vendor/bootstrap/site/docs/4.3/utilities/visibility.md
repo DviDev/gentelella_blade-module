@@ -5,7 +5,9 @@ description: Control the visibility, without modifying the display, of elements 
 group: utilities
 ---
 
-Set the `visibility` of elements with our visibility utilities. These utility classes do not modify the `display` value at all and do not affect layout – `.invisible` elements still take up space in the page. Content will be hidden both visually and for assistive technology/screen reader users.
+Set the `visibility` of elements with our visibility utilities. These utility classes do not modify the `display` value
+at all and do not affect layout – `.invisible` elements still take up space in the page. Content will be hidden both
+visually and for assistive technology/screen reader users.
 
 Apply `.visible` or `.invisible` as needed.
 
@@ -17,18 +19,18 @@ Apply `.visible` or `.invisible` as needed.
 {% highlight scss %}
 // Class
 .visible {
-  visibility: visible !important;
+visibility: visible !important;
 }
 .invisible {
-  visibility: hidden !important;
+visibility: hidden !important;
 }
 
 // Usage as a mixin
 // Warning: The `invisible()` mixin has been deprecated as of v4.3.0. It will be removed entirely in v5.
 .element {
-  @include invisible(visible);
+@include invisible(visible);
 }
 .element {
-  @include invisible(hidden);
+@include invisible(hidden);
 }
 {% endhighlight %}

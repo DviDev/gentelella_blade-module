@@ -1,19 +1,19 @@
 /* eslint-disable */
 /* global $, describe, it, xit, xdescribe, after, afterEach, expect*/
 
-describe('flot axis labels plugin', function() {
+describe('flot axis labels plugin', function () {
     var placeholder, plot;
     var options;
 
-    beforeEach(function() {
+    beforeEach(function () {
         options = {
             xaxes: [
-                { position: 'bottom', axisLabel: 'Bottom 1' },
-                { position: 'top', axisLabel: 'Bottom 2', show: true },
+                {position: 'bottom', axisLabel: 'Bottom 1'},
+                {position: 'top', axisLabel: 'Bottom 2', show: true},
             ],
             yaxes: [
-                { position: 'left', axisLabel: 'Left' },
-                { position: 'right', axisLabel: 'Right', show: true }
+                {position: 'left', axisLabel: 'Left'},
+                {position: 'right', axisLabel: 'Right', show: true}
             ]
         };
 
@@ -25,7 +25,7 @@ describe('flot axis labels plugin', function() {
         plot = $.plot(placeholder, [[]], options);
 
         var labels$ = $('.axisLabels'),
-            labels = labels$.map(function(i, label) {
+            labels = labels$.map(function (i, label) {
                 return label.textContent;
             }).get();
         expect(labels.length).toBe(4);
@@ -42,7 +42,7 @@ describe('flot axis labels plugin', function() {
         plot = $.plot(placeholder, [[]], options);
 
         var labels$ = $('.axisLabels'),
-            labels = labels$.map(function(i, label) {
+            labels = labels$.map(function (i, label) {
                 return label.innerText;
             }).get();
         expect(labels.length).toBe(0);
@@ -115,8 +115,8 @@ describe('flot axis labels plugin', function() {
         var size = 20,
             options = {
                 xaxes: [
-                    { position: 'bottom', axisLabel: 'Bottom 1', boxPosition: {centerX: size, centerY: size} },
-                    { position: 'bottom', axisLabel: 'Bottom 2', show: true }
+                    {position: 'bottom', axisLabel: 'Bottom 1', boxPosition: {centerX: size, centerY: size}},
+                    {position: 'bottom', axisLabel: 'Bottom 2', show: true}
                 ]
             };
         plot = $.plot(placeholder, [[1, 2, 3]], options);
@@ -130,8 +130,8 @@ describe('flot axis labels plugin', function() {
         var size = 20,
             options = {
                 yaxes: [
-                    { position: 'right', boxPosition: {centerX: size, centerY: size} },
-                    { position: 'right', show: true }
+                    {position: 'right', boxPosition: {centerX: size, centerY: size}},
+                    {position: 'right', show: true}
                 ]
             };
         plot = $.plot(placeholder, [[1, 2, 3]], options);
@@ -139,5 +139,5 @@ describe('flot axis labels plugin', function() {
         var axes = plot.getYAxes();
         expect(axes[0].labelHeight).toBe(axes[1].labelHeight + size);
         expect(axes[0].labelWidth).toBe(axes[1].labelWidth + size);
-      });
+    });
 });

@@ -1,14 +1,19 @@
 ![JQVMap](http://jqvmap.com/img/logo.png "JQVMap")
 
-This project is a heavily modified version of [jVectorMap](https://github.com/bjornd/jvectormap) as it was in April of 2012.  I chose to start fresh rather than fork their project as my intentions were to take it in such a different direction that it would become incompatibale with the original source, rendering it near impossible to merge our projects together without extreme complications.
+This project is a heavily modified version of [jVectorMap](https://github.com/bjornd/jvectormap) as it was in April of
+2012. I chose to start fresh rather than fork their project as my intentions were to take it in such a different
+direction that it would become incompatibale with the original source, rendering it near impossible to merge our
+projects together without extreme complications.
 
-**Tests:** [![Circle CI](https://circleci.com/gh/manifestinteractive/jqvmap/tree/master.svg?style=svg&circle-token=7bce3b80868ea5ca32009a195c4436db91e5ea67)](https://circleci.com/gh/manifestinteractive/jqvmap/tree/master)
+**Tests:
+** [![Circle CI](https://circleci.com/gh/manifestinteractive/jqvmap/tree/master.svg?style=svg&circle-token=7bce3b80868ea5ca32009a195c4436db91e5ea67)](https://circleci.com/gh/manifestinteractive/jqvmap/tree/master)
 
 
 jQuery Vector Map
 ======
 
-To get started, all you need to do is include the JavaScript and CSS files for the map you want to load ( contained in the `./dist` folder ).
+To get started, all you need to do is include the JavaScript and CSS files for the map you want to load ( contained in
+the `./dist` folder ).
 
 #### Here is a sample HTML page for loading the World Map with default settings:
 
@@ -79,7 +84,8 @@ Configuration Settings
 
 **map** *'world_en'*
 
-Map you want to load. Must include the javascript file with the name of the map you want. Available maps with this library are world_en, usa_en, europe_en and germany_en
+Map you want to load. Must include the javascript file with the name of the map you want. Available maps with this
+library are world_en, usa_en, europe_en and germany_en
 
 **backgroundColor** *'#a5bfdd'*
 
@@ -103,7 +109,8 @@ Color of map regions.
 
 **colors**
 
-Colors of individual map regions. Keys of the colors objects are country codes according to ISO 3166-1 alpha-2 standard. Keys of colors must be in lower case.
+Colors of individual map regions. Keys of the colors objects are country codes according to ISO 3166-1 alpha-2 standard.
+Keys of colors must be in lower case.
 
 **enableZoom** *boolean*
 
@@ -115,7 +122,8 @@ Color of the region when mouse pointer is over it.
 
 **hoverColors**
 
-Colors of individual map regions when mouse pointer is over it. Keys of the colors objects are country codes according to ISO 3166-1 alpha-2 standard. Keys of colors must be in lower case.
+Colors of individual map regions when mouse pointer is over it. Keys of the colors objects are country codes according
+to ISO 3166-1 alpha-2 standard. Keys of colors must be in lower case.
 
 **hoverOpacity** *0.5*
 
@@ -123,11 +131,14 @@ Opacity of the region when mouse pointer is over it.
 
 **normalizeFunction** *'linear'*
 
-This function can be used to improve results of visualizations for data with non-linear nature. Function gets raw value as the first parameter and should return value which will be used in calculations of color, with which particular region will be painted.
+This function can be used to improve results of visualizations for data with non-linear nature. Function gets raw value
+as the first parameter and should return value which will be used in calculations of color, with which particular region
+will be painted.
 
 **scaleColors** *['#b6d6ff', '#005ace']*
 
-This option defines colors, with which regions will be painted when you set option values. Array scaleColors can have more then two elements. Elements should be strings representing colors in RGB hex format.
+This option defines colors, with which regions will be painted when you set option values. Array scaleColors can have
+more then two elements. Elements should be strings representing colors in RGB hex format.
 
 **selectedColor** *'#333333'*
 
@@ -135,7 +146,8 @@ Color for a region when you select it
 
 **selectedRegions** *['MO', 'FL', 'OR']*
 
-This is the Region that you are looking to have preselected (two letter ISO code, defaults to null ). See [REGIONS.md](REGIONS.md)
+This is the Region that you are looking to have preselected (two letter ISO code, defaults to null ).
+See [REGIONS.md](REGIONS.md)
 
 **multiSelectRegion** *boolean*
 
@@ -155,41 +167,51 @@ Callback function which will be called when map is loading, returning the map ev
 
 **onLabelShow** *function(event, label, code)*
 
-Callback function which will be called before label is shown. Label DOM object and country code will be passed to the callback as arguments.
+Callback function which will be called before label is shown. Label DOM object and country code will be passed to the
+callback as arguments.
 
 **onRegionOver** *function(event, code, region)*
 
-Callback function which will be called when the mouse cursor enters the region path. Country code will be passed to the callback as argument.
+Callback function which will be called when the mouse cursor enters the region path. Country code will be passed to the
+callback as argument.
 
 **onRegionOut** *function(event, code, region)*
 
-Callback function which will be called when the mouse cursor leaves the region path. Country code will be passed to the callback as argument.
+Callback function which will be called when the mouse cursor leaves the region path. Country code will be passed to the
+callback as argument.
 
 **onRegionClick** *function(event, code, region)*
 
-Callback function which will be called when the user clicks the region path. Country code will be passed to the callback as argument. This callback may be called while the user is moving the map. If you need to distinguish between a "real" click and a click resulting from moving the map, you can inspect **$(event.currentTarget).data('mapObject').isMoving**.
+Callback function which will be called when the user clicks the region path. Country code will be passed to the callback
+as argument. This callback may be called while the user is moving the map. If you need to distinguish between a "real"
+click and a click resulting from moving the map, you can inspect **$(event.currentTarget).data('mapObject').isMoving**.
 
 **onRegionSelect** *function(event, code, region)*
 
-Callback function which will be called when the selects a region. Country code will be passed to the callback as argument.
+Callback function which will be called when the selects a region. Country code will be passed to the callback as
+argument.
 
 **onRegionDeselect** *function(event, code, region)*
 
-Callback function which will be called when the deselects a region. Country code will be passed to the callback as argument.
+Callback function which will be called when the deselects a region. Country code will be passed to the callback as
+argument.
 
 **onResize** *function(event, width, height)*
 
-Callback function which will be called when the map is resized.  Return event, width & height.
+Callback function which will be called when the map is resized. Return event, width & height.
 
-**pins** *{ "pk" : "pk_pin_metadata", "ru" : "ru_pin_metadata",	... }*
+**pins** *{ "pk" : "pk_pin_metadata", "ru" : "ru_pin_metadata", ... }*
 
-This option defines pins, which will be placed on the regions. The JSON can have only one element against one country code. Elements should be strings containing the HTML or id of the pin (depends on the 'pinMode' option explained next).
+This option defines pins, which will be placed on the regions. The JSON can have only one element against one country
+code. Elements should be strings containing the HTML or id of the pin (depends on the 'pinMode' option explained next).
 
 **pinMode** *content*
 
-This option defines if the "pins" JSON contains the HTML strings of the pins or the ids of HTML DOM elements which are to be placed as pins.
+This option defines if the "pins" JSON contains the HTML strings of the pins or the ids of HTML DOM elements which are
+to be placed as pins.
 
-If the pin mode is "content" (or not specified) then the parameter "pins" contains the stringified html content to be placed as the pins.
+If the pin mode is "content" (or not specified) then the parameter "pins" contains the stringified html content to be
+placed as the pins.
 
 Example:
 
@@ -201,7 +223,8 @@ jQuery('#vmap').vectorMap({
 });
 ```
 
-If the pin mode is "id" then the parameter "pins" contains the value of "id" attribute of the html (DOM) elements to be placed as pins.
+If the pin mode is "id" then the parameter "pins" contains the value of "id" attribute of the html (DOM) elements to be
+placed as pins.
 Example:
 
 ```html
@@ -220,9 +243,13 @@ Example:
 
 *Note:*
 
-1) The pin is placed at the center of the rectangle bounding the country. So depending on the shape of the country, the pin might not land on the country itself. For instance, the pin for 'US' lands in the center of Alaska and rest of the US, which happens to be in the ocean between them.
+1) The pin is placed at the center of the rectangle bounding the country. So depending on the shape of the country, the
+   pin might not land on the country itself. For instance, the pin for 'US' lands in the center of Alaska and rest of
+   the US, which happens to be in the ocean between them.
 
-2) If the "pinMode" is set to "id", then the html DOM elements having those ids are NOT COPIED to the desired position, they are TRANSFERRED. This means that the elements will be removed from their original positions and placed on the map.
+2) If the "pinMode" is set to "id", then the html DOM elements having those ids are NOT COPIED to the desired position,
+   they are TRANSFERRED. This means that the elements will be removed from their original positions and placed on the
+   map.
 
 Dynamic Updating
 ======
@@ -233,7 +260,8 @@ Most of the options can be changed after initialization using the following code
 jQuery('#vmap').vectorMap('set', 'colors', {us: '#0000ff'});
 ```
 
-Instead of colors can be used any parameter except callbacks. Callbacks can be added and deleted using standard jQuery patterns of working with events.
+Instead of colors can be used any parameter except callbacks. Callbacks can be added and deleted using standard jQuery
+patterns of working with events.
 You can define callback function when you initialize JQVMap:
 
 ```js
@@ -307,7 +335,10 @@ jQuery('#vmap').bind('resize.jqvmap',
 );
 ```
 
-Consider that fact that you can use standard features of jQuery events like event.preventDefault() or returning false from the callback to prevent default behavior of JQVMap (showing label or changing country color on hover). In the following example, when user moves mouse cursor over Canada label won't be shown and color of country won't be changed. At the same label for Russia will have custom text.
+Consider that fact that you can use standard features of jQuery events like event.preventDefault() or returning false
+from the callback to prevent default behavior of JQVMap (showing label or changing country color on hover). In the
+following example, when user moves mouse cursor over Canada label won't be shown and color of country won't be changed.
+At the same label for Russia will have custom text.
 
 ```js
 jQuery('#vmap').vectorMap(
@@ -343,7 +374,11 @@ jQuery('#vmap').vectorMap(
 Data Visualization
 ======
 
-Here I want to demonstrate how visualization of some geographical-related data can be done using JQVMap. Let's visualize information about GDP in 2010 for every country. At first we need some data. Let it be site of International Monetary Fond. There we can get information in xsl format, which can be converted first to csv and then to json with any scripting language. Now we have file gdp-data.js with such content (globals are evil, I know, but just for the sake of simplification):
+Here I want to demonstrate how visualization of some geographical-related data can be done using JQVMap. Let's visualize
+information about GDP in 2010 for every country. At first we need some data. Let it be site of International Monetary
+Fond. There we can get information in xsl format, which can be converted first to csv and then to json with any
+scripting language. Now we have file gdp-data.js with such content (globals are evil, I know, but just for the sake of
+simplification):
 
 ```js
 var gdpData = {"af":16.63,"al":11.58,"dz":158.97,...};
@@ -426,7 +461,8 @@ Usage:
 jQuery('#vmap').vectorMap('zoomOut');
 ```
 
-**getPinId(cc)** *Returns the html attribute "id" of the pin placed on the country whose country code is provided in "cc".*
+**getPinId(cc)** *Returns the html attribute "id" of the pin placed on the country whose country code is provided in "
+cc".*
 
 Usage:
 
@@ -492,4 +528,5 @@ jQuery('#vmap').on('drag', function(event)
 Custom Maps
 ======
 
-So you want to create your own maps, or change some existing ones.  Awesome.  Make sure to check out [./create/README.md](./create) for details on how to do this.
+So you want to create your own maps, or change some existing ones. Awesome. Make sure to check
+out [./create/README.md](./create) for details on how to do this.

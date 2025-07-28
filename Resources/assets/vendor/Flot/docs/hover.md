@@ -2,6 +2,7 @@
 
 This plugin is used for mouse hover and tap on a point of plot series.
 It supports the following options:
+
 ```js
 grid: {
     hoverable: false, //to trigger plothover event on mouse hover or tap on a point
