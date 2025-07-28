@@ -5,7 +5,6 @@
 ])
 <div class="col-md-2 col-sm-4 tile_stats_count">
     <x-gentelella::dev.info :alias="$componentAlias->value"/>
-    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <span class="count_top">{{$title}}</span>
     @if(is_string($value))
         <div class="count">{{$value}}</div>
