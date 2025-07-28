@@ -69,8 +69,8 @@ class GentelellaServiceProvider extends ServiceProvider
             $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
             $this->loadJsonTranslationsFrom($langPath);
         } else {
-            $this->loadTranslationsFrom(module_path($this->moduleName, 'resources/lang'), $this->moduleNameLower);
-            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'resources/lang'));
+            $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
+            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'Resources/lang'));
         }
     }
 
@@ -79,8 +79,8 @@ class GentelellaServiceProvider extends ServiceProvider
      */
     protected function registerConfig(): void
     {
-        $this->publishes([module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower.'.php')], 'config');
-        $this->mergeConfigFrom(module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower);
+        $this->publishes([module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower.'.php')], 'config');
+        $this->mergeConfigFrom(module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower);
     }
 
     /**
@@ -89,7 +89,7 @@ class GentelellaServiceProvider extends ServiceProvider
     public function registerViews(): void
     {
         $viewPath = resource_path('views/modules/'.$this->moduleNameLower);
-        $sourcePath = module_path($this->moduleName, 'resources/views');
+        $sourcePath = module_path($this->moduleName, 'Resources/views');
 
         $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower.'-module-views']);
 
@@ -127,7 +127,7 @@ class GentelellaServiceProvider extends ServiceProvider
     private function registerAssetPath(): void
     {
         $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
-        $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
+        $sourceVendorPath = module_path($this->moduleName, 'Resources/assets');
         $this->publishes([$sourceVendorPath => $assetVendorPath], 'gentelella-assets');
     }
 
@@ -144,7 +144,7 @@ class GentelellaServiceProvider extends ServiceProvider
         // Registra o componente Info com o alias correto
         // O primeiro parâmetro é o alias que será usado nas views
         // O segundo parâmetro é a classe do componente
-        Blade::component('gentelella-dev-info', \Modules\Gentelella\View\Components\Dev\Info::class);
+        Blade::component('gentelell::dev.info', \Modules\Gentelella\View\Components\Dev\Info::class);
 
         // Alternativamente, você pode registrar todos os componentes de um diretório
         // usando o método componentNamespace do Blade
