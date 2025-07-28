@@ -2,10 +2,10 @@
 
 namespace Modules\Gentelella\Providers;
 
-use Base\Providers\PublishableComponents;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Base\Events\UsingSpotlightEvent;
+use Modules\Base\Providers\PublishableComponents;
 use Modules\Gentelella\Listeners\UsingSpotlightListener;
 use Modules\Gentelella\View\Components\Assets\Icheck;
 use Modules\Gentelella\View\Components\Assets\JQVMap;
@@ -157,5 +157,15 @@ class GentelellaServiceProvider extends ServiceProvider
             'Modules\\Gentelella\\View\\Components',
             'gentelella' // Prefixo para os componentes
         );
+    }
+
+    public function getModuleName(): string
+    {
+        return $this->moduleName;
+    }
+
+    public function getModuleNameLower(): string
+    {
+        return $this->moduleNameLower;
     }
 }
