@@ -28,7 +28,6 @@
 {{--    <script src="{{asset('assets/modules/gentelella/vendor/bootstrap-daterangepicker/daterangepicker.js')}}"></script>--}}
 @endpushonce
 <x-gentelella::layout.v1>
-    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <div class="">
         <div class="row" style="display: inline-block;">
             <div class="top_tiles">

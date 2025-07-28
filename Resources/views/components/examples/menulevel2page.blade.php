@@ -3,6 +3,5 @@
 <x-gentelella::assets.font-awesome/>
 
 <x-gentelella::layout.v1>
-    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     nível 2
 </x-gentelella::layout.v1>

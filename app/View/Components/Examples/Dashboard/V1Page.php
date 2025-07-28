@@ -13,7 +13,7 @@ class V1Page extends Component
 
     public function render(): View|string
     {
-        return view('gentelella::components.examples/dashboard/v1page');
+        return view('gentelella::components.examples.dashboard.v1page');
     }
 
     public function componentAlias(): DvuiComponentAlias

@@ -13,7 +13,7 @@ class SidebarLeft extends Component
 
     public function render(): View|string
     {
-        return view('gentelella::components.layout/sidebarleft');
+        return view('gentelella::components.layout.sidebarleft');
     }
 
     public function componentAlias(): DvuiComponentAlias
