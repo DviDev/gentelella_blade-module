@@ -2,10 +2,10 @@
 
 namespace Modules\Gentelella\View\Components\Examples;
 
-use Modules\DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
+use Modules\DvUi\Traits\DevResources;
 
 class MenuLevel2Page extends Component
 {
