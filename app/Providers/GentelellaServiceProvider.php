@@ -2,14 +2,22 @@
 
 namespace Modules\Gentelella\Providers;
 
+use Base\Providers\PublishableComponents;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Base\Events\UsingSpotlightEvent;
 use Modules\Gentelella\Listeners\UsingSpotlightListener;
+use Modules\Gentelella\View\Components\Assets\Icheck;
+use Modules\Gentelella\View\Components\Assets\JQVMap;
+use Modules\Gentelella\View\Components\Dev\Info;
+use Modules\Gentelella\View\Components\Form\Check\Check;
+use Modules\Gentelella\View\Components\Form\Input;
 use Modules\Gentelella\View\Components\Widget\Indicator\Tile;
 
 class GentelellaServiceProvider extends ServiceProvider
 {
+    use PublishableComponents;
+
     protected string $moduleName = 'Gentelella';
 
     protected string $moduleNameLower = 'gentelella';
@@ -138,16 +146,13 @@ class GentelellaServiceProvider extends ServiceProvider
 
     private function registerComponents(): void
     {
-        // Registra componentes individualmente
-        Blade::component('gentelella::widget.indicator.tile', Tile::class);
+        $this->publishableComponent('assets.icheck', Icheck::class);
+        $this->publishableComponent('assets.jqvmap', JQVMap::class);
+        $this->publishableComponent('dev.info', Info::class);
+        $this->publishableComponent('form.check.check', Check::class);
+        $this->publishableComponent('form.input', Input::class);
+        $this->publishableComponent('widget.indicator.tile', Tile::class);
 
-        // Registra o componente Info com o alias correto
-        // O primeiro parâmetro é o alias que será usado nas views
-        // O segundo parâmetro é a classe do componente
-        Blade::component('gentelell::dev.info', \Modules\Gentelella\View\Components\Dev\Info::class);
-
-        // Alternativamente, você pode registrar todos os componentes de um diretório
-        // usando o método componentNamespace do Blade
         Blade::componentNamespace(
             'Modules\\Gentelella\\View\\Components',
             'gentelella' // Prefixo para os componentes

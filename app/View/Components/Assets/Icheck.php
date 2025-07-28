@@ -13,7 +13,7 @@ class Icheck extends Component
 
     public function render(): View|string
     {
-        return view('gentelella::components.assets/icheck');
+        return view('gentelella::components.assets.icheck');
     }
 
     public function componentAlias(): DvuiComponentAlias

@@ -13,7 +13,7 @@ class JQVMap extends Component
 
     public function render(): View|string
     {
-        return view('gentelella::components.assets/jqvmap');
+        return view('gentelella::components.assets.jqvmap');
     }
 
     public function componentAlias(): DvuiComponentAlias
