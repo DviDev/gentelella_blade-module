@@ -12,7 +12,6 @@
 <x-gentelella::assets.bootstrap-daterangepicker/>
 
 <x-gentelella::layout.v1>
-    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <!-- top tiles -->
     <div class="row" style="display: inline-block;">
         <div class="tile_count">

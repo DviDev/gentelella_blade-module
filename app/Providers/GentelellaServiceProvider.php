@@ -19,7 +19,6 @@ class GentelellaServiceProvider extends ServiceProvider
     use PublishableComponents;
 
     protected string $moduleName = 'Gentelella';
-
     protected string $moduleNameLower = 'gentelella';
 
     /**
@@ -37,14 +36,6 @@ class GentelellaServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
 
         $this->registerEvents();
-    }
-
-    /**
-     * Register the service provider.
-     */
-    public function register(): void
-    {
-        $this->app->register(RouteServiceProvider::class);
     }
 
     /**
@@ -71,7 +62,7 @@ class GentelellaServiceProvider extends ServiceProvider
      */
     public function registerTranslations(): void
     {
-        $langPath = resource_path('lang/modules/'.$this->moduleNameLower);
+        $langPath = resource_path('lang/modules/' . $this->moduleNameLower);
 
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
@@ -87,7 +78,7 @@ class GentelellaServiceProvider extends ServiceProvider
      */
     protected function registerConfig(): void
     {
-        $this->publishes([module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower.'.php')], 'config');
+        $this->publishes([module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower . '.php')], 'config');
         $this->mergeConfigFrom(module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower);
     }
 
@@ -96,23 +87,15 @@ class GentelellaServiceProvider extends ServiceProvider
      */
     public function registerViews(): void
     {
-        $viewPath = resource_path('views/modules/'.$this->moduleNameLower);
+        $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
         $sourcePath = module_path($this->moduleName, 'Resources/views');
 
-        $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower.'-module-views']);
+        $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower . '-module-views']);
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
 
-        $componentNamespace = str_replace('/', '\\', config('modules.namespace').'\\'.$this->moduleName.'\\'.config('modules.paths.generator.component-class.path'));
+        $componentNamespace = str_replace('/', '\\', config('modules.namespace') . '\\' . $this->moduleName . '\\' . config('modules.paths.generator.component-class.path'));
         Blade::componentNamespace($componentNamespace, $this->moduleNameLower);
-    }
-
-    /**
-     * Get the services provided by the provider.
-     */
-    public function provides(): array
-    {
-        return [];
     }
 
     private function getPublishableViewPaths(): array
@@ -120,28 +103,13 @@ class GentelellaServiceProvider extends ServiceProvider
         $paths = [];
         $config = config('view.paths');
         foreach ($config as $path) {
-            $path = $path.'/modules/'.$this->moduleNameLower;
+            $path = $path . '/modules/' . $this->moduleNameLower;
             if (is_dir($path)) {
                 $paths[] = $path;
             }
         }
 
         return $paths;
-    }
-
-    /**
-     * Exemple php artisan vendor:publish --tag=public --force
-     */
-    private function registerAssetPath(): void
-    {
-        $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
-        $sourceVendorPath = module_path($this->moduleName, 'Resources/assets');
-        $this->publishes([$sourceVendorPath => $assetVendorPath], 'gentelella-assets');
-    }
-
-    private function registerEvents(): void
-    {
-        \Event::listen(UsingSpotlightEvent::class, UsingSpotlightListener::class);
     }
 
     private function registerComponents(): void
@@ -157,6 +125,38 @@ class GentelellaServiceProvider extends ServiceProvider
             'Modules\\Gentelella\\View\\Components',
             'gentelella' // Prefixo para os componentes
         );
+    }
+
+    /**
+     * Exemple php artisan vendor:publish --tag=public --force
+     */
+    private function registerAssetPath(): void
+    {
+        $assetVendorPath = public_path('assets/modules/' . $this->moduleNameLower);
+        $sourceVendorPath = module_path($this->moduleName, 'Resources/assets');
+        $this->publishes([$sourceVendorPath => $assetVendorPath], 'gentelella-assets');
+    }
+
+    private function registerEvents(): void
+    {
+        \Event::listen(UsingSpotlightEvent::class, UsingSpotlightListener::class);
+    }
+
+    /**
+     * Register the service provider.
+     */
+    public function register(): void
+    {
+        $this->app->register(RouteServiceProvider::class);
+        $this->app->register(GentelellaEventServiceProvider::class);
+    }
+
+    /**
+     * Get the services provided by the provider.
+     */
+    public function provides(): array
+    {
+        return [];
     }
 
     public function getModuleName(): string

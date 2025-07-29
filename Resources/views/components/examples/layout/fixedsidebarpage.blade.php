@@ -10,7 +10,6 @@
 @endpushonce()
 
 <x-gentelella::layout.v1>
-    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <x-slot:menu>
         <x-gentelella::layout.sidebarleft class="menu_fixed"/>
     </x-slot:menu>

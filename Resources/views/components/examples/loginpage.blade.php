@@ -24,7 +24,6 @@
 </head>
 
 <body class="login">
-<x-gentelella::dev.info :alias="$componentAlias->value"/>
 <div>
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>

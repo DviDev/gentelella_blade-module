@@ -1,6 +1,6 @@
 <!-- footer content -->
 <footer>
-    <x-gentelella::dev.info :alias="$componentAlias->value"/>
+    {{--<x-gentelella::dev.info :alias="$componentAlias->value"/>--}}
     <div class="pull-right">
         Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
     </div>

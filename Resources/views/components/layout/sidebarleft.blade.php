@@ -1,5 +1,5 @@
 <div {{$attributes->class(["col-md-3 left_col"])}}>
-    <x-gentelella::dev.info :alias="$componentAlias->value"/>
+    {{--<x-gentelella::dev.info :alias="$componentAlias->value"/>--}}
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
             <a href="{{route('gentelella.layout.v1')}}" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>

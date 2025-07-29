@@ -14,7 +14,6 @@
 <x-gentelella::assets.datejs/>
 
 <x-gentelella::layout.v1>
-    <x-gentelella::dev.info :alias="$componentAlias->value"/>
     <div class="row" style="display: inline-block;">
         <div class=" top_tiles" style="margin: 10px 0;">
             <div class="col-md-3 col-sm-3  tile">
