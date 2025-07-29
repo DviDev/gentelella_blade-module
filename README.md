@@ -1,4 +1,8 @@
-# Configuração do Ambiente
+# Gentelella
+
+### Blade Components
+
+### Setup
 
 If in a development environment, your IDE like PHPStorm doesn't recognize views files, maybe it's because it's expecting
 its bias to be in the Resources folder instead of resources.
