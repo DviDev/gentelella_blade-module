@@ -33,7 +33,7 @@ class GentelellaServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerComponents();
         $this->registerAssetPath();
-        $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        $this->loadMigrationsFrom(module_path($this->moduleName, 'database/Migrations'));
 
         $this->registerEvents();
     }
@@ -68,8 +68,8 @@ class GentelellaServiceProvider extends ServiceProvider
             $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
             $this->loadJsonTranslationsFrom($langPath);
         } else {
-            $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
-            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'Resources/lang'));
+            $this->loadTranslationsFrom(module_path($this->moduleName, 'resources/lang'), $this->moduleNameLower);
+            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'resources/lang'));
         }
     }
 
@@ -88,7 +88,7 @@ class GentelellaServiceProvider extends ServiceProvider
     public function registerViews(): void
     {
         $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
-        $sourcePath = module_path($this->moduleName, 'Resources/views');
+        $sourcePath = module_path($this->moduleName, 'resources/views');
 
         $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower . '-module-views']);
 
@@ -133,7 +133,7 @@ class GentelellaServiceProvider extends ServiceProvider
     private function registerAssetPath(): void
     {
         $assetVendorPath = public_path('assets/modules/' . $this->moduleNameLower);
-        $sourceVendorPath = module_path($this->moduleName, 'Resources/assets');
+        $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
         $this->publishes([$sourceVendorPath => $assetVendorPath], 'gentelella-assets');
     }
 
