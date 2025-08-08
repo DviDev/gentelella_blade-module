@@ -19,6 +19,7 @@ class GentelellaServiceProvider extends ServiceProvider
     use PublishableComponents;
 
     protected string $moduleName = 'Gentelella';
+
     protected string $moduleNameLower = 'gentelella';
 
     /**
