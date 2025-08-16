@@ -5,7 +5,7 @@ namespace Modules\Gentelella\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Base\Events\UsingSpotlightEvent;
-use Modules\Base\Providers\PublishableComponents;
+use Modules\Base\Traits\PublishableComponents;
 use Modules\Gentelella\Listeners\UsingSpotlightListener;
 use Modules\Gentelella\View\Components\Assets\Icheck;
 use Modules\Gentelella\View\Components\Assets\JQVMap;
