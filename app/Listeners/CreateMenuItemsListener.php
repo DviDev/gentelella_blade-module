@@ -6,7 +6,7 @@ use Modules\Permission\Enums\Actions;
 use Modules\Permission\Models\PermissionActionModel;
 use Modules\Person\Enums\UserType;
 use Modules\Project\Contracts\CreateMenuItemsListenerContract;
-use Modules\Project\Entities\MenuItem\MenuItemEntityModel;
+use Modules\Project\Entities\ProjectModuleMenuItem\ProjectModuleMenuItemEntityModel;
 use Modules\Project\Models\ProjectModuleEntityDBModel;
 use Modules\Project\Models\ProjectModuleMenuModel;
 
@@ -38,7 +38,7 @@ class CreateMenuItemsListener extends CreateMenuItemsListenerContract
 
     protected function createMenuItem(ProjectModuleMenuModel $menuModel, ?ProjectModuleEntityDBModel $entity = null, bool $active = true): void
     {
-        $p = MenuItemEntityModel::props();
+        $p = ProjectModuleMenuItemEntityModel::props();
         $menuModel->menuItems()->create([
             $p->label => __('Page Examples'),
             $p->num_order => 1,
