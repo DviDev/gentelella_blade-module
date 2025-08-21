@@ -7,14 +7,14 @@ use Modules\Permission\Models\PermissionActionModel;
 use Modules\Person\Enums\UserType;
 use Modules\Project\Contracts\CreateMenuItemsListenerContract;
 use Modules\Project\Entities\MenuItem\MenuItemEntityModel;
-use Modules\Project\Models\MenuModel;
 use Modules\Project\Models\ProjectModuleEntityDBModel;
+use Modules\Project\Models\ProjectModuleMenuModel;
 
 class CreateMenuItemsListener extends CreateMenuItemsListenerContract
 {
     public function handle($event): void
     {
-        if (MenuModel::query()->where('name', $this->moduleName())->exists()) {
+        if (ProjectModuleMenuModel::query()->where('name', $this->moduleName())->exists()) {
             return;
         }
 
@@ -28,15 +28,15 @@ class CreateMenuItemsListener extends CreateMenuItemsListenerContract
         return 'Gentelella';
     }
 
-    protected function createMenu($name, $title, $order = 1): MenuModel
+    protected function createMenu($name, $title, $order = 1): ProjectModuleMenuModel
     {
-        return MenuModel::firstOrCreate(
+        return ProjectModuleMenuModel::firstOrCreate(
             ['name' => $name],
             ['title' => $title, 'num_order' => $order, 'active' => true]
         );
     }
 
-    protected function createMenuItem(MenuModel $menuModel, ?ProjectModuleEntityDBModel $entity = null, bool $active = true): void
+    protected function createMenuItem(ProjectModuleMenuModel $menuModel, ?ProjectModuleEntityDBModel $entity = null, bool $active = true): void
     {
         $p = MenuItemEntityModel::props();
         $menuModel->menuItems()->create([
