@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Gentelella\Providers;
 
+use Event;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Base\Events\UsingSpotlightEvent;
@@ -14,7 +17,7 @@ use Modules\Gentelella\View\Components\Form\Check\Check;
 use Modules\Gentelella\View\Components\Form\Input;
 use Modules\Gentelella\View\Components\Widget\Indicator\Tile;
 
-class GentelellaServiceProvider extends ServiceProvider
+final class GentelellaServiceProvider extends ServiceProvider
 {
     use PublishableComponents;
 
@@ -40,6 +43,65 @@ class GentelellaServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register translations.
+     */
+    public function registerTranslations(): void
+    {
+        $langPath = resource_path('lang/modules/'.$this->moduleNameLower);
+
+        if (is_dir($langPath)) {
+            $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
+            $this->loadJsonTranslationsFrom($langPath);
+        } else {
+            $this->loadTranslationsFrom(module_path($this->moduleName, 'resources/lang'), $this->moduleNameLower);
+            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'resources/lang'));
+        }
+    }
+
+    /**
+     * Register views.
+     */
+    public function registerViews(): void
+    {
+        $viewPath = resource_path('views/modules/'.$this->moduleNameLower);
+        $sourcePath = module_path($this->moduleName, 'resources/views');
+
+        $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower.'-module-views']);
+
+        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
+
+        $componentNamespace = str_replace('/', '\\', config('modules.namespace').'\\'.$this->moduleName.'\\'.config('modules.paths.generator.component-class.path'));
+        Blade::componentNamespace($componentNamespace, $this->moduleNameLower);
+    }
+
+    /**
+     * Register the service provider.
+     */
+    public function register(): void
+    {
+        $this->app->register(RouteServiceProvider::class);
+        $this->app->register(GentelellaEventServiceProvider::class);
+    }
+
+    /**
+     * Get the services provided by the provider.
+     */
+    public function provides(): array
+    {
+        return [];
+    }
+
+    public function getModuleName(): string
+    {
+        return $this->moduleName;
+    }
+
+    public function getModuleNameLower(): string
+    {
+        return $this->moduleNameLower;
+    }
+
+    /**
      * Register commands in the format of Command::class
      */
     protected function registerCommands(): void
@@ -59,44 +121,12 @@ class GentelellaServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register translations.
-     */
-    public function registerTranslations(): void
-    {
-        $langPath = resource_path('lang/modules/'.$this->moduleNameLower);
-
-        if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
-            $this->loadJsonTranslationsFrom($langPath);
-        } else {
-            $this->loadTranslationsFrom(module_path($this->moduleName, 'resources/lang'), $this->moduleNameLower);
-            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'resources/lang'));
-        }
-    }
-
-    /**
      * Register config.
      */
     protected function registerConfig(): void
     {
         $this->publishes([module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower.'.php')], 'config');
         $this->mergeConfigFrom(module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower);
-    }
-
-    /**
-     * Register views.
-     */
-    public function registerViews(): void
-    {
-        $viewPath = resource_path('views/modules/'.$this->moduleNameLower);
-        $sourcePath = module_path($this->moduleName, 'resources/views');
-
-        $this->publishes([$sourcePath => $viewPath], ['views', $this->moduleNameLower.'-module-views']);
-
-        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
-
-        $componentNamespace = str_replace('/', '\\', config('modules.namespace').'\\'.$this->moduleName.'\\'.config('modules.paths.generator.component-class.path'));
-        Blade::componentNamespace($componentNamespace, $this->moduleNameLower);
     }
 
     private function getPublishableViewPaths(): array
@@ -140,33 +170,6 @@ class GentelellaServiceProvider extends ServiceProvider
 
     private function registerEvents(): void
     {
-        \Event::listen(UsingSpotlightEvent::class, UsingSpotlightListener::class);
-    }
-
-    /**
-     * Register the service provider.
-     */
-    public function register(): void
-    {
-        $this->app->register(RouteServiceProvider::class);
-        $this->app->register(GentelellaEventServiceProvider::class);
-    }
-
-    /**
-     * Get the services provided by the provider.
-     */
-    public function provides(): array
-    {
-        return [];
-    }
-
-    public function getModuleName(): string
-    {
-        return $this->moduleName;
-    }
-
-    public function getModuleNameLower(): string
-    {
-        return $this->moduleNameLower;
+        Event::listen(UsingSpotlightEvent::class, UsingSpotlightListener::class);
     }
 }

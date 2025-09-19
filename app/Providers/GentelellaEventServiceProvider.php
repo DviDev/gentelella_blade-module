@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Gentelella\Providers;
 
 use Event;
@@ -9,7 +11,7 @@ use Modules\Gentelella\Listeners\CreateMenuItemsListener;
 use Modules\Gentelella\Listeners\ScanTableGentelellaListener;
 use Modules\Project\Events\CreateMenuItemsEvent;
 
-class GentelellaEventServiceProvider extends ServiceProvider
+final class GentelellaEventServiceProvider extends ServiceProvider
 {
     public function register()
     {
