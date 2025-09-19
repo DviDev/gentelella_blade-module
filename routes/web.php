@@ -18,7 +18,7 @@ use Modules\Base\Http\Middleware\LocalEnvironmentMiddleware;
 
 Route::prefix('gentelella')
     ->middleware(LocalEnvironmentMiddleware::class)
-    ->group(function () {
+    ->group(function (): void {
         // layout models
         Route::view('layout/v1', 'gentelella::components.examples.dashboard.v1page')->name('gentelella.layout.v1');
         Route::view('layout/v2', 'gentelella::components.examples.dashboard.v2page')->name('gentelella.layout.v2');
