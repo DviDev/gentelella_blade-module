@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Gentelella\View\Components\Layout;
 
 use Illuminate\View\Component;
@@ -7,7 +9,7 @@ use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Traits\DevResources;
 
-class V2 extends Component
+final class V2 extends Component
 {
     use DevResources;
 
