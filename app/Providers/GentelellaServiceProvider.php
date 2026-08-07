@@ -21,17 +21,11 @@ final class GentelellaServiceProvider extends BaseServiceProviderContract
 {
     use PublishableComponents;
 
-
-
-
-
-
-
     public function provides(): array
     {
         return [
             RouteServiceProvider::class,
-            GentelellaEventServiceProvider::class
+            GentelellaEventServiceProvider::class,
         ];
     }
 
